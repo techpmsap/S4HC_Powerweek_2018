@@ -106,7 +106,7 @@ Before sending this package to Neo, you might want to test it locally to see if 
 	```
 	cd ..
 	``` 
-	
+	<<note: cd.. has to be 2 times >>
 	commmands  
 	![](images/07.png)
 1. Run the command 
