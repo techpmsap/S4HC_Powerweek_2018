@@ -176,7 +176,7 @@ This is an optional step for this exercise. You can try to deploy this applicati
 	![](images/21.png)
 1. By specifying, at the end of the URL the **/hello** endpoint you will get the Hello World message  
 	![](images/22.png)
-
+<< Note: We should mention why the output are different when deployed from cockpit i.e the index.html >>
 
 ## Summary
 This concludes the exercise. You should have learned how to create a SAP S/4HANA SDK project for Neo from an archetype using the Terminal window. You have also understood how to build the project and deploy it to the local SCP or to the real Neo stack. Please proceed with exercise 06.
