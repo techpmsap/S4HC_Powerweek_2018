@@ -55,7 +55,9 @@ In this chapter you are going to see how to install and configure the Eclipse ID
 	![](images/03.png)
 1. Click on the **Workbench** button to go straight to your workbench  
 	![](images/04.png)
-1. It's important for the next exercises to install an Eclipse plugin which allows us to easily manage **YAML** files. For this reason, click on **Help -> Install new software...**, enter in the search box the text "yml" and install the **YEdit** plugin  
+1. It's important for the next exercises to install an Eclipse plugin which allows us to easily manage **YAML** files. For this reason, click on **Help -> Install new software...**, enter in the search box the text "yml" and install the **YEdit** plugin 
+
+<< NOte: we have to click on the marketplace not on Install new s/w >>
 	![](images/05.png)
 1. Accept the license agreement and click **Finish**
 	![](images/06.png)
