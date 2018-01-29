@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Exercise_04</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+
+<style type="text/css">
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<table width=100% border=>
+<tr><td colspan=2><h1>EXERCISE 04 - CUSTOM BUSINESS OBJECT EXPOSURE AS EXTERNAL WEB SERVICE</h1></td></tr>
+<tr><td><h3>SAP Partner Workshop</h3></td><td><h1><img src="images/clock.png"> &nbsp;50 min</h1></td></tr>
+</table>
+
+<h2 id="toc_0">Description</h2>
+
+<p>In this exercise, you’ll learn how </p>
+
+<ul>
+<li>to expose the custom business object as web service for integration of your solution with other systems.</li>
+</ul>
+
+<p>For further reading on S/4HANA cloud in-app extension, click link below.
+<a href="https://jam4.sapjam.com/groups/m8lprEZwfU3zPoX0myj1Xu/overview_page/RfBJ6ix9q00bbSseaxm4zW">https://jam4.sapjam.com/groups/m8lprEZwfU3zPoX0myj1Xu/overview_page/RfBJ6ix9q00bbSseaxm4zW</a></p>
+
+<h2 id="toc_1">Target group</h2>
+
+<ul>
+<li>Developers</li>
+<li>People interested in learning about S/4HANA Cloud extension and SDK<br></li>
+</ul>
+
+<h2 id="toc_2">Goal</h2>
+
+<p>The goal of this exercise is to expose the custom business object as web service for integration of your solution with other systems.</p>
+
+<h2 id="toc_3">Prerequisites</h2>
+
+<p>Below are the prerequisites for this exercise.</p>
+
+<ul>
+<li>Complete previous exercises.</li>
+<li>Google Chrome: Please complete this exercise using the Google Chrome browser</li>
+<li><strong>Authorizations:</strong> Your user needs a business role with business catalog <strong>Extensibility</strong> (ID: <code>SAP_CORE_BC_EXT</code>)</li>
+<li>To be able to use the Communication Management Applications, your user needs Business Catalog (ID: <code>SAP_CORE_BC_COM</code>)</li>
+<li>Having installed standalone <strong>POSTMAN</strong> application from <a href="https://www.getpostman.com">https://www.getpostman.com</a> and disabled “SSL certificate verification”</li>
+<li>Having Microsoft Excel installed.</li>
+</ul>
+
+<h2 id="toc_4">Steps</h2>
+
+<ol>
+<li><a href="#creating-a-custom-communication-scenario">Creating a Custom Communication Scenario</a></li>
+<li><a href="#creating-a-communication-system-and-user">Creating a Communication System and User</a></li>
+<li><a href="#creating-a-communication-arrangement">Creating a Communication Arrangement</a></li>
+<li><a href="#testing-and-calling-the-service">Testing and Calling the Service</a></li>
+<li><a href="#consumption-from-SAP-Cloud-Platform">Consumption from SAP Cloud Platform</a></li>
+</ol>
+
+<h3 id="toc_5"><a name="creating-a-custom-communication-scenario"></a> Creating a Custom Communication Scenario</h3>
+
+<p>A communication scenario is the basis definition for a communication between systems. It defines a solution to be made available for external systems.</p>
+
+<ol>
+<li><p>Open Custom Communication Scenario Application</p>
+
+<p><img src="images/1.png" alt="Custom Communication Scenarios"></p></li>
+<li><p>Start creating a new scenario by executing the “New” action.</p>
+
+<p><img src="images/2.png" alt="2"></p></li>
+<li><p>Give following data to the new custom communication scenario ...</p>
+
+<table>
+<thead>
+<tr>
+<th>Field Caption</th>
+<th>Field Value</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>ID</code></td>
+<td><code>YY1_BonusplanXX</code></td>
+</tr>
+<tr>
+<td><code>Description</code></td>
+<td><code>Bonus PlanXX</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>Note: XX is the number assigned to you for the exercise.</p>
+
+<p><img src="images/3.png" alt="3">
+... and create the scenario by executing the “New” action.</p></li>
+<li><p>Start adding an inbound communication service by executing the “Add” action</p>
+
+<p><img src="images/4.png" alt="4"></p></li>
+<li><p>Search for YY1<em>BONUSPLAN. Choose service YY1</em>BONUSPLANXX_CDS and execute the “OK” action. </p>
+
+<p><img src="images/5.png" alt="4"></p>
+
+<p><strong>Background</strong>: That service had been created during Custom Business Object “Bonus Plan” publishing as in its definition the OData Service Generation flag was set for UI creation already.
+<img src="images/6.png" alt="4"></p></li>
+<li><p>Publish the Custom Communication Scenario.</p>
+
+<p><img src="images/7.png" alt="4">
+<img src="images/8.png" alt="4"></p></li>
+</ol>
+
+<h3 id="toc_6"><a name="creating-a-communication-system-and-user"></a> Creating a Communication System and User</h3>
+
+<p>To enable secure communication between different systems you have to register these systems and define the user which is authorized to use the connection.</p>
+
+<p>The communication system represents the communication partner within a communication. For inbound communication, this is the external system that calls our Bonus Plan service.</p>
+
+<p>We’ll create one Communication System for all systems that want to use our service as well as the user that they’ll have to use.</p>
+
+<ol>
+<li><p>Add the Communication_Admin Business Role ID to the user.  Open the &quot;Maintain Business Users&quot; Application. Search for your user and display it.</p>
+
+<p><img src="images/9.png" alt="4">
+<img src="images/10.png" alt="4"></p></li>
+<li><p>Click on Add to add the business roles.</p>
+
+<p><img src="images/11.png" alt="4"></p></li>
+<li><p>Search for &quot;Communication_Admin&quot; role.  Select the role and click OK to add the role.</p>
+
+<p><img src="images/12.png" alt="4"></p></li>
+<li><p>Save.  </p>
+
+<p><img src="images/13.png" alt="4"></p></li>
+<li><p>Go back Home page.</p>
+
+<p><img src="images/14.png" alt="4"></p></li>
+<li><p>Refresh the Home page. You will see the &quot;Communication Management&quot; catalog. Open “Communication Systems” Application.</p>
+
+<p><img src="images/15.png" alt="4"></p></li>
+<li><p>Start creating a new system by executing the “New” action.</p>
+
+<p><img src="images/16.png" alt="4"></p></li>
+<li><p>Give following data to the new custom communication scenario …</p>
+
+<table>
+<thead>
+<tr>
+<th>Field Caption</th>
+<th>Field Value</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>System ID</code></td>
+<td><code>EXTERNAL_SYSTEMXX</code></td>
+</tr>
+<tr>
+<td><code>System Name</code></td>
+<td><code>External SystemXX</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>Note: XX is the number assigned to you for the exercise.</p>
+
+<p><img src="images/17.png" alt="4">
+… and create the system by executing the “Create” action.</p></li>
+<li><p>In the Opening Details view, fill the Host Name with “External SystemXX” as well. </p>
+
+<p><img src="images/18.png" alt="4"></p></li>
+<li><p>Scroll down to “User for Inbound Communication” and start adding one by executing the “Add” action.</p>
+
+<p><img src="images/19.png" alt="4"></p></li>
+<li><p>In the opening Pop Up, start creating a new User by executing the “New User” action. </p>
+
+<p><img src="images/20.png" alt="4"></p></li>
+<li><p>This will lead to an automatic switch to the “Create Communication User” application, where you enter User Name “EXTERNAL_USERXX”, Description “User for “External SystemXX” Communication System” and a password before you execute the “Create” action. </p>
+
+<p><img src="images/21.png" alt="4"></p></li>
+<li><p>This will switch you back to the Pop Up, where the User Name is filled now and you can confirm to add the Inbound Communication User with action “OK”.
+The just created user will be needed by callers to make use of the services. </p>
+
+<p><img src="images/22.png" alt="4"></p></li>
+<li><p>Back in the Communication System details you finish its creation with action “Save”.</p>
+
+<p><img src="images/23.png" alt="4"></p></li>
+</ol>
+
+<h3 id="toc_7"><a name="creating-a-communication-arrangement"></a> Creating a Communication Arrangement</h3>
+
+<p>Finally, a communication arrangement links the solution’s scenario with the Communication system and its user and exposes the Service to be used.</p>
+
+<ol>
+<li><p>Open “Communication Arrangements” Application</p>
+
+<p><img src="images/24.png" alt="4"></p></li>
+<li><p>Start creation by executing the “New” action. </p>
+
+<p><img src="images25.png" alt="4"></p></li>
+<li><p>A pop up opens in that you use the value help for Scenario first.</p>
+
+<p><img src="images/26.png" alt="4"></p></li>
+<li><p>Select the YY1_BONUSPLANXX Scenario.</p>
+
+<p><img src="images/27.png" alt="4"></p></li>
+<li><p>This will set the Scenario and default the Arrangement Name, so that you can continue the creation via “Create” action. </p>
+
+<p><img src="images/28.png" alt="4"></p></li>
+<li><p>In the opening Arrangement details you only need to set the “Communication System” to “EXTERNAL<em>SYSTEMXX”, which will automatically set the related User Name “EXTERNAL</em>USERXX” as well.
+Execute “Save” to finish creation. </p>
+
+<p><img src="images/29.png" alt="4"></p></li>
+<li><p>Copy the Service URL for the next step.</p>
+
+<p><img src="images/30.png" alt="4"></p></li>
+</ol>
+
+<h3 id="toc_8"><a name="testing-and-calling-the-service"></a> Testing and Calling the Service</h3>
+
+<p>POSTMAN application is there to test Web services by sending requests and receiving responses.
+All included postman screenshots are reprinted with permission © Postdot Technologies Inc. All rights reserved.</p>
+
+<h4 id="toc_9">General test</h4>
+
+<ol>
+<li><p>Start the POSTMAN application. Ensure that you have disabled “SSL certificate verification” (File &gt; Settings &gt; General)</p>
+
+<p><img src="images/31.png" alt="4"></p></li>
+<li><p>Enter the Service URL and execute “Send” action. You will get a Login Error as response in the response section, but this already shows that the system as such is reachable. </p>
+
+<p><img src="images/32.png" alt="4"></p></li>
+<li><p>Change authorization type to “Basic Auth” now, enter Username “EXTERNAL<em>USERXX” and the Password that you set for External</em>USERXX.</p>
+
+<p><img src="images/33.png" alt="4"></p></li>
+<li><p>Send the service request again. Now you will get a successful response of the service.</p>
+
+<p><img src="images/34.png" alt="4"></p></li>
+<li><p>This way you can test, if the service is working in general.</p></li>
+</ol>
+
+<h4 id="toc_10">Create a Bonus Plan instance</h4>
+
+<h5 id="toc_11">Get X-CSRF-Token</h5>
+
+<p>Whenever you want to do a change to the Custom Business Object’s persistence, for security reasons you need to send a X-CSRF-Token with that change request. To get such a Token you have to send a get request first, which fetches one.</p>
+
+<ol>
+<li>Enter the basic service request URL of Bonus Plans</li>
+<li>Ensure to be on “Headers” tab.</li>
+<li>Enter the new header key “X-CSRF-Token” with value “fetch”</li>
+<li>Send the request. </li>
+<li><p>Copy the returned X-CSRF-Token to clipboard. </p>
+
+<p><img src="images/35.png" alt="">
+The gotten token will be valid for 30 minutes and fetching a token will return the same as long as validity has not ended yet.</p></li>
+</ol>
+
+<h5 id="toc_12">Create Instance</h5>
+
+<p>To create a new bonus plan via the service, do the following in postman.</p>
+
+<ol>
+<li>Change the request method to “Post”.</li>
+<li>As the basic service URL returns only the overview of all reachable Entity Sets (= Collections), you have to narrow it down for Bonus Plans by appending their Entity Set name “/YY1_BONUSPLANXX”</li>
+<li>Paste the before gotten X-CSRF-Token as value to the corresponding header key</li>
+<li><p>Add new header key “Accept” with value “application/json”, this will ensure that the response will be gotten in JSON format, which is easier to work with than XML.</p>
+
+<p><img src="images/36.png" alt=""></p></li>
+<li><p>Switch to the Body tab</p></li>
+<li><p>Set the body type to “raw” </p></li>
+<li><p>Now you additionally set the editor type “JSON”, which will enable correct syntax highlighting and header key for Content-Type</p></li>
+<li><p>Enter the initial data for the to be created bonus plan in JSON format to the editor</p>
+
+<div><pre><code class="language-abap">{
+    &quot;ValidityStartDate&quot;: &quot;2017-01-01T00:00:00&quot;,
+    &quot;ValidityEndDate&quot;: &quot;2017-12-31T00:00:00&quot;,
+    &quot;LowBonusPercentage_V&quot;: &quot;10&quot;,
+    &quot;HighBonusPercentage_V&quot;: &quot;20&quot;,
+    &quot;EmployeeID&quot;: &lt;any&gt;,
+    &quot;TargetAmount_V&quot;: &quot;1000.00&quot;,
+    &quot;TargetAmount_C&quot;: &quot;EUR&quot;,
+    &quot;LowBonusAssignmentFactor&quot;: &quot;1.00&quot;,
+    &quot;HighBonusAssignmentFactor&quot;: &quot;3.00&quot;
+}</code></pre></div>
+
+<p><code>EmployeeID</code> <code>&lt;any&gt;</code> shall be the one of a sales person that created sales orders with a Net Amount of more than 3000.00 EUR in 2016 and that are completed. In this exercise, you can use &quot;CB9980000620&quot;. </p></li>
+<li><p>Send the request. </p>
+
+<p><img src="images/37.png" alt=""></p></li>
+<li><p>The response will show the new instance’s data. From the ID you can see, that it’s a new one and that the logic to fill data automatically also worked successfully. </p>
+
+<p><img src="images/38.png" alt=""></p></li>
+</ol>
+
+<h4 id="toc_13">Update a Bonus Plan instance</h4>
+
+<h5 id="toc_14">Get SAP_UUID</h5>
+
+<p>To update an instance, you have to use the internal SAP_UUID as technical key. To get this unique key, do the following steps</p>
+
+<ol>
+<li><p>Switch the request method to “GET” and enter the request URL for bonus plan entities with the parameters </p>
+
+<table>
+<thead>
+<tr>
+<th>Parameter Name</th>
+<th>Parameter Value</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>filter</code></td>
+<td><code>ID eq ‘2’</code></td>
+<td><code>filters for bonus plan of which the semantic key “ID” has value 2</code></td>
+</tr>
+<tr>
+<td><code>select</code></td>
+<td><code>SAP_UUID</code></td>
+<td><code>restricts response data for the chosen bonus plan to its SAP_UUID</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>The request will look like below:</p>
+
+<p>https://<YOUR_SYSTEMS_URL>/sap/opu/odata/sap/YY1<em>BONUSPLANXX</em>CDS/YY1<em>BONUSPLANXX?$filter=ID%20eq%20&#39;2&#39;&amp;$select=SAP</em>UUID</p>
+
+<p>This is the example for using our system:
+https://my300271-api.s4hana.ondemand.com/sap/opu/odata/sap/YY1<em>BONUSPLAN03</em>CDS/YY1<em>BONUSPLAN03?$filter=ID%20eq%20&#39;1&#39;&amp;$select=SAP</em>UUID</p></li>
+<li><p>Send the request.</p></li>
+<li><p>Copy SAP_UUID to clipboard.</p>
+
+<p><img src="images/39.png" alt=""></p></li>
+</ol>
+
+<h5 id="toc_15">Update</h5>
+
+<ol>
+<li>Switch the request method to “PATCH”.</li>
+<li><p>Enter the request URL for a bonus plan entity and add the before gotten guid to its end following this syntax “(guid&#39;<guid_value>’)”, for example */YY1_BONUSPLAN(guid’8cdcd4a8-05c0-1ed7-8ec1-84ed870dedb5′)</p>
+
+<p>The request will look like below:</p>
+
+<p>https://<YOUR_SYSTEMS_URL>/sap/opu/odata/sap/YY1<em>BONUSPLANXX</em>CDS/YY1<em>BONUSPLANXX(guid&#39;&lt;guid</em>value&gt;&#39;)</p>
+
+<p>This is the example for using our system:</p>
+
+<p>https://my300271-api.s4hana.ondemand.com/sap/opu/odata/sap/YY1<em>BONUSPLAN03</em>CDS/YY1_BONUSPLAN03(guid&#39;00163e39-3b39-1ee7-afd1-fc3701e4eed5&#39;)</p></li>
+<li><p>Enter following JSON to the body</p>
+
+<div><pre><code class="language-abap">{
+    &quot;ValidityStartDate&quot;: &quot;2017-01-01T00:00:00&quot;,
+    &quot;ValidityEndDate&quot;: &quot;2017-12-31T00:00:00&quot;
+}</code></pre></div></li>
+<li><p>Send the request</p></li>
+<li><p>You will see that the update worked as you do get an empty body as response.</p>
+
+<p><img src="images/40.png" alt=""></p></li>
+</ol>
+
+<h4 id="toc_16">Using the service</h4>
+
+<ol>
+<li>Open Microsoft Excel with a new “Book” (= excel file)</li>
+<li><p>Go to “Data” tab &gt; “New Query” &gt; “From Other Sources” &gt; “From OData Feed”</p>
+
+<p><img src="images/41.png" alt=""></p></li>
+<li><p>A pop up opens in that you enter the service URL and execute “OK”.</p>
+
+<p><img src="images/42.png" alt=""></p></li>
+<li><p>In the next Pop Up for Access to the Service (= OData feed) switch on the left side from “Anonymous” to “Basic”, then enter Username “dummy” and its Password on the right side, before executing the “Connect” action.</p>
+
+<p><img src="images/43.png" alt=""></p></li>
+<li><p>In the next screen select the item YY1_BONUSPLANXX and execute “Load”. </p>
+
+<p><img src="images/44.png" alt=""></p></li>
+<li><p>As result the excel workbook will be filled with the current Bonus Plan entities’ data. </p>
+
+<p><img src="images/45.png" alt=""></p></li>
+</ol>
+
+<h3 id="toc_17"><a name="consumption-from-SAP-Cloud-Platform"></a> Consumption from SAP Cloud Platform</h3>
+
+<p>You can use a service in SAP CP in many different way. You can use it to build a new UI, you can call it in your Java or JavaScript coding, you can use it in HANA Cloud Integration iFlows. Here I want to show only one simple use case on how to consume it: SAP Web IDE.</p>
+
+<ol>
+<li><p>Create destination in SAP Cloud Platform. Open your SAP Cloud Platform account. Go to Connectivity &gt; Destinations.</p>
+
+<p>Create a new destination with the following attributes:</p>
+
+<ul>
+<li>Name: choose a name for example “S4HC”</li>
+<li>Type: HTTP (this includes HTTPS, which is used)</li>
+<li>Description: choose a description for example “S4HC”</li>
+<li>URL: enter the URL of you S4HC account, for example “https://myserver.s4hana.ondemand.com”</li>
+<li>Proxy Type: Internet</li>
+<li>Authentication: BasicAuthentication</li>
+<li>User &amp; Password: enter the external_userxx / pwd</li>
+<li>Check “Use default JDK truststore” for security settings</li>
+<li>Set the Additional Properties:
+
+<ul>
+<li>WebIDEEnabled: true</li>
+<li>WebIDESystem: name of the system, e.g. “S4HANA”</li>
+<li>WebIDEUsage: odata_gen</li>
+</ul></li>
+</ul>
+
+<p>Save the destination.</p>
+
+<p><img src="images/46.png" alt=""></p></li>
+<li><p>Start SAP Web IDE Full-Stack to create the application. From SAP Cloud Platform account dashboard, select Services. Search for SAP Web IDE Full-Stack. </p>
+
+<p><img src="images/47.png" alt=""></p></li>
+<li><p>Go to SAP Web IDE Service.</p>
+
+<p><img src="images/48.png" alt=""></p></li>
+<li><p>Select: New Project from Template.</p>
+
+<p><img src="images/49.png" alt=""></p></li>
+<li><p>Select &quot;SAP Fiori Worklist Application&quot;. Click Next.</p>
+
+<p><img src="images/50.png" alt=""></p></li>
+<li><p>Enter a name for a project, for example: bonusplanxx. Click Next.</p>
+
+<p><img src="images/51.png" alt=""></p></li>
+<li><p>On the step Data Connection, select Service URL. Select the destination you created before (S4HC) and the relative path of the OData service, as given in the Communication Arrangement screen (/sap/opu/odata/sap/YY1<em>BONUSPLANXX</em>CDS). You can now discover the details of the service and you can even discover the live data. Click on &quot;Test&quot;. Click on Next.</p></li>
+<li><p>C</p>
+
+<p><img src="images/52.png" alt=""></p></li>
+<li><p>Continue with the creation wizard to create a Fiori app out of the OData service. See below screen as an example. Click Finish.</p>
+
+<p><img src="images/53.png" alt="4"></p></li>
+<li><p>Preview the application by click on Index.html file and click on preview button.</p>
+
+<p><img src="images/54.png" alt="4"></p></li>
+<li><p>Application will display on another tab. </p>
+
+<p><img src="images/55.png" alt="4"></p>
+
+<p><img src="images/56.png" alt="4"></p></li>
+</ol>
+
+<h2 id="toc_18">Summary</h2>
+
+<p>This concludes the exercise. </p>
+
+<p>You should have learned how to expose the custom business object as web service for integration of your solution with other systems.</p>
+
+<p>Please proceed with exercise 05.</p>
+
+
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
+
+<script type="text/javascript">
+Prism.languages.abap={comment:/^\*.*/m,string:/(`|')(\\?.)*?\1/m,"string-template":{pattern:/(\||\})(\\?.)*?(?=\||\{)/,lookbehind:!0,alias:"string"},"eol-comment":{pattern:/(^|\s)".*/m,lookbehind:!0,alias:"comment"},keyword:{pattern:/(\s|\.|^)(?:SCIENTIFIC_WITH_LEADING_ZERO|SCALE_PRESERVING_SCIENTIFIC|RMC_COMMUNICATION_FAILURE|END-ENHANCEMENT-SECTION|MULTIPLY-CORRESPONDING|SUBTRACT-CORRESPONDING|VERIFICATION-MESSAGE|DIVIDE-CORRESPONDING|ENHANCEMENT-SECTION|CURRENCY_CONVERSION|RMC_SYSTEM_FAILURE|START-OF-SELECTION|MOVE-CORRESPONDING|RMC_INVALID_STATUS|CUSTOMER-FUNCTION|END-OF-DEFINITION|ENHANCEMENT-POINT|SYSTEM-EXCEPTIONS|ADD-CORRESPONDING|SCALE_PRESERVING|SELECTION-SCREEN|CURSOR-SELECTION|END-OF-SELECTION|LOAD-OF-PROGRAM|SCROLL-BOUNDARY|SELECTION-TABLE|EXCEPTION-TABLE|IMPLEMENTATIONS|PARAMETER-TABLE|RIGHT-JUSTIFIED|UNIT_CONVERSION|AUTHORITY-CHECK|LIST-PROCESSING|SIGN_AS_POSTFIX|COL_BACKGROUND|IMPLEMENTATION|INTERFACE-POOL|TRANSFORMATION|IDENTIFICATION|ENDENHANCEMENT|LINE-SELECTION|INITIALIZATION|LEFT-JUSTIFIED|SELECT-OPTIONS|SELECTION-SETS|COMMUNICATION|CORRESPONDING|DECIMAL_SHIFT|PRINT-CONTROL|VALUE-REQUEST|CHAIN-REQUEST|FUNCTION-POOL|FIELD-SYMBOLS|FUNCTIONALITY|INVERTED-DATE|SELECTION-SET|CLASS-METHODS|OUTPUT-LENGTH|CLASS-CODING|COL_NEGATIVE|ERRORMESSAGE|FIELD-GROUPS|HELP-REQUEST|NO-EXTENSION|NO-TOPOFPAGE|REDEFINITION|DISPLAY-MODE|ENDINTERFACE|EXIT-COMMAND|FIELD-SYMBOL|NO-SCROLLING|SHORTDUMP-ID|ACCESSPOLICY|CLASS-EVENTS|COL_POSITIVE|DECLARATIONS|ENHANCEMENTS|FILTER-TABLE|SWITCHSTATES|SYNTAX-CHECK|TRANSPORTING|ASYNCHRONOUS|SYNTAX-TRACE|TOKENIZATION|USER-COMMAND|WITH-HEADING|ABAP-SOURCE|BREAK-POINT|CHAIN-INPUT|COMPRESSION|FIXED-POINT|NEW-SECTION|NON-UNICODE|OCCURRENCES|RESPONSIBLE|SYSTEM-CALL|TRACE-TABLE|ABBREVIATED|CHAR-TO-HEX|END-OF-FILE|ENDFUNCTION|ENVIRONMENT|ASSOCIATION|COL_HEADING|EDITOR-CALL|END-OF-PAGE|ENGINEERING|IMPLEMENTED|INTENSIFIED|RADIOBUTTON|SYSTEM-EXIT|TOP-OF-PAGE|TRANSACTION|APPLICATION|CONCATENATE|DESTINATION|ENHANCEMENT|IMMEDIATELY|NO-GROUPING|PRECOMPILED|REPLACEMENT|TITLE-LINES|ACTIVATION|BYTE-ORDER|CLASS-POOL|CONNECTION|CONVERSION|DEFINITION|DEPARTMENT|EXPIRATION|INHERITING|MESSAGE-ID|NO-HEADING|PERFORMING|QUEUE-ONLY|RIGHTSPACE|SCIENTIFIC|STATUSINFO|STRUCTURES|SYNCPOINTS|WITH-TITLE|ATTRIBUTES|BOUNDARIES|CLASS-DATA|COL_NORMAL|DD\/MM\/YYYY|DESCENDING|INTERFACES|LINE-COUNT|MM\/DD\/YYYY|NON-UNIQUE|PRESERVING|SELECTIONS|STATEMENTS|SUBROUTINE|TRUNCATION|TYPE-POOLS|ARITHMETIC|BACKGROUND|ENDPROVIDE|EXCEPTIONS|IDENTIFIER|INDEX-LINE|OBLIGATORY|PARAMETERS|PERCENTAGE|PUSHBUTTON|RESOLUTION|COMPONENTS|DEALLOCATE|DISCONNECT|DUPLICATES|FIRST-LINE|HEAD-LINES|NO-DISPLAY|OCCURRENCE|RESPECTING|RETURNCODE|SUBMATCHES|TRACE-FILE|ASCENDING|BYPASSING|ENDMODULE|EXCEPTION|EXCLUDING|EXPORTING|INCREMENT|MATCHCODE|PARAMETER|PARTIALLY|PREFERRED|REFERENCE|REPLACING|RETURNING|SELECTION|SEPARATED|SPECIFIED|STATEMENT|TIMESTAMP|TYPE-POOL|ACCEPTING|APPENDAGE|ASSIGNING|COL_GROUP|COMPARING|CONSTANTS|DANGEROUS|IMPORTING|INSTANCES|LEFTSPACE|LOG-POINT|QUICKINFO|READ-ONLY|SCROLLING|SQLSCRIPT|STEP-LOOP|TOP-LINES|TRANSLATE|APPENDING|AUTHORITY|CHARACTER|COMPONENT|CONDITION|DIRECTORY|DUPLICATE|MESSAGING|RECEIVING|SUBSCREEN|ACCORDING|COL_TOTAL|END-LINES|ENDMETHOD|ENDSELECT|EXPANDING|EXTENSION|INCLUDING|INFOTYPES|INTERFACE|INTERVALS|LINE-SIZE|PF-STATUS|PROCEDURE|PROTECTED|REQUESTED|RESUMABLE|RIGHTPLUS|SAP-SPOOL|SECONDARY|STRUCTURE|SUBSTRING|TABLEVIEW|NUMOFCHAR|ADJACENT|ANALYSIS|ASSIGNED|BACKWARD|CHANNELS|CHECKBOX|CONTINUE|CRITICAL|DATAINFO|DD\/MM\/YY|DURATION|ENCODING|ENDCLASS|FUNCTION|LEFTPLUS|LINEFEED|MM\/DD\/YY|OVERFLOW|RECEIVED|SKIPPING|SORTABLE|STANDARD|SUBTRACT|SUPPRESS|TABSTRIP|TITLEBAR|TRUNCATE|UNASSIGN|WHENEVER|ANALYZER|COALESCE|COMMENTS|CONDENSE|DECIMALS|DEFERRED|ENDWHILE|EXPLICIT|KEYWORDS|MESSAGES|POSITION|PRIORITY|RECEIVER|RENAMING|TIMEZONE|TRAILING|ALLOCATE|CENTERED|CIRCULAR|CONTROLS|CURRENCY|DELETING|DESCRIBE|DISTANCE|ENDCATCH|EXPONENT|EXTENDED|GENERATE|IGNORING|INCLUDES|INTERNAL|MAJOR-ID|MODIFIER|NEW-LINE|OPTIONAL|PROPERTY|ROLLBACK|STARTING|SUPPLIED|ABSTRACT|CHANGING|CONTEXTS|CREATING|CUSTOMER|DATABASE|DAYLIGHT|DEFINING|DISTINCT|DIVISION|ENABLING|ENDCHAIN|ESCAPING|HARMLESS|IMPLICIT|INACTIVE|LANGUAGE|MINOR-ID|MULTIPLY|NEW-PAGE|NO-TITLE|POS_HIGH|SEPARATE|TEXTPOOL|TRANSFER|SELECTOR|DBMAXLEN|ITERATOR|SELECTOR|ARCHIVE|BIT-XOR|BYTE-CO|COLLECT|COMMENT|CURRENT|DEFAULT|DISPLAY|ENDFORM|EXTRACT|LEADING|LISTBOX|LOCATOR|MEMBERS|METHODS|NESTING|POS_LOW|PROCESS|PROVIDE|RAISING|RESERVE|SECONDS|SUMMARY|VISIBLE|BETWEEN|BIT-AND|BYTE-CS|CLEANUP|COMPUTE|CONTROL|CONVERT|DATASET|ENDCASE|FORWARD|HEADERS|HOTSPOT|INCLUDE|INVERSE|KEEPING|NO-ZERO|OBJECTS|OVERLAY|PADDING|PATTERN|PROGRAM|REFRESH|SECTION|SUMMING|TESTING|VERSION|WINDOWS|WITHOUT|BIT-NOT|BYTE-CA|BYTE-NA|CASTING|CONTEXT|COUNTRY|DYNAMIC|ENABLED|ENDLOOP|EXECUTE|FRIENDS|HANDLER|HEADING|INITIAL|\*-INPUT|LOGFILE|MAXIMUM|MINIMUM|NO-GAPS|NO-SIGN|PRAGMAS|PRIMARY|PRIVATE|REDUCED|REPLACE|REQUEST|RESULTS|UNICODE|WARNING|ALIASES|BYTE-CN|BYTE-NS|CALLING|COL_KEY|COLUMNS|CONNECT|ENDEXEC|ENTRIES|EXCLUDE|FILTERS|FURTHER|HELP-ID|LOGICAL|MAPPING|MESSAGE|NAMETAB|OPTIONS|PACKAGE|PERFORM|RECEIVE|STATICS|VARYING|BINDING|CHARLEN|GREATER|XSTRLEN|ACCEPT|APPEND|DETAIL|ELSEIF|ENDING|ENDTRY|FORMAT|FRAMES|GIVING|HASHED|HEADER|IMPORT|INSERT|MARGIN|MODULE|NATIVE|OBJECT|OFFSET|REMOTE|RESUME|SAVING|SIMPLE|SUBMIT|TABBED|TOKENS|UNIQUE|UNPACK|UPDATE|WINDOW|YELLOW|ACTUAL|ASPECT|CENTER|CURSOR|DELETE|DIALOG|DIVIDE|DURING|ERRORS|EVENTS|EXTEND|FILTER|HANDLE|HAVING|IGNORE|LITTLE|MEMORY|NO-GAP|OCCURS|OPTION|PERSON|PLACES|PUBLIC|REDUCE|REPORT|RESULT|SINGLE|SORTED|SWITCH|SYNTAX|TARGET|VALUES|WRITER|ASSERT|BLOCKS|BOUNDS|BUFFER|CHANGE|COLUMN|COMMIT|CONCAT|COPIES|CREATE|DDMMYY|DEFINE|ENDIAN|ESCAPE|EXPAND|KERNEL|LAYOUT|LEGACY|LEVELS|MMDDYY|NUMBER|OUTPUT|RANGES|READER|RETURN|SCREEN|SEARCH|SELECT|SHARED|SOURCE|STABLE|STATIC|SUBKEY|SUFFIX|TABLES|UNWIND|YYMMDD|ASSIGN|BACKUP|BEFORE|BINARY|BIT-OR|BLANKS|CLIENT|CODING|COMMON|DEMAND|DYNPRO|EXCEPT|EXISTS|EXPORT|FIELDS|GLOBAL|GROUPS|LENGTH|LOCALE|MEDIUM|METHOD|MODIFY|NESTED|OTHERS|REJECT|SCROLL|SUPPLY|SYMBOL|ENDFOR|STRLEN|ALIGN|BEGIN|BOUND|ENDAT|ENTRY|EVENT|FINAL|FLUSH|GRANT|INNER|SHORT|USING|WRITE|AFTER|BLACK|BLOCK|CLOCK|COLOR|COUNT|DUMMY|EMPTY|ENDDO|ENDON|GREEN|INDEX|INOUT|LEAVE|LEVEL|LINES|MODIF|ORDER|OUTER|RANGE|RESET|RETRY|RIGHT|SMART|SPLIT|STYLE|TABLE|THROW|UNDER|UNTIL|UPPER|UTF-8|WHERE|ALIAS|BLANK|CLEAR|CLOSE|EXACT|FETCH|FIRST|FOUND|GROUP|LLANG|LOCAL|OTHER|REGEX|SPOOL|TITLE|TYPES|VALID|WHILE|ALPHA|BOXED|CATCH|CHAIN|CHECK|CLASS|COVER|ENDIF|EQUIV|FIELD|FLOOR|FRAME|INPUT|LOWER|MATCH|NODES|PAGES|PRINT|RAISE|ROUND|SHIFT|SPACE|SPOTS|STAMP|STATE|TASKS|TIMES|TRMAC|ULINE|UNION|VALUE|WIDTH|EQUAL|LOG10|TRUNC|BLOB|CASE|CEIL|CLOB|COND|EXIT|FILE|GAPS|HOLD|INCL|INTO|KEEP|KEYS|LAST|LINE|LONG|LPAD|MAIL|MODE|OPEN|PINK|READ|ROWS|TEST|THEN|ZERO|AREA|BACK|BADI|BYTE|CAST|EDIT|EXEC|FAIL|FIND|FKEQ|FONT|FREE|GKEQ|HIDE|INIT|ITNO|LATE|LOOP|MAIN|MARK|MOVE|NEXT|NULL|RISK|ROLE|UNIT|WAIT|ZONE|BASE|CALL|CODE|DATA|DATE|FKGE|GKGE|HIGH|KIND|LEFT|LIST|MASK|MESH|NAME|NODE|PACK|PAGE|POOL|SEND|SIGN|SIZE|SOME|STOP|TASK|TEXT|TIME|USER|VARY|WITH|WORD|BLUE|CONV|COPY|DEEP|ELSE|FORM|FROM|HINT|ICON|JOIN|LIKE|LOAD|ONLY|PART|SCAN|SKIP|SORT|TYPE|UNIX|VIEW|WHEN|WORK|ACOS|ASIN|ATAN|COSH|EACH|FRAC|LESS|RTTI|SINH|SQRT|TANH|AVG|BIT|DIV|ISO|LET|OUT|PAD|SQL|ALL|CI_|CPI|END|LOB|LPI|MAX|MIN|NEW|OLE|RUN|SET|\?TO|YES|ABS|ADD|AND|BIG|FOR|HDB|JOB|LOW|NOT|SAP|TRY|VIA|XML|ANY|GET|IDS|KEY|MOD|OFF|PUT|RAW|RED|REF|SUM|TAB|XSD|CNT|COS|EXP|LOG|SIN|TAN|XOR|AT|CO|CP|DO|GT|ID|IF|NS|OR|BT|CA|CS|GE|NA|NB|EQ|IN|LT|NE|NO|OF|ON|PF|TO|AS|BY|CN|IS|LE|NP|UP|E|I|M|O|Z|C|X)\b/i,lookbehind:!0},number:/\b\d+\b/,operator:{pattern:/(\s)(?:\*\*?|<[=>]?|>=?|\?=|[-+\/=])(?=\s)/,lookbehind:!0},"string-operator":{pattern:/(\s)&&?(?=\s)/,lookbehind:!0,alias:"keyword"},"token-operator":[{pattern:/(\w)(?:->?|=>|[~|{}])(?=\w)/,lookbehind:!0,alias:"punctuation"},{pattern:/[|{}]/,alias:"punctuation"}],punctuation:/[,.:()]/};
+</script>
+
+
+</body>
+
+</html>
