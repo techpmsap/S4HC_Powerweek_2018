@@ -356,7 +356,9 @@ In this chapter you are going to implement a new Java class to test if the respo
 	![](images/32.png)
 1. Expand the **root** module of your project and select the *pom.xml* file. Then click on the small play button on the toolbar. Select the **Maven build** goal and click **OK**  
 	![](images/10.png)
-1. Specify the **clean install** goals if required and click **Run**  
+1. Specify the **clean install** goals if required and click **Run** 
+
+<<Note: this step is not required as we have already mentioned the goals once >>
 	![](images/10_2.png)
 1. Build should succeed  
 	![](images/34.png)
