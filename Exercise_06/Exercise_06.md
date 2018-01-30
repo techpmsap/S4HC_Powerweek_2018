@@ -114,6 +114,8 @@ Let's try to push the application to Cloud Foundry.
 1. First, identify the correct Cloud Foundry endpoint by accessing your SAP CP cockpit and going to the following page: write down or copy in the clipboard this endpoint since it will be required in the next steps 
 	![](images/21.png)
 1. Open your Terminal or Command Prompt and navigate to the folder where the project is located. Mine is under *\<HOME\>Workspaces/Eclipse/workspace01/bprcf\_dev\_xx* (**xx** must be replaced with your workstation id)  
+
+<< Note: we can get this path from Eclipse right click and then properties >>
 	![](images/20.png)
 1. Enter the command
 
