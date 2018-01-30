@@ -284,6 +284,8 @@ In this chapter you are going to implement a new Java class to test if the respo
 	```
 
 1. Right click on the **integration-tests** module and choose **New --> File**  
+
+<<Note: this should be under resources folder >>
 	![](images/21.png)
 1. Select **General -> File** and click **Next**    
 	![](images/22.png)
