@@ -338,7 +338,7 @@ In this chapter you are going to see how to use Spring Security for securing you
 1. Rebuild by executing Maven clean and install goals. Push again to Cloud Foundry and the application should be still working fine  
 	![](images/49.png)
 1. Congratulations! You have successfully strengthen security on your application.
-
+<<Note: Mention which app to push and refresh, audience might get confused that they need to refresh the bpcrf app but actually it's the approuter app >>
 	
 ### <a name="dealing-with-permissions"></a>Dealing with permissions
 In this chapter you are going to see how Spring Security can deal with permissions inside SAP CP.
