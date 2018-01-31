@@ -71,7 +71,7 @@ In this chapter you are going to see how to implement caching in your applicatio
 1. Create a new Java class named **GetCachedBPCommand** and click **Finish**  
 	![](images/03.png)
 1. Paste in the following content (remember that **xx** must be replaced with your workstation ID) and **save** the file 
-
+<<Note: we can remove package com.sap.sample.bprcf_dev_xx as eclipse already generates the code >> 
 	```java
 	package com.sap.sample.bprcf_dev_xx;
 	
