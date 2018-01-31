@@ -366,6 +366,8 @@ In this chapter you are going to see how Spring Security can deal with permissio
 1. A new role has been successfully added  
 	![](images/57.png)
 1. First click on your **space** in the navigation bar, then select **Trust Configuration** and click on the **SAP ID Service**  
+
+<<Note: this step is done on the org level under space we can't perform this step>>
 	![](images/58.png)
 1. Enter your user for the SAP CP and click **Show Assignments**  
 	![](images/59.png)
