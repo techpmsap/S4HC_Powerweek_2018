@@ -31,7 +31,6 @@ Here below are prerequisites required for the exercises in this workshop.
 1. [Create New Runtime Environment](#create-runtime-environment)
 1. [Sign up for SAP Cloud Platform Neo trial account](#sign-up-neo)
 1. [Sign up for SAP Cloud Platform Cloud Foundry trial account](#sign-up-cf)
-1. [Install latest LTS version of NodeJS ](#install-nodejs)
 1. [Install Cloud Foundry CLI](#install-cf-cli)
 1. [Install Apache Maven for Windows/Mac](#install-maven)
 1. [Check if Eclipse/Maven is installed and Java set-up is done correctly](#check-eclipse-maven)
@@ -146,12 +145,6 @@ Sign up also for SAP Cloud Platform Cloud Foundry trial account.
 1.	Make sure you have **2GB Memory** for the space.  If you don’t have 2GB Memory, please register a new account.
 	![](images/17.png)
 
-
-### <a name="install-nodejs"></a>Install latest LTS version of NodeJS
-Install latest LTS version of NodeJS: it will be required in exercise 11.
-
-1.	From Building Latest LTS version of NodeJS download it here
-	![](images/18.png)
 
 
 ### <a name="install-cf-cli"></a>Install Cloud Foundry CLI
