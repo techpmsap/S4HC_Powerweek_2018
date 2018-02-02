@@ -134,6 +134,8 @@ where **\<your\_api\_endpoint\>** is the link you copied in the previous step
 1. Enter the command `cf push` to deploy the application to your CF environment  
 	![](images/25.png)
 1. When the deployment finishes, you can check the result by accessing your SAP Cloud Foundry cockpit. You should see your new application listed among the space's applications. Click on your application's name 
+
+<< Note: show the way to go to the space >>
 	![](images/26.png)
 1. You will get a lot of other important detailes of your running application. Among those details, you will find the application route. Click on this route link and the application's landing page will be opened  
 	![](images/27.png)
