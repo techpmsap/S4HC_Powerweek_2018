@@ -36,14 +36,15 @@ Below are the prerequisites for this exercise.
 
 ## Steps
 
-1. [Starting "Custom Business Objects" application](#starting-custom-business-objects)
+1. [Starting Custom Business Objects application](#starting-custom-business-objects-application)
 1. [Creating a new Custom Business Object](#creating-a-new-custom-business-object)
 1. [Defining the data structure](#defining-the-data-structure)
 1. [Adding standard data to the structure](#Adding-standard-data-to-the-structure)
 1. [Creating the database persistence](#creating-the-database-persistence)
 
 
-### <a name="starting-custom-business-objects" application"></a> Starting "Custom Business Objects" application
+
+### <a name="starting-custom-business-objects-application"></a> Starting Custom Business Objects application
 
 A several tutorials spanning example will show extensibility along custom Bonus Management applications.
 As applications are based on business objects, it all starts with custom business object creation.
@@ -104,7 +105,7 @@ In the first parts a Manager wants to define business objects "Bonus Plan" for e
 ### <a name="Adding-standard-data-to-the-structure"></a> Adding standard data to the structure
 
 1. Back in the business Object's definition overview, **check** the System Administrative Data box to add standardized fields for `Created On`, `Created By`, `Last Changed On` and `Last Changed By`.  ![Check System Administrative Data](images/CBO_checkSysAdminData.png)
-	By checking this box the four fields also appear as uneditable in the field list.  1These fields will be filled and updated automatically, so that you do not need to implement logic for this. Logic implementations for these fields even would be ignored.
+	By checking this box the four fields also appear as uneditable in the field list.  These fields will be filled and updated automatically, so that you do not need to implement logic for this. Logic implementations for these fields even would be ignored.
 
 ### <a name="creating-the-database-persistence"></a> Creating the database persistence
 
