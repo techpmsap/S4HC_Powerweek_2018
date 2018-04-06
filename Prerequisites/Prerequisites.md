@@ -42,11 +42,11 @@ Eclipse Oxygen IDE is required for Java application development during the works
 1.	Download and install **Eclipse Oxygen IDE for Java EE Developers**
 
 	#### For Windows:
-	<http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/oxygen/1a/eclipse-jee-oxygen-1a-win32-x86_64.zip>  
+	<http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/oxygen/3/eclipse-jee-oxygen-3-win32-x86_64.zip>  
 	![](images/01.png)
 
 	#### For Mac:
-	<https://www.eclipse.org/downloads/download.php?file=/oomph/epp/oxygen/R/eclipse-inst-mac64.tar.gz>  
+	<http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/oxygen/3/eclipse-jee-oxygen-3-macosx-cocoa-x86_64.dmg>  
 	![](images/02.png)
 
 
@@ -56,7 +56,7 @@ Install SAP Cloud Platform Eclipse Oxygen Plugins
 1.	Open **Eclipse Oxygen**
 1. Click on **Help -> Install New Software…**  
 	![](images/02_02.png)
-1. Enter this link <https://tools.hana.ondemand.com/oxygen/> and hit <ENTER>, type a description for this repsitory and click **OK**  
+1. Enter this link <https://tools.hana.ondemand.com/oxygen/> and hit **ENTER**; if requested, type a description for this repository and click **OK**  
 	![](images/02_03.png)
 1. Select **SAP Cloud Platform Tools** and click **Next**   
 	![](images/02_04.png)
@@ -80,7 +80,7 @@ Eclipse IDE needs Java JDK.
 ### <a name="configure-eclipse-java"></a>Configure Eclipse Oxygen Java preference
 Make sure Eclipse IDE uses right JREs.
 
-1.	Click on **Window->Preferences**. This should open the Preferences window. If you are on MAC you can find Preferences item under the Eclipse menu  
+1.	Click on **Window -> Preferences**. This should open the Preferences window. If you are on MAC you can find Preferences item under the Eclipse menu  
 	![](images/04_02.png)
 1. Search for **Installed JREs**
 	![](images/05.png)
@@ -94,6 +94,7 @@ Neo commands used during S/4HANA extension development are part of SAP Cloud Pla
 
 1. Download the latest version of Java Web Tomcat 8 Neo Environment SDK from here <https://tools.hana.ondemand.com/#cloud>
 	![](images/07.png)
+	
 1. Extract it in a folder on your disk
 
  
@@ -102,13 +103,18 @@ During Java application deployment to SAP Cloud Platform, you will be using Java
 
 1. Download the latest version of Java EE 6 Web Profile from here <https://tools.hana.ondemand.com/#cloud>  
 	![](images/07_02.png)
+
 1. Extract it in a folder on your disk
-1.	From Eclipse Oxygen, go to **Preferences** window. Search for **runtime** and, under the path **Server->Runtime Environments** click **Add**  
+
+1.	From Eclipse Oxygen, go to **Preferences** window. Search for **runtime** and, under the path **Server -> Runtime Environments** click **Add**  
 	![](images/08.png)
+
 1.	Under **SAP** catalog, select **Java EE 6 Web Profile** and click **Next**  
 	![](images/09.png)
+
 1.	Browse to the location of the Java EE 6 Web Profile SDK folder you have just extracted and click **Finish**  
 	![](images/10.png)
+
 1.	Java EE 6 Web Profile is installed. Click on **Apply and Close**    
 	![](images/10_02.png)
 
@@ -118,40 +124,53 @@ During Java application deployment to SAP Cloud Platform, you will be using Java
 ### <a name="sign-up-neo"></a>Sign up for SAP Cloud Platform Neo trial account
 You need Neo trial SAP Cloud Platform to complete standalone hands-on exercise for Workflow Service and Business Rules Service. 
 
-1.	Sign up for SAP Cloud Platform trial account from <https://account.hanatrial.ondemand.com/>
+1.	Sign up for SAP Cloud Platform trial account from <https://account.hanatrial.ondemand.com/> by clicking on the **Register** button. If you already have an account on the Trial landscape please login with that account
 	![](images/11.png)
-> NOTE: If you don’t have an account on SAP Cloud Platform yet, go to the Sign up for a free trial account tutorial, and then come back to this step.
 
-1. After you have logged in, click on **Home**.  Then, click on **Neo Trial**  
+1. After you have logged in, click on **Neo Trial**  
 	![](images/12.png)
-1. This will take you to the **Overview** page of the SAP Cloud Platform Cockpit for Neo stack
+
+1. This will take you to the **Overview** page of the SAP Cloud Platform Cockpit for the Neo stack
 	![](images/13.png)
-1.	From SAP Cloud Platform Cockpit, click on Services. Enable the following services
-	- Portal	 
+
+1.	From SAP Cloud Platform Cockpit, click on **Services**. Enable the Portal service	![](images/13_02.png)
+	 
+	> **NOTE**: Portal service must be enabled first.
+
+1.	At the same way enable these further services
 	- SAP Web IDE Full-Stack
 	- Workflow
 	- Business Rules
 	![](images/14.png)
 	
-> **NOTE**: Please, if possible, enable Portal as first service.
         
 ### <a name="sign-up-cf"></a>Sign up for SAP Cloud Platform Cloud Foundry trial account
 Sign up also for SAP Cloud Platform Cloud Foundry trial account.
 
-1.	From SAP Cloud Platform Cockpit, click on Home.  Then, click on **Cloud Foundry Trial**. Select a **Region**, for example, US East (VA) or Europe (Frankfurt)  
+1.	From SAP Cloud Platform Cockpit, click on **Cloud Foundry Trial**. This will bring you directly into your Cloud Foundry Trial subaccount. 
 	![](images/15.png)
-1.	Select the Global account that matches your login. Next, select the trial sub-account.
+
+2. If you already have activated this kind of landscape in the past, consider that it might be expired since the validity is only **90 days**. All you have to do is to reactivate the trial by going on the first icon in the top toolbar and selecting **Extend Free Trial**. This button is only available after your trial plan is expired
+	![](images/15_02.png)
+
+1.	Select your trial sub-account
 	![](images/16.png)	 
-1.	Make sure you have **2GB Memory** for the space.  If you don’t have 2GB Memory, please register a new account.
-	![](images/17.png)
+
+1.	You should have just one space. Click on it
+	![](images/17.png)	 
+
+1.	Make sure you have **2GB Memory** for your space. If you don’t have 2GB Memory, please register a new account.
+	![](images/18.png)
 
 
 
 ### <a name="install-cf-cli"></a>Install Cloud Foundry CLI
 Install Cloud Foundry CLI  
 
-1.	Cloud Foundry CLI download it here <https://github.com/cloudfoundry/cli#downloads>
+1.	Cloud Foundry CLI can be downloaded here <https://github.com/cloudfoundry/cli#downloads>. Just select the installer which matches your Workstation's Operating System
 	![](images/19.png)
+
+1. Once downloaded the file, please install it by double clicking on the downloaded file.
 
 
 ### <a name="install-maven"></a>Install Apache Maven for Windows/Mac
@@ -188,16 +207,19 @@ You might need Maven tool installed on you workstation. Here are the steps to in
 
 
 ### <a name="check-eclipse-maven"></a>Check if Eclipse/Maven is installed and Java set-up is done correctly
-Check if eclipse/Maven is installed and Java set-up is done correctly. 
 Building successfully a Maven-based Java project in your Eclipse is a prerequisite.
-Now you are ready to test if can build and run a Java Web application project with Maven in your Eclipse IDE. For this test we prepared a Maven-based HelloWorld Java project as follows.
+You are ready to test if you can build and run a Java Web application project with Maven in your Eclipse IDE. For this test we prepared a Maven-based HelloWorld Java project you can import and run.
 
-1. Download the archive file [helloworld.zip](https://sap.github.io/cloud-s4ext/week-1/unit-5/imports/java/helloworld.zip?raw=true).
+1. Download the archive file [helloworld.zip](files/helloworld.zip?raw=true).
+
 1. Extract the *helloworld.zip* archive to a directory of your choice
-1. From the Eclipse menu, choose **File->Import…** to open the Import wizard  
+
+1. From the Eclipse menu, choose **File -> Import…** to open the Import wizard  
 	![](images/20.png)
+
 1. Choose **Maven->Existing Maven Projects** and click **Next**  
 	![](images/21.png)
+
 1. In the Import Maven Projects dialog:
 	- Click **Browse** and select the helloworld directory where you have extracted the *helloworld.zip*
 	- The *helloworld/pom.xml* will be listed in the Projects section
@@ -205,15 +227,18 @@ Now you are ready to test if can build and run a Java Web application project wi
 	- Choose **Finish** to start importing the Maven project into your Eclipse workspace
 	![](images/22.png)  
 	
-	> **Info**: POM is an acronym for Project Object Model. It is an XML representation of a Maven project held in a file named pom.xml. For more information see the Maven documentation
+	>**Info**: POM is an acronym for Project Object Model. It is an XML representation of a Maven project held in a file named *pom.xml*. For more information see the Maven documentation.
 
 1. In the Project Explorer view of the Java EE Perspective you should find now the imported *helloworld*  
 	![](images/23.png)
-1. Right-click on the *helloworld* project node to open the Context Menu. Choose **Run As->Maven install** to start the Maven build for the *helloworld* project  
+
+1. Right-click on the *helloworld* project node to open the Context Menu. Choose **Run As -> Maven install** to start the Maven build for the *helloworld* project  
 	![](images/24.png)
+
 1. The Eclipse IDE will open a Console Tab that displays the build progress. You should see **BUILD SUCCESS**. If your build was not successful, please check the troubleshooting guide for Maven  
 	![](images/25.png)
-1. In Project Explorer view expand the project node **helloworld->target** to find the built *helloworld.war* file.
+
+1. In Project Explorer view expand the project node **helloworld -> target** to find the built *helloworld.war* file.
 
 	> Note: To see it you might have to refresh the project by right-clicking on the project-node and press Refresh  
 	
