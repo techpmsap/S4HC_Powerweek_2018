@@ -111,7 +111,7 @@ In the first parts a Manager wants to define business objects "Bonus Plan" for e
 1. **Publish** the Business Object `Bonus PlanXX`.  ![Press Publish](images/CBO_pressPublish.png)
 	This creates the database persistence of the Business Object.
 	
-1. You will **Published"" in green for this object when the publishing is completed. ![Press Publish](images/CBO_complePublish.png)
+1. You will **Published** in green for this object when the publishing is completed. ![Press Publish](images/CBO_complePublish.png)
 
 
 ## Summary
