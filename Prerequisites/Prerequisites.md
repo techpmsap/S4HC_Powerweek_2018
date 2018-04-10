@@ -28,7 +28,7 @@ Here below are prerequisites required for the exercises in this workshop.
 1. [Install Java JDK](#install-java-jdk)
 1. [Configure Eclipse Oxygen Java preference](#configure-eclipse-java)
 1. [Install SAP Cloud Platform SDK](#install-cp-sdk)
-1. [Create New Runtime Environment](#create-runtime-environment)
+1. [Create a new Neo Runtime Environment](#create-runtime-environment)
 1. [Sign up for SAP Cloud Platform Neo trial account](#sign-up-neo)
 1. [Sign up for SAP Cloud Platform Cloud Foundry trial account](#sign-up-cf)
 1. [Install Cloud Foundry CLI](#install-cf-cli)
@@ -97,8 +97,10 @@ Neo commands used during S/4HANA extension development are part of SAP Cloud Pla
 	
 1. Extract it in a folder on your disk
 
+1. You will need this SDK in the Exercise 13 where you are going to start a Java Web Tomcat 8 server.
+
  
-### <a name="create-runtime-environment"></a>Create New Runtime Environment
+### <a name="create-runtime-environment"></a>Create a new Neo Runtime Environment
 During Java application deployment to SAP Cloud Platform, you will be using Java EE 6 Web Server runtime.
 
 1. Download the latest version of Java EE 6 Web Profile from here <https://tools.hana.ondemand.com/#cloud>  
