@@ -281,8 +281,8 @@ To define a destination for our application we need two services from the market
 
 	```yml
 	  services:
-	  - bpr-xsuaa
-	  - bpr-destination
+	  - bpr_xsuaa
+	  - bpr_destination
 	```
 
 	to your manifest file replacing the red ones. Your final file should look like this. Rememebr to **save** the file
@@ -303,8 +303,8 @@ To define a destination for our application we need two services from the market
 	    TARGET_RUNTIME: tomee
 	    JBP_CONFIG_SAPJVM_MEMORY_SIZES: 'metaspace:96m..'
 	  services:
-	  - bpr-xsuaa
-	  - bpr-destination
+	  - bpr_xsuaa
+	  - bpr_destination
 	```
 	![](images/39.png)
 
