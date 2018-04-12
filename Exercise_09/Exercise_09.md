@@ -66,14 +66,17 @@ In this chapter you are going to see how to implement caching in your applicatio
 
 1. Open Eclipse IDE and load the project created in the previous exercise  
 	![](images/01.png)
+
 1. Locate the **application** module and, right clicking on it, select **New -> Class**  
 	![](images/02.png)
+
 1. Create a new Java class named **GetCachedBPCommand** and click **Finish**  
 	![](images/03.png)
+
 1. Paste in the following content (remember that **xx** must be replaced with your workstation ID) and **save** the file 
 
 	```java
-	package com.sap.sample.bprcf_dev_xx;
+	package com.sap.sample.bpr_cf_xx;
 	
 	import java.util.Collections;
 	import java.util.List;
@@ -133,8 +136,11 @@ In this chapter you are going to see how to implement caching in your applicatio
 	```
 	![](images/04.png)
 
+1. Save the file
+
 1. Now we need to adapt the old **BPServlet** class to use this new command. Open the *BPServlet.java* class   
-1. In the **doGet** method, replace the line
+
+1. In the **doGet** method, replace (or just comment) the line
 	
 	```java
 	final List<BPDetails> result = new GetBPCommand(configContext).execute();
@@ -148,7 +154,7 @@ In this chapter you are going to see how to implement caching in your applicatio
 1. This is how the new **BPServlet** class should look like (remember that **xx** must be replaced with your workstation ID)
 
 	```java
-	package com.sap.sample.bprcf_dev_xx;
+	package com.sap.sample.bpr_cf_xx;
 	
 	import com.google.gson.Gson;
 	import org.slf4j.Logger;
@@ -165,47 +171,58 @@ In this chapter you are going to see how to implement caching in your applicatio
 	@WebServlet("/businesspartners")
 	public class BPServlet extends HttpServlet {
 	
-		private static final long serialVersionUID = 1L;
-		private static final Logger logger = CloudLoggerFactory.getLogger(BPServlet.class);
+	    private static final long serialVersionUID = 1L;
+	    private static final Logger logger = CloudLoggerFactory.getLogger(BPServlet.class);
 	
-		@Override
-		protected void doGet(final HttpServletRequest request, final HttpServletResponse response)
-				throws ServletException, IOException {
-			final ErpConfigContext configContext = new ErpConfigContext();
-			final List<BPDetails> result = new GetCachedBPCommand(configContext).execute();
-			response.setContentType("application/json");
-			response.getWriter().write(new Gson().toJson(result));
-		}
+	    @Override
+	    protected void doGet(final HttpServletRequest request, final HttpServletResponse response)
+	            throws ServletException, IOException
+	    {
+	        final ErpConfigContext configContext = new ErpConfigContext();
+	        //final List<BPDetails> result = new GetBPCommand(configContext).execute();
+	        final List<BPDetails> result = new GetCachedBPCommand(configContext).execute();
+	        
+	        response.setContentType("application/json");
+	        response.getWriter().write(new Gson().toJson(result));
+	
+	    }
 	}
 	```
 
 	![](images/05.png)
 	
 1. Save the file
+
 1. Expand the **root** module of your project and select the *pom.xml* file. Then click on the small play button on the toolbar. Select the **Maven build** goal and click **OK**  
 	![](images/06.png)
+
 1. Specify the **clean install** goals if required and click **Run**  
-	![](images/07.png)
+
 1. Building should end with a BUILD SUCCESS message  
-	![](images/08.png)
+	![](images/07.png)
+
 1. Open Terminal and enter the `cf push` command to deploy the application to Cloud Foundry  
-	![](images/09.png)
+	![](images/08.png)
+
 1. Check that the service is still providing the expected results  
-	![](images/10.png)
-1. Congratulation! You have successfully implemented caching in your application using the SAP S/4HANA Cloud SDK.
+	![](images/09.png)
+
+1. Congratulations! You have successfully implemented caching in your application using the SAP S/4HANA Cloud SDK.
 
 
 ### <a name="enabling-filtering"></a>Enabling filtering for cached queries
 In this chapter you are going to add filtering capabilities to the cached queries. In particular, you are going to implement a filter on Business Partner Category. This filter is passed as a URI string parameter and the cache will dynamically adapt the provided key to your parameter delivery.
 
 1. Locate the **application** module and, right clicking on it, select **New -> Class**  
-	![](images/02.png)
+	![](images/10.png)
+
 1. Create a new Java class named **GetCachedBPByCategoryCommand** and click **Finish**  
 	![](images/11.png)
+
 1. Paste in the following content (remember that **xx** must be replaced with your workstation ID) and **save** the file
 
 	```java
-	package com.sap.sample.bprcf_dev_xx;
+	package com.sap.sample.bpr_cf_xx;
 	
 	import java.util.Collections;
 	import java.util.List;
@@ -279,33 +296,38 @@ In this chapter you are going to add filtering capabilities to the cached querie
 	    }
 	}
 	```
+	![](images/12.png)
 
 	You see the following changes, compared to the simple cached-command example:
 	
 	- The constructor features a second parameter, a String representation of a Business Partner Category parameter. This parameter is used in the OData query.
+	
 	- The cache instance now defines:
 	
-	|description|explanation|
-	----------|-----|
-	|maximum item size of 100|Up to a hundred Business Partners queries and their responses will be cached|
-	|expiration after 60 seconds|The item associated to any key which is older than a minute will be re-requested by the command|
-	|concurrency level of 10|This value provides a hint for the underlying caching API to estimate the number of threads trying to write into and change the cache at the same time. Concurrent reading access will be unaffected from this setting|
+		| description | explanation |
+		| ----------  | ----------- |
+		| maximum item size of 100 | Up to a hundred Business Partners queries and their responses will be cached |
+		| expiration after 60 seconds | The item associated to any key which is older than a minute will be re-requested by the command |
+		| concurrency level of 10|This value provides a hint for the underlying caching API to estimate the number of threads trying to write into and change the cache at the same time. Concurrent reading access will be unaffected from this setting |
+	
 	- New methods have been overridden:
 	
-	|description|explanation|
-	----------|-----|
-	|getCommandCacheKey()|It does append the provided **bpCategory** to the cacheKey, thus making it distinguishable from the same service calls but with different **bpCategory** parameter|
-	|getCommandFallback()|	In case the **runCachable** procedure fails in any way, we provide a fallback solution. In this example we return an empty list object|
+		| description | explanation |
+		| ----------  | ----------- |
+		| getCommandCacheKey() | It does append the provided **bpCategory** to the cacheKey, thus making it distinguishable from the same service calls but with different **bpCategory** parameter |
+		| getCommandFallback() |	In case the **runCachable** procedure fails in any way, we provide a fallback solution. In this example we return an empty list object |
 	
+
+1. Save the file
 
 1. It's necessary now to adapt again the **BPServlet** class so that it can properly use this new command. First of all add a new **bpCategory** variable at the beginning of the **doGet** method
 
 	```java
 	final String bpCategory = request.getParameter("category");
 	``` 
-	![](images/12.png)
+	![](images/13.png)
 
-1. Then, pay attention also to another question: you must detect if the user is providing or not the category value along with the URI string. If you didn't do this and you simply adjusted the **BPServlet** class by changing the line where the command is called in this way `final List<BPDetails> result = new GetCachedBPByCategoryCommand(configContext, bpCategory).execute();`, this would break the integration tests, because during the tests the **bpCategory** variable would be **NULL**. So to workaround this you need to replace the line
+1. Then, pay attention also to another question: you must detect if the user is providing or not the category value along with the URI string. If you didn't do this and you simply adjusted the **BPServlet** class by changing the line where the command is called in this way `final List<BPDetails> result = new GetCachedBPByCategoryCommand(configContext, bpCategory).execute();`, this would break the integration tests, because during the tests the **bpCategory** variable would be **NULL**. So to workaround this you need to replace (or just comment) the line
 
 	```java
 	final List<BPDetails> result = new GetCachedBPCommand(configContext).execute();
@@ -319,13 +341,17 @@ In this chapter you are going to add filtering capabilities to the cached querie
 	if (bpCategory == null) result = new GetCachedBPCommand(configContext).execute();
 	else result = new GetCachedBPByCategoryCommand(configContext, bpCategory).execute();
 	```
+
+	![](images/14.png)
+
 	where we check
 	- if the **bpCategory** variable is **NULL**, we use the command **without** the parameter
 	- if the **bpCategory** variable is **NOT NULL**, we use the new command **with** the **bpCategory** parameter  
-1. The final code for the BPServlet class should look similar to this (remember that **xx** must be replaced with your workstation ID)
+
+1. The final code for the **BPServlet** class should look similar to this (remember that **xx** must be replaced with your workstation ID)
 
 	```java
-	package com.sap.sample.bprcf_dev_xx;
+	package com.sap.sample.bpr_cf_xx;
 	
 	import com.google.gson.Gson;
 	import org.slf4j.Logger;
@@ -342,44 +368,52 @@ In this chapter you are going to add filtering capabilities to the cached querie
 	@WebServlet("/businesspartners")
 	public class BPServlet extends HttpServlet {
 	
-		private static final long serialVersionUID = 1L;
-		private static final Logger logger = CloudLoggerFactory.getLogger(BPServlet.class);
+	    private static final long serialVersionUID = 1L;
+	    private static final Logger logger = CloudLoggerFactory.getLogger(BPServlet.class);
 	
-		@Override
-		protected void doGet(final HttpServletRequest request, final HttpServletResponse response)
-				throws ServletException, IOException {
-			
-			final String bpCategory = request.getParameter("category");
-			
-			final ErpConfigContext configContext = new ErpConfigContext();
+	    @Override
+	    protected void doGet(final HttpServletRequest request, final HttpServletResponse response)
+	            throws ServletException, IOException
+	    {
+	    	final String bpCategory = request.getParameter("category");
+	    	
+	        final ErpConfigContext configContext = new ErpConfigContext();
+	        //final List<BPDetails> result = new GetBPCommand(configContext).execute();
+	        
+	        //final List<BPDetails> result = new GetCachedBPCommand(configContext).execute();
+	        final List<BPDetails> result;
 	
-			final List<BPDetails> result;
+	        if (bpCategory == null) result = new GetCachedBPCommand(configContext).execute();
+	        else result = new GetCachedBPByCategoryCommand(configContext, bpCategory).execute();
+	        
+	        response.setContentType("application/json");
+	        response.getWriter().write(new Gson().toJson(result));
 	
-			if (bpCategory == null) result = new GetCachedBPCommand(configContext).execute();
-			else result = new GetCachedBPByCategoryCommand(configContext, bpCategory).execute();
-			
-			response.setContentType("application/json");
-			response.getWriter().write(new Gson().toJson(result));
-		}
+	    }
 	}
 	```
 
-	![](images/13.png)
 1. Save the file
+
 1. Now you can build the project: expand the **root** module of your project and select the *pom.xml* file. Then click on the small play button on the toolbar. Select the **Maven build** goal and click **OK**  
-	![](images/06.png)
-1. Specify the **clean install** goals if required and click **Run**  
-	![](images/07.png)
-1. At the end of the execution, you should receive a BUILD SUCCESS message. Of course, this operation also performs the required integration tests  
-	![](images/14.png)
-1. Run again a `cf push` command to deploy to Cloud Foundry  
 	![](images/15.png)
-1. Finally, if you navigate to <https://bprcf_deve_xx.cfapps.eu10.hana.ondemand.com/businesspartners> (replace **xx** with your workstation ID), you get the old list of Business Partners as expected    
+
+1. Specify the **clean install** goals if required and click **Run**  
+
+1. At the end of the execution, you should receive a BUILD SUCCESS message. Of course, this operation also performs the required integration tests  
 	![](images/16.png)
-1. Instead, if you go to <https://bprcf_dev_xx.cfapps.eu10.hana.ondemand.com/businesspartners?category=1> (replace **xx** with your workstation ID), you get the list of top 100 Business Partners having Business Partner Category equal to 1    
+
+1. Run again a `cf push` command to deploy to Cloud Foundry  
 	![](images/17.png)
+
+1. Finally, if you refresh the page in the browser with your application URL, you get the old list of Business Partners as expected    
+	![](images/18.png)
+
+1. Instead, if you go to <https://\<YOUR\_APP\_ROUTE\>?category=1>, you get the list of top 100 Business Partners having Business Partner Category equal to 1    
+	![](images/19.png)
+
 1. Congratulation! You have successfully added filtering capabilities to your cached command using the SAP S/4HANA Cloud SDK.
 
 
 ## Summary
-This concludes the exercise. You should have learned how to implement caching in your application using the SAP S/4HANA Cloud SDK and how to implement filtering on Business Partner Category in the cached command. Please proceed with exercise 10.
+This concludes the exercise. You should have learned how to implement caching in your application using the SAP S/4HANA Cloud SDK and how to implement filtering on Business Partner Category in the cached command. Please proceed with the next exercise.
