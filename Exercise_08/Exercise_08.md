@@ -11,7 +11,7 @@ In this exercise, you’ll learn how
 * to adapt the integration tests accordingly
 
 **Resiliency** is the ability to deal with failure: if an application can deal with failures, we call it resilient. So resilience is the means by which we achieve availability.
-The SAP S/4HANA Cloud SDK builds upon the Hystrix library in order to provide resilience for your cloud applications. Hystrix comes with many interlocking mechanisms to protect your application from failures. The most important are timeouts, thread-pools and circuit-breakers.
+The SAP S/4HANA Cloud SDK builds upon the [Hystrix](https://github.com/Netflix/Hystrix/wiki) library in order to provide resilience for your cloud applications. Hystrix comes with many interlocking mechanisms to protect your application from failures. The most important are timeouts, thread-pools and circuit-breakers.
 
 - **Timeouts**: Hystrix allows setting custom timeout durations for every remote service. If the response time of a remote service exceeds the specified timeout duration, the remote service call is considered as failure. This value should be adapted according to the mean response time of the remote service
 - **Thread-pools**: By default, every command has a separate thread-pool from which it can requests threads to execute the remote service call in. This has multiple benefits: every command is isolated from your application, so whatever happens in these threads will not affect the performance of your application. Also, the usage of threads allows Hystrix to perform remote service calls asynchronously and concurrently. These threads are non-container-managed, so regardless of how many threads are used by your Hystrix commands, they do not interfere with your runtime container.
@@ -49,14 +49,17 @@ Here below are prerequisites for this exercise.
 
 
 ### <a name="make-resilient"></a> Make the application resilient
-In this chapter you are going to see how to make the application resilient. In the previous exercise we created a simple servlet that uses the SDK’s OData abstractions to retrieve Business Partners from a S/4HANA system. In order to make this servlet resilient, we have to wrap it in an **ErpCommand**. 
+In this chapter you are going to see how to make the application resilient. In the previous exercise we created a simple servlet that uses the SDK’s OData abstractions to retrieve Business Partners from a S/4HANA Cloud system. In order to make this servlet resilient, we have to wrap it in an **ErpCommand**. 
 
 1. Open Eclipse IDE and load the project created in the previous exercise  
 	![](images/01.png)
+
 1. Right click on the the **application** module and select **New -> Class**  
 	![](images/02.png)
+
 1. Create a new Java class named **GetBPCommand** and click **Finish**  
 	![](images/03.png)
+
 1. Paste in the following content (remember that **xx** must be replaced with your workstation ID) and **save** the file. As you can see here we are wrapping the same query we have in the BPServlet class into an ErpCommand. The GetBPCommand class inherits from ErpCommand, which is the SDK’s abstraction to provide easy to use Hystrix commands. To implement a valid ErpCommand we need to
 	- **provide a constructor**: here we simply add a constructor that takes an ErpConfigContext as parameter
 	- **override the run() method**: again, we can simply use the code we used to call our OData service in the previous exercise, and put it into the run() method. No changes are needed!
@@ -64,7 +67,7 @@ In this chapter you are going to see how to make the application resilient. In t
 	Additionally, by overriding the **getFallback()** method, we can provide a fallback if the remote service call should fail. In this case we simply return an empty list. We could also serve static data or check wether we have already cached a response to this call.
 
 	```java
-	package com.sap.sample.bprcf_dev_xx;
+	package com.sap.sample.bpr_cf_xx;
 	
 	import org.slf4j.Logger;	
 	import java.util.List;
@@ -107,9 +110,10 @@ In this chapter you are going to see how to make the application resilient. In t
 	```
 	![](images/04.png)
 
-1. Now we need to adapt the old BPServlet class to use this new command. Open the *BPServlet.java* class. Select the entire content of the **doGet** method and delete it  
+1. Now we need to adapt the old **BPServlet** class to use this new command. Open the *BPServlet.java* class. Select the entire content of the **doGet** method and delete it  
 	![](images/05.png)
-1. In the **doGet** method, paste in the following content
+
+1. In the **doGet** method, paste the following content
 
 	```java
     final ErpConfigContext configContext = new ErpConfigContext();
@@ -124,10 +128,11 @@ In this chapter you are going to see how to make the application resilient. In t
 
 1. Feel free to remove the unused imports from this file if you want  
 	![](images/07.png)
+
 1. This is how the new *BPServlet* file should look like
 
 	```java
-	package com.sap.sample.bprcf_dev_xx;
+	package com.sap.sample.bpr_cf_xx;
 	
 	import com.google.gson.Gson;
 	import org.slf4j.Logger;
@@ -144,66 +149,59 @@ In this chapter you are going to see how to make the application resilient. In t
 	@WebServlet("/businesspartners")
 	public class BPServlet extends HttpServlet {
 	
-		private static final long serialVersionUID = 1L;
-		private static final Logger logger = CloudLoggerFactory.getLogger(BPServlet.class);
+	    private static final long serialVersionUID = 1L;
+	    private static final Logger logger = CloudLoggerFactory.getLogger(BPServlet.class);
 	
-		@Override
-		protected void doGet(final HttpServletRequest request, final HttpServletResponse response)
-				throws ServletException, IOException {
-			final ErpConfigContext configContext = new ErpConfigContext();
-			final List<BPDetails> result = new GetBPCommand(configContext).execute();
+	    @Override
+	    protected void doGet(final HttpServletRequest request, final HttpServletResponse response)
+	            throws ServletException, IOException
+	    {
+	    	final ErpConfigContext configContext = new ErpConfigContext();
+	    	final List<BPDetails> result = new GetBPCommand(configContext).execute();
 	
-			response.setContentType("application/json");
-			response.getWriter().write(new Gson().toJson(result));
-		}
+	    	response.setContentType("application/json");
+	    	response.getWriter().write(new Gson().toJson(result));
+	    	
+	    }
 	}
 	```
 
 	![](images/08.png)
 	
 1. Save the file
+
 1. Expand the **root** module of your project and select the *pom.xml* file. Then click on the small play button on the toolbar. Select the **Maven build** goal and click **OK**  
 	![](images/09.png)
-1. Specify the **clean install** goals if required and click **Run**  
-	![](images/10.png)
-1. Building should end with a BUILD SUCCESS message  
-	![](images/11.png)
-1. Click on the Terminal pane and type in the `cf push` command to deploy the application to Cloud Foundry  
 
+1. Specify the **clean install** goals if required and click **Run**  
+
+1. Building should end with a BUILD SUCCESS message  
+	![](images/10.png)
+
+1. Click on the Terminal pane and type in the `cf push` command to deploy the application to Cloud Foundry  
+	![](images/11.png)
+
+	> **NOTE:** if for any reason you deleted your application before, you need to set back the destination which points to our back-end system. Please refer to the previous exercise for this.
+
+1. Opening the browser and pasting in the URL you got when pushing operation is finished, you should be still able to see the Business Partners list  
 	![](images/12.png)
 
-	> **NOTE:** if you deleted your application before, you need to set back the destination which points to our back-end system with the command:
-	`cf set-env bprcf_dev_xx destinations "[{name: 'ErpQueryEndpoint', url: 'https://my300271-api.s4hana.ondemand.com', username: 'TECHPM', password: 'W@lcome1'}]"`
-	replacing "**xx**" with your workstation ID.  Of course, you need to restage the app as well with the command `cf restage bprcf_dev_xx`, again replacing **xx** with your workstation ID.
-
-1. If you open the browser and go again to the URL <https://bprcf_dev_xx.cfapps.eu10.hana.ondemand.com/businesspartners>, where **xx** must be replaced with your workstation ID, you should get an "**Internal Server Error**"  
-	![](images/13.png)  
-The SDK integrates the circuit breakers and other resilience features of Hystrix with the SAP Cloud Platform, specifically with the tenant and user information. For example, circuit breakers are maintained per tenant to ensure that they are properly isolated. As of now, our application is not multitenant: we will come to this in the next exercises. When running such a non-multitenant application with caching, the required tenant and user information needs to be supplied separately, or be mocked. To do so, in the terminal pane, run the command
-	
-	`cf set-env bprcf_dev_xx ALLOW_MOCKED_AUTH_HEADER true`
-	
-	![](images/14.png)  
-
-	>**NOTE:** there are some security implications in this. When the variable **ALLOW\_MOCKED\_AUTH\_HEADER** is explicitly set to **true**, the SDK will fall back to providing mock tenant and user information when no actual tenant information is available. This setting must never be enabled in productive environments. It is only meant to make testing easier if you do not yet implement the authentication mechanisms of Cloud Foundry. Delete the environment variable as soon as it is no longer required, for example, because you implemented security on your application. Again, you will come to this in the next exercise.
-
-1. Restage the app
-	![](images/15.png)
-1. Opening the browser and typing in the URL <https://bprcf_dev_xx.cfapps.eu10.hana.ondemand.com/businesspartners>, where **xx** must be replaced with your workstation ID, you should be now able to see again the Business Partners list  
-	![](images/16.png)
 1. Congratulation! You have successfully implemented resilience in your application using the S/4HANA Cloud SDK.
 
 
 ### <a name="adapt-integration-tests"></a> Adapt the integration tests accordingly
 In this chapter you are going to implement a new Java class to test the GetBPCommand we have created in the previous chapter.
 
-1. In Eclipse IDE, right click on the **integration-tests** module and choose **New --> Class**  
-	![](images/17.png)
+1. In Eclipse IDE, right click on the **integration-tests** module and choose **New -> Class**  
+	![](images/13.png)
+
 1. Create a new Java Class named **GetBPCommandTest** and click **Finish**  
-	![](images/18.png)
+	![](images/14.png)
+
 1. Paste in the following content (remember that **xx** must be replaced with your workstation ID) and **save** the file
 
 	```java
-	package com.sap.sample.bprcf_dev_xx;
+	package com.sap.sample.bpr_cf_xx;
 	
 	import org.junit.BeforeClass;
 	import org.junit.Test;
@@ -254,24 +252,29 @@ In this chapter you are going to implement a new Java class to test the GetBPCom
 	            }
 	        });
 	    }
-	
 	}
 	```
-	![](images/19.png)
-We use JUnit’s @BeforeClass annotation to setup our mockUtils and to mock the ERP destinations. In the tests (@Test) we do the following: first we create a new request context using mockUtil.requestContextExecutor and provide it with a new Executable; then we override the Executable’s execute() method, where we finally put the code that we actually want to test together with the corresponding assertions.  
+	![](images/15.png)
+
+We use JUnit’s **@BeforeClass** annotation to setup our mockUtils and to mock the ERP destinations. In the tests (@Test) we do the following: first we create a new request context using mockUtil.requestContextExecutor and provide it with a new Executable; then we override the Executable’s execute() method, where we finally put the code that we actually want to test together with the corresponding assertions.  
 	- For **testWithSuccess()**, we correctly provide the default ERP destination information using mockUtil. For the sake of simplicity we simply assert that the response is not empty.  
 	- For **testWithFallback()**, we intentionally provide a not existing destination in order to make the command fail. Since we implemented a fallback for our command that returns an empty list, we assert that we actually receive an empty list as response.
+
 1. Build the application again  
-	![](images/20.png)
+	![](images/16.png)
+
 1. At the end of the execution, you should receive a BUILD SUCCESS message. Of course this operation also performs the required integration tests  
-	![](images/21.png)
+	![](images/17.png)
+
 1. Run again a `cf push` command to Cloud Foundry  
-	![](images/22.png)
-1. Check that the application is still providing the expected results    
-	![](images/23.png)
+	![](images/18.png)
+
+1. Check that the application is still providing the expected results  
+	![](images/19.png)
+
 1. Congratulation! You have successfully implemented integration tests into your application using the S/4HANA Cloud SDK.
 
 
 ## Summary
-This concludes the exercise. You should have learned how implement Hystrix resilience in your application and add a further integration test for the new implemented class. Please proceed with exercise 09.
+This concludes the exercise. You should have learned how implement Hystrix resilience in your application and add a further integration test for the new implemented class. Please proceed with the next exercise.
 
