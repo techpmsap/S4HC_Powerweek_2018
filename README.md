@@ -24,7 +24,7 @@ S/4 HANA Cloud Powerweek 2018 Exercises
 - [Exercise\_04 - Retrieving data from S4HC and setting up integration tests](Day2/Exercise_04/Exercise_04.md)
 - [Exercise\_05 - Make the application resilient](Day2/Exercise_05/Exercise_05.md)
 - [Exercise\_06 - Add a caching mechanism to your application](Day2/Exercise_06/Exercise_06.md)
-- [Exercise\_07 - { !!! WORK IN PROGRESS !!! } Securing your Cloud Foundry Application](Day2/Exercise_07/Exercise_07.md)
+- [Exercise\_07 - Securing your Cloud Foundry Application](Day2/Exercise_07/Exercise_07.md)
 - [Exercise\_08 - { !!! WORK IN PROGRESS !!! } Develop a front-end application using Virtual Data Model (VDM)](Day2/Exercise_08/Exercise_08.md)
 
 ### DAY 3
