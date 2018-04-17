@@ -7,11 +7,11 @@
 ## Description
 In this exercise, you’ll learn how 
 
-* to create a SAP S/4HANA SDK project for Neo from an archetype using the Terminal window
+* to create a SAP S/4HANA Cloud SDK project for Neo from an archetype using the Terminal window
 * to build the project with Maven
 * to deploy the application to your local SCP and, finally, to your real Neo stack environment
 
-For further reading on S/4HANA SDK, click link below.
+For further reading on S/4HANA Cloud SDK, click link below.
 <https://www.sap.com/germany/developer/topics/s4hana-cloud-sdk.html>
 
 
@@ -112,7 +112,7 @@ Now that the project is in place we can build it through a very simple Maven com
 
 
 ### <a name="deploy-to-local-scp"></a> Deploy the application to local SCP
-Before sending this package to Neo, you might want to test it locally to see if it's working fine or if it's matching all your requirements. SAP S/4HANA CP SDK does simplify this for you by another Maven command.
+Before sending this package to Neo, you might want to test it locally to see if it's working fine or if it's matching all your requirements. SAP S/4HANA Cloud SDK does simplify this for you by another Maven command.
 
 1. Using the terminal window, go back to your project's root by entering 
 	
@@ -209,4 +209,4 @@ This is an optional step for this exercise. You can try to deploy this applicati
 
 
 ## Summary
-This concludes the exercise. You should have learned how to create a SAP S/4HANA SDK project for Neo from an archetype using the Terminal window. You have also understood how to build the project and deploy it to the local SCP or to the real Neo stack. Please proceed with the next exercise.
+This concludes the exercise. You should have learned how to create a SAP S/4HANA Cloud SDK project for Neo from an archetype using the Terminal window. You have also understood how to build the project and deploy it to the local SCP or to the real Neo stack. Please proceed with the next exercise.

@@ -8,11 +8,11 @@
 In this exercise, you’ll learn how 
 
 * to install and configure Eclipse IDE
-* to create a SAP S/4HANA SDK project for Cloud Foundry from an archetype using the Eclipse IDE
+* to create a SAP S/4HANA Cloud SDK project for Cloud Foundry from an archetype using the Eclipse IDE
 * to build the project with Eclipse IDE
 * to deploy the application to your Cloud Foundry environment
 
-For further reading on S/4HANA SDK, click link below.
+For further reading on S/4HANA Cloud SDK, click link below.
 <https://www.sap.com/germany/developer/topics/s4hana-cloud-sdk.html>
 
 
@@ -24,7 +24,7 @@ For further reading on S/4HANA SDK, click link below.
 
 ## Goal
 
-The goal of this exercise is to create a Maven project for Cloud Foundry starting from the scp-cf-tomee archetype made available with the SAP S/4HANA Cloud Platform SDK.
+The goal of this exercise is to create a Maven project for Cloud Foundry starting from the scp-cf-tomee archetype made available with the SAP S/4HANA Cloud SDK.
 
 
 ## Prerequisites
@@ -244,4 +244,4 @@ Before we close this exercise we need to make one last important change: we need
 
 
 ## Summary
-This concludes the exercise. You should have learned how to install and configure Eclipse IDE in order to create a SAP S/4HANA SDK project for Cloud Foundry from a Maven archetype. You have also learned how to build the project with this new IDE and how to deploy the application to your Cloud Foundry environment. Please proceed with the next exercise.
+This concludes the exercise. You should have learned how to install and configure Eclipse IDE in order to create a SAP S/4HANA Cloud SDK project for Cloud Foundry from a Maven archetype. You have also learned how to build the project with this new IDE and how to deploy the application to your Cloud Foundry environment. Please proceed with the next exercise.

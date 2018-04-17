@@ -7,7 +7,7 @@
 ## Description
 In this exercise, you’ll learn how 
 
-* to retrieve the list of Business Partners from a S/4HANA back-end by adding a couple of new Java classes to the application which will be consuming the S/4HANA Cloud SDK framework 
+* to retrieve the list of Business Partners from a S/4HANA Cloud back-end by adding a couple of new Java classes to the application which will be consuming the S/4HANA Cloud SDK 
 * to set a new Java class in the integration test module to check that the response, received from server when calling the new servlet, is a correct JSON output
 
 For further reading on S/4HANA Cloud SDK, click link below.
