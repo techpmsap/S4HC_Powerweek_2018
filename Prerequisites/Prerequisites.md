@@ -161,7 +161,7 @@ Sign up also for SAP Cloud Platform Cloud Foundry trial account.
 1.	From SAP Cloud Platform Cockpit, click on **Cloud Foundry Trial**. This will bring you directly into your Cloud Foundry Trial subaccount. 
 	![](images/15.png)
 
-2. If you already have activated this kind of landscape in the past, consider that it might be expired since the validity is only **90 days**. All you have to do is to reactivate the trial by going on the first icon in the top toolbar and selecting **Extend Free Trial**. This button is only available after your trial plan is expired
+2. If you already have activated this kind of landscape in the past, consider that it might be expired since the validity is only **30 days**. All you have to do is to reactivate the trial by going on the first icon in the top toolbar and selecting **Extend Free Trial**. Then you have to refresh your browser. The button for extending free trial is only available after your trial plan is expired
 	![](images/15_02.png)
 
 1.	Select your trial sub-account
