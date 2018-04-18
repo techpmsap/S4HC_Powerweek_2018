@@ -50,49 +50,49 @@ In the first parts a Manager wants to define business objects "Bonus Plan" for e
 
 1. Open the **Bonus PlansXX** application in Fiori Launchpad group **Extensibility**.  XX is the number assigned to you for the exercise.
 
-	![Bonus Plans application tile](images/tile_BonusPlans.png)
+	![Bonus Plans application tile](images/1.png)
 1. Press **Go** to get the list of all Bonus Plans. **Open** a bonus plan's detail view.
 
-	![Open Bonus Plan's detail view](images/UI_Test_createBonusPlan2.png)
+	![Open Bonus Plan's detail view](images/2.png)
 
 	This is the screen that will be adapted.
 	
-	![Bonus Plan's detail view before adaptation](images/UI_BoDetailsBeforeAdaptation.png)
+	![Bonus Plan's detail view before adaptation](images/3.png)
 
 ### <a name="switch-to-adaptation-mode"></a> Switch to Adaptation mode
 
 1. **Open User Settings** via the corresponding application's menu action
 
-	![Open User Settings](images/UI_userSettings.png)
+	![Open User Settings](images/4.png)
 
 	Open the adaptation mode via **Adapt UI**.
 	
-	![Go to UI Adaptation mode](images/UI_go2Adaptation.png)  
+	![Go to UI Adaptation mode](images/5.png)  
 
 ### <a name="create-an-ui-group"></a> Create an UI group
 
 1. Editable UI elements can be recognized by getting a dashed border and the movement cursor when hovering over them.
 
-	![Editable UI element](images/UI_editableElement.png)
+	![Editable UI element](images/6.png)
 
 1. By right clicking onto them you get options to adapt the UI. As these options are partly type dependent you might need to find the right element first to get the option you need.
 
 1. **Hover** over the **General Information** area until it gets the dashed border and open the context menu via **Right Click**.
 
-	![Create UI Group](images/UI_createGroup.png)
+	![Create UI Group](images/7.png)
 1. **Create Group** and name it "Bonus Data". 
 
-	![Create UI Group](images/UI_BonusGroup.png) 
+	![Create UI Group](images/8.png) 
 
 ### <a name="move-ui-elements"></a> Move UI elements
 
 1. Editable fields can simply be dragged and dropped as well. **Drag** the Validity Start Date field.
 
-	![Movable UI Element](images/UI_movableElement.png)
+	![Movable UI Element](images/9.png)
 
 1. **Drop** it to the Bonus Data group.
 
-	![Drop dragged UI Element](images/UI_dropElement.png) 
+	![Drop dragged UI Element](images/10.png) 
 
 	Repeat **Drag & Drop** into Bonus Data group for the fields:
 
@@ -105,17 +105,19 @@ In the first parts a Manager wants to define business objects "Bonus Plan" for e
 	- Employee ID
 	- Employee Name
 
-	![Drop dragged UI Element](images/UI_dropAllElement.png)
+	![Drop dragged UI Element](images/11.png)
 
 ### <a name="apply-ui-changes"></a> Apply UI changes
 
 1. **Publish** the UI adaptations.
 
-	![UI Publish](images/UI_publish.png)
+	![UI Publish](images/12.png)
 
-1. Finally you only need to **Exit** adaptation mode to work with the new layout.
+1. Finally you only need to **Save & Exit** adaptation mode to work with the new layout.
 
-	![UI Exit](images/UI_exit.png)
+	![UI Exit](images/13.png)
+	
+	![UI Exit](images/14.png)
 
 ## Summary
 This concludes the exercise. 
@@ -125,4 +127,4 @@ As the generated User Interfaces only list all fields of a business object node,
 
 You should have learned how to adapt the generated UI of a custom business object. 
 
-Please proceed with exercise 04.
+Please proceed with next exercise.
