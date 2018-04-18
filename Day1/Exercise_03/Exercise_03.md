@@ -212,7 +212,7 @@ On top of the coding you can maintain runtime data for the current node structur
 1. **Implement** Before Save event with following functionality
 
 	If the bonus plan is consistent, it can be continued to save, if not save shall be rejected. In case of save no further processing is needed and logic can be left.
->**Hint:** Exporting parameter valid must be set to true for save and to false for save rejection
+	>**Hint:** Exporting parameter valid must be set to true for save and to false for save rejection
 
 1. Click on **Before Save (Published)**.
 
@@ -222,17 +222,17 @@ On top of the coding you can maintain runtime data for the current node structur
 
 	![Create Draft](images/21.png)
 
-```abap
-* decide about save rejection
-IF bonusplanXX-isconsistent EQ abap_true.
-    valid = abap_true.
-    RETURN.
-ELSE.
-    valid = abap_false.
-ENDIF.
-```
+	```abap
+	* decide about save rejection
+	IF bonusplanXX-isconsistent EQ abap_true.
+   	 valid = abap_true.
+   	 RETURN.
+	ELSE.
+   	 valid = abap_false.
+	ENDIF.
+	```
 
-- If the bonus plan is not consistent, write the first found error into the message and end the logic processing.
+1. If the bonus plan is not consistent, write the first found error into the message and end the logic processing.
 These are the possible errors in detail:
       - `ValidityStartDate` and `ValidityEndDate` must be set
       - `ValidityStartDate` must be earlier in time than `ValidityEndDate`
@@ -241,55 +241,55 @@ These are the possible errors in detail:
       - LowBonusAssignmentFactor must be < HighBonusAssignmentFactor
       - Empoyee ID must be set
 
-```abap
-* consistency error message START
-IF bonusplanXX-validitystartdate IS INITIAL OR bonusplanXX-validityenddate IS INITIAL.
-    message = 'Validity Period must not be empty.'.
-    RETURN.
-ELSEIF bonusplanXX-validitystartdate GE bonusplanXX-validityenddate.
-    CONCATENATE 'Validity End Date' bonusplanXX-validityenddate 'must be later than Validity Start Date' bonusplanXX-validitystartdate '!' INTO message SEPARATED BY space.
-    RETURN.
-ENDIF.
-
-IF bonusplanXX-targetamount_v IS INITIAL OR bonusplanXX-targetamount_v = 0.
-    message = 'Target Amount must be over 0!'.
-    RETURN.
-ENDIF.
-
-IF bonusplanXX-targetamount_c IS INITIAL.
-    message = 'Target Amount Currency must be set!'.
-    RETURN.
-ENDIF.
-
-IF bonusplanXX-lowbonusassignmentfactor IS INITIAL
- OR bonusplanXX-highbonusassignmentfactor IS INITIAL.
-    message = 'Assignment Factors must be over 0!'.
-    RETURN.
-ENDIF.
-
-IF bonusplanXX-lowbonuspercentage_v IS INITIAL
- OR bonusplanXX-highbonuspercentage_v IS INITIAL.
-    message = 'Percentages must be over 0!'.
-    RETURN.
-ENDIF.
-
-IF bonusplanXX-lowbonuspercentage_v GE 100
- OR bonusplanXX-highbonuspercentage_v GE 100.
-    message = 'Percentage must be below 100!'.
-    RETURN.
-ENDIF.
-
-IF bonusplanXX-lowbonusassignmentfactor GE bonusplanXX-highbonusassignmentfactor.
-    message = 'Low Bonus Factor must be smaller than High Bonus Factor!'.
-    RETURN.
-ENDIF.
-
-IF bonusplanXX-employeeid IS INITIAL.
-    message = 'Employee ID must be set!'.
-    RETURN.
-ENDIF.
-* consistency error message  END
-```
+	```abap
+	* consistency error message START
+	IF bonusplanXX-validitystartdate IS INITIAL OR bonusplanXX-validityenddate IS INITIAL.
+	    message = 'Validity Period must not be empty.'.
+	    RETURN.
+	ELSEIF bonusplanXX-validitystartdate GE bonusplanXX-validityenddate.
+	    CONCATENATE 'Validity End Date' bonusplanXX-validityenddate 'must be later than Validity Start Date' bonusplanXX-validitystartdate '!' INTO message SEPARATED BY space.
+	    RETURN.
+	ENDIF.
+	
+	IF bonusplanXX-targetamount_v IS INITIAL OR bonusplanXX-targetamount_v = 0.
+	    message = 'Target Amount must be over 0!'.
+	    RETURN.
+	ENDIF.
+	
+	IF bonusplanXX-targetamount_c IS INITIAL.
+	    message = 'Target Amount Currency must be set!'.
+	    RETURN.
+	ENDIF.
+	
+	IF bonusplanXX-lowbonusassignmentfactor IS INITIAL
+	 OR bonusplanXX-highbonusassignmentfactor IS INITIAL.
+	    message = 'Assignment Factors must be over 0!'.
+	    RETURN.
+	ENDIF.
+	
+	IF bonusplanXX-lowbonuspercentage_v IS INITIAL
+	 OR bonusplanXX-highbonuspercentage_v IS INITIAL.
+	    message = 'Percentages must be over 0!'.
+	    RETURN.
+	ENDIF.
+	
+	IF bonusplanXX-lowbonuspercentage_v GE 100
+	 OR bonusplanXX-highbonuspercentage_v GE 100.
+	    message = 'Percentage must be below 100!'.
+	    RETURN.
+	ENDIF.
+	
+	IF bonusplanXX-lowbonusassignmentfactor GE bonusplanXX-highbonusassignmentfactor.
+	    message = 'Low Bonus Factor must be smaller than High Bonus Factor!'.
+	    RETURN.
+	ENDIF.
+	
+	IF bonusplanXX-employeeid IS INITIAL.
+	    message = 'Employee ID must be set!'.
+	    RETURN.
+	ENDIF.
+	* consistency error message  END
+	```
 
 1. **Publish** the Before Save Logic.
 
