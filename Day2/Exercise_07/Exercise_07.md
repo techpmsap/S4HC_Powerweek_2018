@@ -97,13 +97,14 @@ In this chapter you are going to see how to setup SAP Approuter to implement aut
 	```
 
 	![](images/10.png)
-1. Open a terminal window, navigate to the folder in your project named *approuter*, go inside this folder and run the following two commands:  
+1. Open a Terminal window, navigate to the folder named *approuter* located in your project; go inside this folder and run the following two commands:  
 
 	```sh
 	npm config set @sap:registry https://npm.sap.com
 	npm install
 	```
-	This means that, being inside the *approuter* folder, you are setting the **npm registry** to retrieve all the packages prefixed with "@sap" from the <https://npm.sap.com> web site and then you are performing the installation of the required packages (in this case just the *approuter* component)  
+	The first command sets the **npm registry** to retrieve all the packages prefixed with "@sap" from the <https://npm.sap.com> web site. Actually, it doesn't matter from where you run this command since this just sets a new parameter in the **npm** configuration. 
+	The second command performs the installation of all the required packages (in this case just the *approuter* component, which is taken from the "@sap" repository)  
 	![](images/11.png)
 
 1. When the process finishes, this is what yoi should have now in your Eclipse  
@@ -188,10 +189,10 @@ In this chapter you are going to see how to setup SAP Approuter to implement aut
 
 	![](images/21.png)
 
-1. We have finished with the **approuter**. We just need to create the XSUAA service based on the new *xs-security.json* file. Since we already created this service instance previously we need to unbind this instance from the bound application, delete the service and recreate it using the new configuration. This is done through the following commands in the Terminal window (make sure to be in the *scpsecurity* directory)  
+1. We have finished with the **approuter**. We just need to create the **XSUAA** service based on the new *xs-security.json* file. Since we already created this service instance previously, without any particular configuration, we need to unbind this instance from the bound application first, then delete the service and recreate it with some new settings contained in this *xs-security.json* file. All this is done through the following commands in the Terminal window (make sure to be in the *scpsecurity* directory and to replace **\<APPLICATION\_NAME\>** with your application name as in the previous step)  
 
 	```sh
-	cf unbind-service bpr_cf_P1942672827 bpr_xsuaa
+	cf unbind-service <APPLICATION_NAME> bpr_xsuaa
 	cf delete-service bpr_xsuaa
 	cf create-service xsuaa application bpr_xsuaa -c xs-security.json
 	```
@@ -220,7 +221,7 @@ In this chapter you are going to see how to setup SAP Approuter to implement aut
 
 
 ### <a name="spring-security"></a>Securing your application with Spring Security
-In this chapter you are going to see how to use Spring Security for securing your application. Now that authentication works with the Approuter, your Java back-end service is still fully visible in the web and not protected. You, therefore, need to protect your Java microservices as well so that they accept requests with valid JWTs for the current user only. In addition, we will setup the microservice in a way that it deals with authorization, i.e., understands the OAuth scopes from the JWT that we have configured previously using the *xs-security.json* file.
+In this chapter you are going to see how to use Spring Security for securing your application. Now that authentication works with the Approuter, your Java back-end service is still fully visible in the web and not protected. You, therefore, need to protect your Java microservices as well so that they accept requests with valid JWTs for the current user only. In addition, we will setup the microservice in a way that it deals with authorization, i.e., understands the OAuth scopes from the JWT that we have configured previously using the *xs-security.json* file. Here we are going to see how to add Spring security package to you project and in the next chapter how to use it.
 
 1. As a first step, you need to download the XS Security libraries from [here](files/XS_JAVA_8-70001362.ZIP)  
 

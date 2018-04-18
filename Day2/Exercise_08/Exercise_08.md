@@ -205,32 +205,46 @@ In this chapter you are going to see how to use SAP Web IDE to build a very basi
 
 1. Go to <http://account.hanatrial.ondemand.com/> to access your SAP CP cockpit on Neo environment, 
 	![](zimages/15.png)
+
 1. Select **Service** on the left, type the string "**web**" in the search box and select the tile named **SAP Web IDE Full-Stack**. If the service is not enabled, first enable it  
 	![](zimages/16.png)
+
 1. Click on **Go to Service**. You will be brought directly inside SAP Web IDE Full-Stack  
 	![](zimages/17.png)
+
 1. Select the **Home** icon on the left and click on **New Project from Template**  
 	![](zimages/18.png)
+
 1. Select the **Multi-Target Application** template and click **Next**  
 	![](zimages/19.png)
+
 1. Enter **bpr\_frontend\_project** as the name of the project and click **Next**  
 	![](zimages/20.png)
+
 1. Keep both Application ID and version as proposed. Then click **Finish**  
 	![](zimages/21.png)
+
 1. Once the project is created, right click on the project's name and select **New -> HTML5 Module**   
 	![](zimages/22.png)
+
 1. Select **All categories**, choose the **SAPUI5 Application** template and click **Next**  
 	![](zimages/23.png)
+
 1. Enter **bpfrontend** as Module Name and **com.sap.sample.bprfrontend** as Namespace and click **Next**      
 	![](zimages/24.png)
+
 1. Keep the proposed values in the screen and click **Finish**    
 	![](zimages/25.png)
+
 1. Once the module is created, you can run the module to check that it's working. Expand the module and locate the file *index.html*; then click on the **play** button on the top toolbar  
 	![](zimages/26.png)
+
 1. The web preview is shown, but at moment it's just a blank screen  
 	![](zimages/27.png)
+
 1. You can close the Web Preview  
 	![](zimages/28.png)
+
 1. Double click on the *view/View1.view.xml* file, replace the "**content**" tags with the following code and save the file. If you want you can also "beautify" your code by clicking on the **Edit->Beautify** menu
 
 	```xml
@@ -246,6 +260,7 @@ In this chapter you are going to see how to use SAP Web IDE to build a very basi
 	```
   
 	![](zimages/29.png)
+
 1. Next, double click on the *controller/View1.controller.js* file and replace the entire content with the following code
 
 	```javascript
@@ -270,6 +285,7 @@ In this chapter you are going to see how to use SAP Web IDE to build a very basi
 	```
 
 	![](zimages/30.png)
+
 1. Let's adjust a little bit the quotas of this application as well: double click on the *mta.yaml* file, change both the **disk-quota** and **memory** parameters to **128M**. Then 
 	- replace the **name** module with "bpfrontend-developerxx"
 	- add a new parameter named "**host**" with the value of "bpfrontend-developerxx" as well
@@ -296,32 +312,46 @@ In this chapter you are going to see how to use SAP Web IDE to build a very basi
 	```
 
 	![](zimages/31.png)
+
 1. Now before we can build this project, we need to install the builder which knows how to deal and build MTA applications. Click the **Preferences** gear on the left side toolbar. Select **Cloud Foundry** and choose from the dropdown list the CF API Endpoint where you are going to deploy your application; choose as well the Organization and the Space (they should come filled automatically) and finally click on **Install Builder**  
 	![](zimages/33.png)
+
 1. After a few minutes, the builder gets installed and you receive the message "There is a builder in your space". Click on **Save** and close this page. 
 	![](zimages/34.png)
+
 1. Actually, if you open your SAP CP Cloud Foundry cockpit you will see that there is a new application in the list, together with the two you have deployed before: this is the **MTA builder**  
 	![](zimages/35.png)
+
 1. Click the **Development** button on the left side toolbar, right click on the project name and choose **Build**  
 	![](zimages/36.png)
+
 1. The build process starts. When it finishes you receive an alert message. At the same time, if you look Project Explorer in SAP Web IDE, you will find a new folder named *mta_archives*. Inside this folder you will find a subfolder named as you MTA project containing a *.mtar* file   
 	![](zimages/37.png)
+
 1. Before we can deploy this file to Cloud Foundry, since we are on the Trial Landscape and we have only 2GB of available space, we need to gain some space. We can do it, by simply resizing the builder which will be no longer used in this exercise. Go to your SAP CP Cloud Foundry cockpit and select the builder application  
 	![](zimages/38.png)
+
 1. Click on **Change Quota**  
 	![](zimages/39.png)
+
 1. Adjust the both memory and disk quotas to **800** and click **Save**  
 	![](zimages/40.png)
+
 1. After a while the builder application will be restarted with the updated sizes  
 	![](zimages/41.png)
+
 1. Go back to SAP Web IDE Full-Stack, right click on the *.mtar* file in the *mta_archives* folder and choose **Deploy -> Deploy to Cloud Foundry**  
 	![](zimages/42.png)
+
 1. Specify the right Cloud Foudry API Endpoint, the Organization and the Space and click **Deploy**  
 	![](zimages/43.png)
+
 1. When the deployment finishes you get a small alert on the top right corner of your SAP Web IDE Full-Stack. 
 	![](zimages/44.png)
+
 1. At the same time, looking at your SAP CP Cloud Foundry cockpit a new application has been pushed: this is your frontend application  
 	![](zimages/45.png)
+
 1. Before you can test your frontend application, you still need to make a couple of changes to the **Approuter** and push it again. Go to Eclipse IDE and open the **scpsecurity** project. Double click on the *manifest.yml* file and change the **env** section in this way. We are adding a new destination to the file. Don't forget to 
 	- replace the two URLs with the real links associated to your applications and save the file
 	- replace the **xx** characters with your workstation ID
@@ -335,6 +365,7 @@ In this chapter you are going to see how to use SAP Web IDE to build a very basi
     ]'
 	```  
 	![](zimages/46.png)
+
 1. Double click on the *xs-app.json* file in the approuter folder and change it in this way. Save the file
 
 	```json
@@ -349,10 +380,13 @@ In this chapter you are going to see how to use SAP Web IDE to build a very basi
 	}
 	``` 
 	![](zimages/47.png)
+
 1. Deploy the **approuter** application again with `cf push`
 	![](zimages/48.png)
+
 1. Now if you open the browser on the link <https://approuter-\<your_account\>.cfapps.eu10.hana.ondemand.com>, where \<your\_account\> is your CF account, you are requested to enter the credentials again. Do it and you will be brought to the application's page  
 	![](zimages/49.png)
+
 1. Congratulation! You have successfully created a frontend application for your service.
 
 ## Summary
