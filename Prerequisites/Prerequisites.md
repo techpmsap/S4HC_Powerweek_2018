@@ -27,6 +27,7 @@ Here below are prerequisites required for the exercises in this workshop.
 1. [Install SAP Cloud Platform Eclipse Oxygen Plugins](#install-cp-oxygen-plugin)
 1. [Install Java JDK](#install-java-jdk)
 1. [Install Postman](#install-postman)
+1. [Install NodeJS](#install-nodejs)
 1. [Configure Eclipse Oxygen Java preference](#configure-eclipse-java)
 1. [Install SAP Cloud Platform SDK](#install-cp-sdk)
 1. [Create a new Neo Runtime Environment](#create-runtime-environment)
@@ -85,12 +86,22 @@ Postman is a REST client which will be needed to test if the endpoint generated 
 1. Download Postman from from [here](https://www.getpostman.com) and install it  
 	![](images/04_02.png)
 
+### <a name="install-nodejs"></a>Install NodeJS
+NodeJS is needed in the last exercise of Day 2. This is will also install the NodeJS Package Manager (npm). 
+
+1. Close any Terminal window on your machine
+
+1. Download the latest **LTS** version of NodeJS from from [here](https://www.nodejs.org)
+	![](images/04_03.png)
+
+1. Install it according to your operating system
+
 
 ### <a name="configure-eclipse-java"></a>Configure Eclipse Oxygen Java preference
 Make sure Eclipse IDE uses right JREs.
 
 1.	Click on **Window -> Preferences**. This should open the Preferences window. If you are on MAC you can find Preferences item under the Eclipse menu  
-	![](images/04_03.png)
+	![](images/04_06.png)
 1. Search for **Installed JREs**
 	![](images/05.png)
 
