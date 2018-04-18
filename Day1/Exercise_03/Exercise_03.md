@@ -90,42 +90,42 @@ For **published** Custom Business Objects **without a Draft version** you can im
 
 Implement After Modification event with following fix value functionality:
 
-- Set the key field `ID` if still initial.
+1. Set the key field `ID` if still initial.
 
->**Hint:** Changing Parameter `bonusplan` enables you to read current node data and change it.
+	>**Hint:** Changing Parameter `bonusplan` enables you to read current node data and change it. 
+	
+	>**Hint:** You can read existing Bonus Plan data via the CDS View that is named as the Business Object's Identifier (here: `YY1_BONUSPLAN`). 
+	
+	>**Hint:** With the key combination **CTRL + Space** you can access the very helpful code completion. 
 
->**Hint:** You can read existing Bonus Plan data via the CDS View that is named as the Business Object's Identifier (here: `YY1_BONUSPLAN`).
+	![Code Completion](images/11.png)
 
->**Hint:** With the key combination **CTRL + Space** you can access the very helpful code completion.
+	Note: Replace XX to the number assigned to you.
 
-![Code Completion](images/11.png)
+	```abap
+	* set ID
+	IF bonusplanXX-id IS INITIAL.
+	   SELECT MAX( id ) FROM yy1_bonusplanXX INTO @DATA(current_max_id).
+	   bonusplanXX-id = current_max_id + 1.
+	ENDIF.
+	```
 
-Note: Replace XX to the number assigned to you.
+1. Set the Unit of Measure for the Bonus Percentages to `P1` which is the code for % (percent)
 
-```abap
-* set ID
-IF bonusplanXX-id IS INITIAL.
-   SELECT MAX( id ) FROM yy1_bonusplanXX INTO @DATA(current_max_id).
-   bonusplanXX-id = current_max_id + 1.
-ENDIF.
-```
+	```abap
+	* set percentage unit
+	bonusplanXX-lowbonuspercentage_u = bonusplanXX-highbonuspercentage_u = 'P1'.
+	```
 
-- Set the Unit of Measure for the Bonus Percentages to `P1` which is the code for % (percent)
+1. Determine and set the Employee Name from the Employee ID
+	>**Hint:** Extensibility offers Helper class `CL_ABAP_CONTEXT_INFO` with method `GET_USER_FORMATTED_NAME` that needs a user ID to return its formatted name
 
-```abap
-* set percentage unit
-bonusplanXX-lowbonuspercentage_u = bonusplanXX-highbonuspercentage_u = 'P1'.
-```
-
-- Determine and set the Employee Name from the Employee ID
->**Hint:** Extensibility offers Helper class `CL_ABAP_CONTEXT_INFO` with method `GET_USER_FORMATTED_NAME` that needs a user ID to return its formatted name
-
-```abap
-* set Employee Name
-IF bonusplanXX-employeeid IS NOT INITIAL.
-   bonusplanXX-employeename = cl_abap_context_info=>get_user_formatted_name( bonusplanXX-employeeid ).
-ENDIF.
-```
+	```abap
+	* set Employee Name
+	IF bonusplanXX-employeeid IS NOT INITIAL.
+	   bonusplanXX-employeename = cl_abap_context_info=>get_user_formatted_name( bonusplanXX-employeeid ).
+	ENDIF.
+	```
 
 ### <a name="implement-after-modification-consistency"></a> Implement After Modification: consistency check
 
@@ -135,27 +135,27 @@ In dependence on following checks, set the `isconsistent` property.
 - Check that Factors and Percentages are set correctly (all > 0, Percentages < 100, `LowBonusAssignmentFactor` < `HighBonusAssignmentFactor`)
 - Check that Employee ID is set
 
-```ABAP
-* consistency check START
-IF bonusplanXX-validitystartdate IS INITIAL
- OR bonusplanXX-validityenddate IS INITIAL
- OR bonusplanXX-validitystartdate GE bonusplanXX-validityenddate
- OR bonusplanXX-lowbonusassignmentfactor IS INITIAL
- OR bonusplanXX-highbonusassignmentfactor IS INITIAL
- OR bonusplanXX-lowbonuspercentage_v IS INITIAL
- OR bonusplanXX-highbonuspercentage_v IS INITIAL
- OR bonusplanXX-lowbonuspercentage_v GE 100
- OR bonusplanXX-highbonuspercentage_v GE 100
- OR bonusplanXX-lowbonusassignmentfactor GE bonusplanXX-highbonusassignmentfactor
- OR bonusplanXX-employeeid IS INITIAL
- OR bonusplanXX-targetamount_v IS INITIAL
- OR bonusplanXX-targetamount_c IS INITIAL.
-    bonusplanXX-isconsistent = abap_false.
-ELSE.
-    bonusplanXX-isconsistent = abap_true.
-ENDIF.
-* consistency check END
-```
+	```ABAP
+	* consistency check START
+	IF bonusplanXX-validitystartdate IS INITIAL
+	 OR bonusplanXX-validityenddate IS INITIAL
+	 OR bonusplanXX-validitystartdate GE bonusplanXX-validityenddate
+	 OR bonusplanXX-lowbonusassignmentfactor IS INITIAL
+	 OR bonusplanXX-highbonusassignmentfactor IS INITIAL
+	 OR bonusplanXX-lowbonuspercentage_v IS INITIAL
+	 OR bonusplanXX-highbonuspercentage_v IS INITIAL
+	 OR bonusplanXX-lowbonuspercentage_v GE 100
+	 OR bonusplanXX-highbonuspercentage_v GE 100
+	 OR bonusplanXX-lowbonusassignmentfactor GE bonusplanXX-highbonusassignmentfactor
+	 OR bonusplanXX-employeeid IS INITIAL
+	 OR bonusplanXX-targetamount_v IS INITIAL
+	 OR bonusplanXX-targetamount_c IS INITIAL.
+	    bonusplanXX-isconsistent = abap_false.
+	ELSE.
+	    bonusplanXX-isconsistent = abap_true.
+	ENDIF.
+	* consistency check END
+	```
 
 ### <a name="test-the-logic-during-development"></a> Test the logic during development
 
