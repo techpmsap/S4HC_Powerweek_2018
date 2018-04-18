@@ -1,6 +1,6 @@
 <table width=100% border=>
 <tr><td colspan=2><h1>EXERCISE 03 - IMPLEMENTING LOGICS FOR A CUSTOM BUSINESS OBJECT</h1></td></tr>
-<tr><td><h3>SAP Partner Workshop</h3></td><td><h1><img src="images/clock.png"> &nbsp;20 min</h1></td></tr>
+<tr><td><h3>SAP Partner Workshop</h3></td><td><h1><img src="images/clock.png"> &nbsp;30 min</h1></td></tr>
 </table>
 
 
@@ -53,18 +53,18 @@ In the first parts a Manager wants to define business objects "Bonus Plan" for e
 As there was no backend implementation to set the mandatory key field **`ID`** so far, we were forced to set it from the UI to be able to save instances.
 Now, as we will implement the logic to set the ID in backend and nowhere else, we will set that key field to Read-Only for the UI.
 
-1. Open the business object **Bonus PlanXX** in **Custom Business Objects** application. ![Bonus Plans application](images/CBO_bonusplan1.png)
-1. Start Edit Mode by executing the **Edit Draft** action. ![Bonus Plans application](images/CBO_bonusplan2.png)
-1. **Go to Fields and Logic**.  ![Bonus Plans application](images/CBO_bonusplan3.png)
-1. **Check** the Read-Only box for key field **`ID`**.  ![Check Read-Only box](images/CBO_checkReadOnly.png)
+1. Open the business object **Bonus PlanXX** in **Custom Business Objects** application. ![Bonus Plans application](images/1.png)
+1. Start Edit Mode by executing the **Edit Draft** action. ![Bonus Plans application](images/2.png)
+1. **Go to Fields and Logic**.  ![Bonus Plans application](images/3.png)
+1. **Check** the Read-Only box for key field **`ID`**.  ![Check Read-Only box](images/4.png)
 1. Go back via the application's **Back** button.
 
-	![Fiori Application's Back Button](images/AppBackButton.png)
+	![Fiori Application's Back Button](images/5.png)
 
 ### <a name="enable-logic-implementation"></a> Enable logic implementation
 
 1. Still editing the custom business object **Bonus Plan**'s definition, **Check** the box for **Determination and Validation**
-![Check Determination and Validation box](images/CBO_checkDeterminationAndValidation.png)
+![Check Determination and Validation box](images/6.png)
 1. **Publish** the business object definition.
 
 Now you are enabled to implement **determination logic** which is called **after each modification** to a Bonus Plan instance from the UI, as well as **validation logic** which is called **before each save** of an instance.
@@ -75,29 +75,32 @@ For **published** Custom Business Objects **without a Draft version** you can im
 
 1. **Go to Fields and Logic**
 
-	![Go to Fields and Logic](images/CBO_go2FieldsAndLogic_detail.png)
+	![Go to Fields and Logic](images/7.png)
 1. Enter the After Modification Event Logic which is a Determination Logic.
 
-	![Enter After Modification logic](images/CBO_go2AfterModify.png)
+	![Enter After Modification logic](images/8.png)
 1. In the logic view you initially see the not editable empty published version. Click the **Create Draft** action.
 
-	![Create Draft of logic implementation](images/CBO_AfterModifyCreateDraft.png)
+	![Create Draft of logic implementation](images/9.png)
 1. An editable copy of the published version appears left to it. With the **Draft Version** and **Published Version** actions you can decide what coding to see.
 
-	![View Draft and/or Published Version of logic](images/CBO_AfterModifyDraftOrPublishedVersion.png)
+	![View Draft and/or Published Version of logic](images/10.png)
 
 ### <a name="implement-after-modification-fix"></a> Implement After Modification: fix values
 
 Implement After Modification event with following fix value functionality:
 
 - Set the key field `ID` if still initial.
+
 >**Hint:** Changing Parameter `bonusplan` enables you to read current node data and change it.
-**Hint:** You can read existing Bonus Plan data via the CDS View that is named as the Business Object's Identifier (here: `YY1_BONUSPLAN`).
-**Hint:** With the key combination **CTRL + Space** you can access the very helpful code completion.
 
-	![Code Completion](images/CBO_logicCodeCompletion.png)
+>**Hint:** You can read existing Bonus Plan data via the CDS View that is named as the Business Object's Identifier (here: `YY1_BONUSPLAN`).
 
-	Note: Replace XX to the number assigned to you.
+>**Hint:** With the key combination **CTRL + Space** you can access the very helpful code completion.
+
+![Code Completion](images/11.png)
+
+Note: Replace XX to the number assigned to you.
 
 ```abap
 * set ID
@@ -160,43 +163,48 @@ On top of the coding you can maintain runtime data for the current node structur
 
 1. Click the value help to add test data
 
-	![Add Test Data](images/CBO_logicDevAddTestData.png)
+	![Add Test Data](images/12.png)
 
 1. Enter following data
 
 	| Field	Name | Field Value |
 	|------------|-------------|
-	| `validitystartdate` | `2017-01-01` |
-	| `validityenddate` | `2017-12-31` |
+	| `validitystartdate` | `2018-01-01` |
+	| `validityenddate` | `2018-12-31` |
 	| `targetamount_v` | `1000` |
 	| `targetamount_c` | `EUR` |
 	| `lowbonusassignmentfactor` | `1` |
 	| `highbonusassignmentfactor` | `3` |
-	| `lowbonuspercentage` | `10` |
-	| `highbonuspercentage` | `20` |
+	| `lowbonuspercentage_v` | `10` |
+	| `highbonuspercentage_v` | `20` |
 	| `employeeid` | `<any>` |
 
-	`employeeid` `<any>` shall be the one of a sales person that created sales orders with a Net Amount of more than 3000.00 EUR in 2016 and that are completed. In this exercise, you can use CB9980000620. 
+	`employeeid` `<any>` shall be the one of a sales person that created sales orders with a Net Amount of more than 3000.00 EUR in 2016 and that are completed. In this exercise, you can use CB9980000008. 
 
 	This will look as follows.
-	![Maintain Test Data](images/CBO_logicDevMaintainTestData.png)
+	![Maintain Test Data](images/13.png)
 	
-	![Maintain Test Data](images/CBO_logicDevMaintainTestData1.png)
+	![Maintain Test Data](images/14.png)
 	
 	Click OK.
 
-1. Execute the **Test** action and you can see the node data after your logic was executed.
+1. Execute the **Test** action.
+   
+   ![Maintain Test Data](images/15.png)
 
-	![Execute Test](images/CBO_logicTest.png)
+1. You can see the node data after your logic was executed.
+
+	![Execute Test](images/16.png)
+	![Execute Test](images/17.png)
 	
 	You can see that your logic works as `id`, `*percentage_u` fields and `employename` are filled and `isconsistent` is 'X'.
 	
 1. **Publish** the After Modification.
 
-	![Publish Afer Modification](images/CBO_logicPublish1.png)
+	![Publish Afer Modification](images/18.png)
 1. Go back.
 
-	![BAck](images/CBO_back.png)
+	![BAck](images/19.png)
 
 
 ### <a name="implement-before-save"></a> Implement Before Save
@@ -208,11 +216,11 @@ On top of the coding you can maintain runtime data for the current node structur
 
 1. Click on **Before Save (Published)**.
 
-	![Before Save](images/CBO_beofresave.png)
+	![Before Save](images/20.png)
 	
 1. Click on **Create Draft**.
 
-	![Create Draft](images/CBO_createdraft.png)
+	![Create Draft](images/21.png)
 
 ```abap
 * decide about save rejection
@@ -285,45 +293,41 @@ ENDIF.
 
 1. **Publish** the Before Save Logic.
 
-	![Before Save Published](images/CBO_bspublish.png)
+	![Before Save Published](images/22.png)
 1. Go back and check both After Modication and Before Save are Published.
 
-	![Back](images/CBO_back.png)	
+	![Back](images/23.png)	
 1. Go home.
 
-	![Home](images/CBO_home.png)	
+	![Home](images/24.png)	
 	
 ### <a name="test-via-the-UI"></a> Test via the UI
 
-Once ensured that both logic implementations were successfully published you can start testing the Application like an end user via the UI.
+Once ensured that both logic implementations were successfully published, you can start testing the Application like an end user via the UI.
 
 1. **Open** the Bonus PlanXX application. 
 
-	![Bonus Plans application tile](images/tile_BonusPlans.png)
+	![Bonus Plans application tile](images/25.png)
 1. Click on Go. **Open** the Bonus Plan with ID `1`.
 
-	![Bonus Plan ID 1](images/CBO_BonusplanID1.png)
+	![Bonus Plan ID 1](images/26.png)
 1. **Edit** this Bonus Plan.
 
-	![Edit](images/CBO_edit.png)
+	![Edit](images/27.png)
 1. **Enter** value `10` into field **Low Bonus Percentage**
 
-	![Low Bonus Percentage](images/CBO_LowBonusPercentage.png)
-1. **Save** the Bonus plan. 
+	![Low Bonus Percentage](images/28.png)
+1. **Save** the Bonus plan. Save fails due to the validation error messages for missing percentages.
 
-	![Save](images/CBO_save.png)
-
-1. Save fails due to the validation error messages for missing percentages.
-
-	![Percentages Error](images/CBO_percentageerror.png)
+	![Percentages Error](images/29.png)
 	
 1. Close the Message.
 1. **Enter** value `20` into field **High Bonus Percentage**
 
-	![High Percentage Bonus](images/CBO_highpercentage.png)
-1. **Save** the Bonus Plan. Now it will not be rejected. You can see that your business logic works as the Percentage Units and the Employee Name get filled.
+	![High Percentage Bonus](images/30.png)
+1. **Save** the Bonus Plan. Now it will not be rejected. You can see that your business logic works as the Percentage Units and the Employee Name get filled. Note: If you don't see the Employee Name, refresh the page and it will show.
 
-	![Save](images/CBO_save.png)
+	![Save](images/31.png)
 	
 
 ## Summary
@@ -331,4 +335,4 @@ This concludes the exercise. You should have learned how to implement logic to s
 
 You will also learn how to ease development and test already while doing it.
 
-Please proceed with exercise 03.
+Please proceed with next exercise.
