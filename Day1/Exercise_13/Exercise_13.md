@@ -129,13 +129,13 @@ Implement After Modification event with following fix value functionality:
 
 ### <a name="implement-after-modification-consistency"></a> Implement After Modification: consistency check
 
-In dependence on following checks, set the `isconsistent` property.
+1. In dependence on following checks, set the `isconsistent` property.
 
 - Check that `ValidityStartDate` and `ValidityEndDate` are set and that `ValidityStartDate` is earlier in time than `ValidityEndDate`.
 - Check that Factors and Percentages are set correctly (all > 0, Percentages < 100, `LowBonusAssignmentFactor` < `HighBonusAssignmentFactor`)
 - Check that Employee ID is set
 
-Copy the following code.
+1. Enter the consistency check coding.
 	
 	```abap
 	* consistency check START
