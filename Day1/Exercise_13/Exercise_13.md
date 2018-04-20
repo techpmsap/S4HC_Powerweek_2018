@@ -135,6 +135,7 @@ In dependence on following checks, set the `isconsistent` property.
 - Check that Factors and Percentages are set correctly (all > 0, Percentages < 100, `LowBonusAssignmentFactor` < `HighBonusAssignmentFactor`)
 - Check that Employee ID is set
 
+
 	```abap
 	* consistency check START
 	IF bonusplanXX-validitystartdate IS INITIAL
