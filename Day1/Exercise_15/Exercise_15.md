@@ -3,7 +3,6 @@
 <tr><td><h3>SAP Partner Workshop</h3></td><td><h1><img src="images/clock.png"> &nbsp;50 min</h1></td></tr>
 </table>
 
-## Work in Process
 ## Description
 
 So far, we created a custom business object “Bonus Plan” with simple data structure, initialization and check logic and application UI. This business object is there to save employee specific rules for bonus entitlement.
