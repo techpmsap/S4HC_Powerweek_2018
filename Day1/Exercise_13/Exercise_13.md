@@ -135,7 +135,7 @@ Implement After Modification event with following fix value functionality:
 - Check that Factors and Percentages are set correctly (all > 0, Percentages < 100, `LowBonusAssignmentFactor` < `HighBonusAssignmentFactor`)
 - Check that Employee ID is set
 
-1. Enter the consistency check coding.
+   Enter the consistency check coding.
 	
 	```abap
 	* consistency check START
