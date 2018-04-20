@@ -76,7 +76,7 @@ In the first part, a Manager wants to define business objects "Bonus Plan" for e
 
 	| Field Name     | Field Properties             | Tooltip     |
 	| :------------- | :--------------------------- | :-----------|
-	| ID             | Numeric Identifier of length 10, key field |             |   
+	| ID             | Numeric Identifier of length 10, key field |Note: You have created ID on previous step.|   
 	| Validity Start Date | Date    | |
 	| Validity End Date | Date | |   
 	| Target Amount | Amount with Currency | |   

@@ -3,6 +3,7 @@
 <tr><td><h3>SAP Partner Workshop</h3></td><td><h1><img src="images/clock.png"> &nbsp;50 min</h1></td></tr>
 </table>
 
+## Work in Process for update
 
 ## Description
 In this exercise, you’ll learn how 
