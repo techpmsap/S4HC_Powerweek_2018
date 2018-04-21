@@ -48,14 +48,18 @@ Here below are prerequisites for this exercise.
 In this section you will import the Neo Project you created in Exercise 2_1 into eclipse.
 
 1. Open Eclipse IDE.
+
 2. In the Menu select File > Import...
-3. In the popup window select Maven > Existing Mave Projects:
+
+3. In the popup window select Maven > Existing Maven Projects:  
 	![](images/100.png)
 	
 4. Click Next.
-5. Browse to the root folder where you created your Neo application earlier, you should see something similar to the below image. **Note:** your project(s) should be named myneoproject*.
+
+5. Browse to the root folder where you created your Neo application earlier, you should see something similar to the below image. **Note:** your project(s) should be named myneoproject*.  
 	![](images/101.png)
-6. Click Finish. The maven project will be imported:
+
+6. Click Finish. The maven project will be imported:  
 	![](images/102.png)
 
 
@@ -77,16 +81,16 @@ In this chapter you are going to see how to implement a couple of new JAVA class
 
 	![](images/104.png)
 
-1. Copy the BPDetails.java and BPServlet.java you created in the cloud foundry applciation in the last exercise.  
+1. Copy the *BPDetails.java* and *BPServlet.java* you created in the cloud foundry applciation in the last exercise.  
 	![](images/105.png)
 
 1. Paste the files into your Neo Application Project:   
 	![](images/106.png)
 
-1. You should see the classes now in the Neo application project:
+1. You should see the classes now in the Neo application project:  
 	![](images/107.png)
 
-1. Expand the **root** module of your neo project and right click on the *pom.xml* file. In the context menu select Run As > Maven Build 
+1. Expand the **root** module of your neo project and right click on the *pom.xml* file. In the context menu select **Run As > Maven Build**  
 	![](images/108.png)
 
 1. Specify the **clean install** goals if required and click **Run**  
@@ -95,24 +99,25 @@ In this chapter you are going to see how to implement a couple of new JAVA class
 1. Building phase should end with a **BUILD SUCCESS** message  
 	![](images/110.png)
 
+
 ### <a name="destination"></a> Deploy your application to Neo and configure the Destination
 In this step you will be guided through deploying the application to your Neo Trial account and the configuring the needed destination.
 
 1. Go to your **SAP CP Cockpit** and navigate to your Neo Java applications area:   
 	![](images/111.png)
 	
-1. Click the **Deploy Application** button.
+1. Click the **Deploy Application** button.  
 
-2. In the Deploy Window browse to your WAR file that can be found in the neo projects application folder /target/*.war. Your deploy window should look like the image below. Click **Deploy** to start the deployment process. **Note:** if you deployed this application earlier, you can do an update and stop/start of the application.
+2. In the Deploy Window browse to your WAR file that can be found in the neo projects application folder /target/*.war. Your deploy window should look like the image below. Click **Deploy** to start the deployment process. **Note:** if you deployed this application earlier, you can do an update and stop/start of the application.  
 	![](images/112.png)
 	
-3. Once deployed, click **Start** to start the application.
+3. Once deployed, click **Start** to start the application.  
 	![](images/113.png)
 	
-4. Once your application is started switch to the **Connectivity > Destinations** area.
+4. Once your application is started switch to the **Connectivity > Destinations** area.  
 	![](images/114.png)
 
-5. Click the **New Destination** button.
+5. Click the **New Destination** button.  
 	![](images/115.png)
 
 1. Enter the following values:
@@ -135,17 +140,17 @@ In this step you will be guided through deploying the application to your Neo Tr
 	| proxyHost | proxy-trial.od.sap.biz |
 	| proxyPort | 8080 |
 	
-2. Save your Destination.
+2. Save your Destination.  
 	![](images/116.png)
 	
 3. Go back to your java application you deployed earlier and select it to go to the details.
 
-4. Click the application url to launch the application.
+4. Click the application url to launch the application.  
 	![](images/117.png)
 	
-1. Add **/businesspartners** to the end of the URL in the browser, your S/4HANA Cloud data should be displayed.
+1. Add **/businesspartners** to the end of the URL in the browser, your S/4HANA Cloud data should be displayed.  
 	![](images/118.png)
 
 
 ## Summary
-This concludes the exercise. You have now learned you can use Cloud Foundry or Neo with the S/4HANA Cloud SDK.
+This concludes the exercise. You have now learned you can use Cloud Foundry on Neo with the S/4HANA Cloud SDK.
