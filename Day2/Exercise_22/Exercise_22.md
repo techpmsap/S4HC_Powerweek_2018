@@ -46,7 +46,7 @@ Here below are prerequisites for this exercise.
 
 
 ### <a name="configure-eclipse"></a> Configure Eclipse IDE
-If you have followed the prerequisites to this exercise series, you should have already installed Eclipse IDE. In this chapter you are going to see how to configure it for our next activities.
+Here you are going to see how to install the YAML Editor plugin which will be used later in this course. If you have already installed it as explained in the Prerequisites to this exercise series, feel free to skip this chapter.
 
 1. Open **Eclipse IDE** from your application directory  
 	![](images/01.png)
