@@ -27,7 +27,7 @@ S/4 HANA Cloud Powerweek 2018 Exercises
 - [Exercise\_26 - Make the application resilient](Day2/Exercise_26/Exercise_26.md)
 - [Exercise\_27 - Add a caching mechanism to your application](Day2/Exercise_27/Exercise_27.md)
 - [Exercise\_28 - Securing your Cloud Foundry Application](Day2/Exercise_28/Exercise_28.md)
-- [Exercise\_29 - { !!! WORK IN PROGRESS !!! } Develop a front-end application using Virtual Data Model (VDM)](Day2/Exercise_29/Exercise_29.md)
+- [Exercise\_29 - Develop a front-end application using Virtual Data Model (VDM)](Day2/Exercise_29/Exercise_29.md)
 
 ### DAY 3
 - [Exercise\_31 - Multitenant applications](Day3/Exercise_31/Exercise_31.md)
