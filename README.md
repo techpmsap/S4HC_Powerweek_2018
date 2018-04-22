@@ -15,6 +15,7 @@ S/4 HANA Cloud Powerweek 2018 Exercises
 - [Exercise\_13 - Implementing logics for a custom business object](Day1/Exercise_13/Exercise_13.md)
 - [Exercise\_14 - Adapting the UI of a business object](Day1/Exercise_14/Exercise_14.md)
 - [Exercise\_15 - Custom Code List](Day1/Exercise_15/Exercise_15.md)
+- [Exercise\_16 - Associated Business Objects](Day1/Exercise_16/Exercise_16.md)
 - [Exercise\_19 - Custom business object exposure as external web service](Day1/Exercise_19/Exercise_19.md)
 
 ### DAY 2
