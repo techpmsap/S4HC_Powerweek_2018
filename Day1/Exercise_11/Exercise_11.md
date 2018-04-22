@@ -76,7 +76,7 @@ In the first part, a Manager wants to define business objects "Bonus Plan" for e
 
 	| Field Name     | Field Properties             | Tooltip     |
 	| :------------- | :--------------------------- | :-----------|
-	| ID             | Numeric Identifier of length 10, key field |Note: You have created ID on previous step.|   
+	| ID             | Text of length 20, key field |Note: You have created ID on previous step.|   
 	| Validity Start Date | Date    | |
 	| Validity End Date | Date | |   
 	| Target Amount | Amount with Currency | |   
@@ -91,7 +91,7 @@ In the first part, a Manager wants to define business objects "Bonus Plan" for e
 1. The UI for maintaining fields looks as follows. ![Custom Business Object's Field List View](images/9.png)
 1. Go back via the application's **Back** button. 
 
-	![Fiori Application's Back Button](images/10.png)
+	![Fiori Application's Back Button](images/10.png) 
 
 
 ### <a name="Adding-standard-data-to-the-structure"></a> Adding standard data to the structure

@@ -1,6 +1,6 @@
 <table width=100% border=>
 <tr><td colspan=2><h1>EXERCISE 1_5 - CUSTOM CODE LIST</h1></td></tr>
-<tr><td><h3>SAP Partner Workshop</h3></td><td><h1><img src="images/clock.png"> &nbsp;50 min</h1></td></tr>
+<tr><td><h3>SAP Partner Workshop</h3></td><td><h1><img src="images/clock.png"> &nbsp;35 min</h1></td></tr>
 </table>
 
 ## Description
