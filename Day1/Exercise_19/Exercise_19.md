@@ -1,5 +1,5 @@
 <table width=100% border=>
-<tr><td colspan=2><h1>EXERCISE 1_9 - USE CUSTOM FIELDS TO READ DATA</h1></td></tr>
+<tr><td colspan=2><h1>EXERCISE 1_9 - USE CUSTOM FIELDS TO READ DATA - READ ONLY</h1></td></tr>
 <tr><td><h3>SAP Partner Workshop</h3></td><td><h1><img src="images/clock.png"> &nbsp;30 min</h1></td></tr>
 </table>
 
@@ -46,6 +46,7 @@ Below are the prerequisites for this exercise.
 1. [Testing and Creating Bonus Entitlement](#testing-and-creating-bonus-entitlement)
 
 ### <a name="enabling-custom-fields-readability"></a> Enabling Custom Fields readability
+
 
 The enablement of the Bonus fields in the Product UI, doesn’t offer a possibility to read their data in Custom Business objects yet. To achieve that, do the following
 
@@ -113,7 +114,7 @@ All relevant products maintained at a bonus plan shall be considered at bonus ca
 
 	| Field Name     | Field Properties             | Tooltip     |
 	| :------------- | :--------------------------- | :-----------|
-	| Product Bonus50 Amount     | Amount with Currency ||   
+	| Product BonusXX Amount     | Amount with Currency ||   
 	
 	
 	![](images/14.png)

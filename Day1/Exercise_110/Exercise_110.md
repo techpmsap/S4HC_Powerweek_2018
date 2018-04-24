@@ -52,10 +52,10 @@ A communication scenario is the basis definition for a communication between sys
 
 1. Open Custom Communication Scenario Application
 
-	![](images/1.png)
+	![](images/1.png) 
 1. Start creating a new scenario by executing the “New” action.
 
-	![2](images/2.png)
+	![2](images/2.png) 
 1. Give following data to the new custom communication scenario ...
 
 
@@ -65,12 +65,13 @@ A communication scenario is the basis definition for a communication between sys
 	| `Description` | `Bonus PlanXX` |
 	Note: XX is the number assigned to you for the exercise.
 
-	![3](images/3.png)
+	![3](images/3.png) 
+	
 	... and create the scenario by executing the “New” action.
 	
-1. Start adding an inbound communication service by executing the “Add” action
+1. Start adding an inbound communication service by executing the “+” action
 
-	![4](images/4.png)
+	![4](images/4.png) 
 1. Search for YY1_BONUSPLAN. Choose service YY1_BONUSPLANXX_CDS and execute the “OK” action. 
 
 	![4](images/5.png)
