@@ -128,13 +128,13 @@ All relevant products maintained at a bonus plan shall be considered at bonus ca
 
 ### <a name="enhancing-bonus-entitlement-logic"></a> Enhancing Bonus Entitlement’s logic
 
-1. **Go to Fields and Logic** of the its one node.
+1. **Go to Fields and Logic** of Bonus EntitlementXX.
 
 	![](images/13.png)
 
 1. Enter the **After Modification** Event Logic
 
-	![](images/.png)
+	![](images/18.png)
 
 1. Implement following additional functionality:
 
@@ -142,15 +142,11 @@ All relevant products maintained at a bonus plan shall be considered at bonus ca
 
 1. Get the relevant products from the bonus plan
 
-	>**Hint:** The CDS view name for that sub node is
- 
-	yy1_relevantproduct_bonusplan and can be seen in Custom Business Object’s structure table by making the Data Source column visible.
+	>**Hint:** The CDS view name for that sub node is YY1_RELEVANTPRODUCTXX_BONUSPLA and can be seen in Custom Business Object’s structure table by making the Data Source column visible.
 	
-	![](images/.png) 
+	![](images/19.png) 
 
 	>**Hint:** The association between parental bonus plan and sub node data for relevant products is ensured by technical key fields. Every node has a field named sap_uuid, every sub node additionally has a sap_parental_uuid.
-	
-	![](images/.png) 
 
 1. For each product, check if it has a bonus percentage, if yes get the employee’s actual revenue from the completed Sales Orders that fulfill following conditions:
 	- created by the bonus plan’s employee
@@ -162,6 +158,7 @@ All relevant products maintained at a bonus plan shall be considered at bonus ca
 	>**Hint:** You can read custom field data at the product via CDS View “i_product”
 
 	>**Hint:** There is the CDS view I_SalesOrderItemCube with the parameters Exchange Rate (take ‘M’) and Display Currency (should be the one from bonus plan’s target amount). This view offers the netamountindisplaycurrency which does already currency conversion
+
 
 	>**Hint:** You need following view field to restrict the results correctly:
 
@@ -183,71 +180,71 @@ All relevant products maintained at a bonus plan shall be considered at bonus ca
 
 	```abap
 	" calculate product bonus
-	        DATA: relevantproducts TYPE TABLE OF yy1_relevantproduct_bonusplan.
+	        DATA: relevantproductsXX TYPE TABLE OF yy1_relevantproductXX_bonuspla.
 	        DATA: products_s TYPE string.
-	        DATA: productbonus TYPE i.
+	        DATA: productbonusXX TYPE i.
 	        DATA: products TYPE TABLE OF i_product.
 	        DATA: product LIKE LINE OF products.
 	
 	        SELECT *
-	         FROM yy1_relevantproduct_bonusplan
-	         INTO TABLE @relevantproducts
-	         WHERE sap_parent_uuid EQ @bonusplan-sap_uuid.
+	         FROM yy1_relevantproductXX_bonuspla
+	         INTO TABLE @relevantproductsXX
+	         WHERE sap_parent_uuid EQ @bonusplanXX-sap_uuid.
 	
-	        LOOP AT relevantproducts INTO DATA(relevant_product).
+	        LOOP AT relevantproductsXX INTO DATA(relevant_product).
 	        " get net amount for product
 	            SELECT *
 	             FROM i_product
 	             INTO @product
-	             WHERE i_product~product = @relevant_product-productid.
+	             WHERE i_product~product = @relevant_product-productXXid.
 	            ENDSELECT.
 	            
 	            CONCATENATE products_s product-product INTO products_s SEPARATED BY ','.
 	
-	            IF product-yy1_bonuspercentage1_prd GT 0.
-	                SELECT FROM i_salesorderitemcube( p_exchangeratetype = 'M', p_displaycurrency = @bonusplan-targetamount_c )
+	            IF product-yy1_bonuspercentage_prd GT 0.
+	                SELECT FROM i_salesorderitemcube( p_exchangeratetype = 'M', p_displaycurrency = @bonusplanXX-targetamount_c )
 	                 FIELDS SUM( netamountindisplaycurrency )
-	                 WHERE createdbyuser = @bonusplan-employeeid
+	                 WHERE createdbyuser = @bonusplanXX-employeeid
 	                  AND overallsdprocessstatus = 'C'
-	                  AND creationdate BETWEEN @bonusplan-validitystartdate AND @bonusplan-validityenddate
-	                  AND creationdate BETWEEN @product-yy1_bonusvalid1tystart_prd AND @product-yy1_bonusvalidityend1_prd
-	                  AND material = @relevant_product-productid
-	                 INTO @bonusentitlement-productbonusamount_v.
+	                  AND creationdate BETWEEN @bonusplanXX-validitystartdate AND @bonusplanXX-validityenddate
+	                  AND creationdate BETWEEN @product-yy1_bonusvaliditystart_prd AND @product-yy1_bonusvalidityend_prd
+	                  AND material = @relevant_product-productXXid
+	                 INTO @bonusentitlementXX-productbonusXXamount_v.
 	
 	        " if net amount for product greater 0, calculate its bonus
-	                IF bonusentitlement-productbonusamount_v GT 0.
-	                   bonusentitlement-productbonusamount_v = bonusentitlement-productbonusamount_v * product-yy1_bonuspercentage1_prd / 100.
-	                   productbonus = productbonus + bonusentitlement-productbonusamount_v.
+	                IF bonusentitlementXX-productbonusXXamount_v GT 0.
+	                   bonusentitlementXX-productbonusXXamount_v = bonusentitlementXX-productbonusXXamount_v * product-yy1_bonuspercentage_prd / 100.
+	                   productbonusXX = productbonusXX + bonusentitlementXX-productbonusXXamount_v.
 	                ENDIF.
 	            ENDIF.
 	
 	        ENDLOOP.
 	
-	        bonusentitlement-productbonusamount_v = productbonus.
-	        bonusentitlement-productbonusamount_c = bonusplan-targetamount_c.
+	        bonusentitlementXX-productbonusXXamount_v = productbonusXX.
+	        bonusentitlementXX-productbonusXXamount_c = bonusplanXX-targetamount_c.
 	
 	" calculate total bonus
-	        bonusentitlement-totalbonusamount_v = bonusentitlement-lowbonusamount_v + bonusentitlement-highbonusamount_v + bonusentitlement-productbonusamount_v.
-	        bonusentitlement-totalbonusamount_c = bonusplan-targetamount_c.
+	        bonusentitlementXX-totalbonusamount_v = bonusentitlementXX-lowbonusamount_v + bonusentitlementXX-highbonusamount_v + bonusentitlementXX-productbonusXXamount_v.
+	        bonusentitlementXX-totalbonusamount_c = bonusplanXX-targetamount_c.
 	
 	" write bonus plan information into description
-	        DATA(employee_s) = CONV string( bonusplan-employeename ).
-	        DATA(target_s) = CONV string( bonusplan-targetamount_v ).
-	        DATA(lowf_s) = CONV string( bonusplan-lowbonusassignmentfactor ).
-	        DATA(lowp_s) = CONV string( bonusplan-lowbonuspercentage_v ).
-	        DATA(highf_s) = CONV string( bonusplan-highbonusassignmentfactor ).
-	        DATA(highp_s) = CONV string( bonusplan-highbonuspercentage_v ).
-	        CONCATENATE 'Bonus Run for Plan: ' bonusentitlement-bonusplanid
+	        DATA(employee_s) = CONV string( bonusplanXX-employeename ).
+	"        DATA(target_s) = CONV string( bonusplanXX-targetamount_v ).
+	"        DATA(lowf_s) = CONV string( bonusplanXX-lowbonusassignmentfactor ).
+	"        DATA(lowp_s) = CONV string( bonusplanXX-lowbonuspercentage_v ).
+	"        DATA(highf_s) = CONV string( bonusplanXX-highbonusassignmentfactor ).
+	"        DATA(highp_s) = CONV string( bonusplanXX-highbonuspercentage_v ).
+	        CONCATENATE 'Bonus Run for Plan: ' bonusentitlementXX-bonusplanXXid
 	                    ' of Employee: ' employee_s
 	                    ' with Target Amount: ' target_s
 	                    ', Low Factor: ' lowf_s
 	                    ', Low Percentage: ' lowp_s
 	                    ', High Factor: ' highf_s
 	                    ', High Percentage: ' highp_s
-	                    ', Products: ' products_s INTO bonusentitlement-description SEPARATED BY space.
+	                    ', Products: ' products_s INTO bonusentitlementXX-description SEPARATED BY space.
 	```
 
-1. Publish the logic.
+1. **Publish** the logic.
 
 
 ### <a name="testing-and-creating-bonus-entitlement"></a> Testing and Creating Bonus Entitlement
@@ -256,7 +253,7 @@ All relevant products maintained at a bonus plan shall be considered at bonus ca
 
 1. Create an object.
 
-	![](images/.png) 
+	![](images/20.png) 
 
 1. Enter following data
 
@@ -267,6 +264,9 @@ All relevant products maintained at a bonus plan shall be considered at bonus ca
  
 
 1. **Save** the Bonus EntitlementXX. All Data of the Entitlement will get filled, including the product based bonus.
+
+	![](images/21.png)
+	![](images/22.png)
 
 
 ## Summary
