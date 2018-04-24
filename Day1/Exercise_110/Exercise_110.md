@@ -92,24 +92,7 @@ The communication system represents the communication partner within a communica
 
 We’ll create one Communication System for all systems that want to use our service as well as the user that they’ll have to use.
 
-1. Add the Communication_Admin Business Role ID to the user.  Open the "Maintain Business Users" Application. Search for your user and display it.
-
-	![4](images/9.png)
-	![4](images/10.png)
-
-1. Click on Add to add the business roles.
-
-	![4](images/11.png)
-1. Search for "Communication_Admin" role.  Select the role and click OK to add the role.
-
-	![4](images/12.png)
-1. Save.  
-
-	![4](images/13.png)
-1. Go back Home page.
-
-	![4](images/14.png)
-1. Refresh the Home page. You will see the "Communication Management" catalog. Open “Communication Systems” Application.
+1. Open “Communication Systems” Application.
 
 	![4](images/15.png)
 1. Start creating a new system by executing the “New” action.
@@ -123,28 +106,28 @@ We’ll create one Communication System for all systems that want to use our ser
 	| `System Name` | `External SystemXX` |
 	Note: XX is the number assigned to you for the exercise.
 
-	![4](images/17.png)
+	![4](images/17.png) 
 	… and create the system by executing the “Create” action.
 	
 1. In the Opening Details view, fill the Host Name with “External SystemXX” as well. 
 
-	![4](images/18.png)
+	![4](images/18.png) 
 1. Scroll down to “User for Inbound Communication” and start adding one by executing the “Add” action.
 
 	![4](images/19.png)
 1. In the opening Pop Up, start creating a new User by executing the “New User” action. 
 
 	![4](images/20.png)
-1. This will lead to an automatic switch to the “Create Communication User” application, where you enter User Name “EXTERNAL_USERXX”, Description “User for “External SystemXX” Communication System” and a password before you execute the “Create” action. 
+1. This will lead to an automatic switch to the “Create Communication User” application, where you enter User Name “EXTERNAL_USERXX”, Description “User for “External SystemXX Communication System” and a password before you execute the “Create” action. 
 
-	![4](images/21.png)
+	![4](images/21.png) 
 1. This will switch you back to the Pop Up, where the User Name is filled now and you can confirm to add the Inbound Communication User with action “OK”.
 The just created user will be needed by callers to make use of the services. 
 
 	![4](images/22.png)
 1. Back in the Communication System details you finish its creation with action “Save”.
 
-	![4](images/23.png)
+	![4](images/23.png) 
 	
 ### <a name="creating-a-communication-arrangement"></a> Creating a Communication Arrangement
 
@@ -155,7 +138,7 @@ Finally, a communication arrangement links the solution’s scenario with the Co
 	![4](images/24.png)
 1. Start creation by executing the “New” action. 
 
-	![4](images25.png)
+	![4](images/25.png)
 1. A pop up opens in that you use the value help for Scenario first.
 
 	![4](images/26.png)
@@ -164,7 +147,7 @@ Finally, a communication arrangement links the solution’s scenario with the Co
 	![4](images/27.png)
 1. This will set the Scenario and default the Arrangement Name, so that you can continue the creation via “Create” action. 
 
-	![4](images/28.png)
+	![4](images/28.png) 
 1. In the opening Arrangement details you only need to set the “Communication System” to “EXTERNAL_SYSTEMXX”, which will automatically set the related User Name “EXTERNAL_USERXX” as well.
 Execute “Save” to finish creation. 
 
@@ -224,8 +207,8 @@ To create a new bonus plan via the service, do the following in postman.
 	
 	```abap
 	{
-		"ValidityStartDate": "2017-01-01T00:00:00",
-    	"ValidityEndDate": "2017-12-31T00:00:00",
+		"ValidityStartDate": "2018-01-01T00:00:00",
+    	"ValidityEndDate": "2018-12-31T00:00:00",
         "LowBonusPercentage_V": "10",
         "HighBonusPercentage_V": "20",
         "EmployeeID": <any>,
@@ -235,7 +218,7 @@ To create a new bonus plan via the service, do the following in postman.
         "HighBonusAssignmentFactor": "3.00"
 	}
 	```
-	`EmployeeID` `<any>` shall be the one of a sales person that created sales orders with a Net Amount of more than 3000.00 EUR in 2016 and that are completed. In this exercise, you can use "CB9980000620". 
+	`EmployeeID` `<any>` shall be the one of a sales person that created sales orders with a Net Amount of more than 3000.00 EUR in 2016 and that are completed. In this exercise, you can use "CB9980000008". 
 1. Send the request. 
 
 	![](images/37.png)
@@ -315,6 +298,7 @@ To update an instance, you have to use the internal SAP_UUID as technical key. T
 	
 ### <a name="consumption-from-SAP-Cloud-Platform"></a> Consumption from SAP Cloud Platform
 
+####Use SAP Cloud Platform trial account####
 You can use a service in SAP CP in many different way. You can use it to build a new UI, you can call it in your Java or JavaScript coding, you can use it in HANA Cloud Integration iFlows. Here I want to show only one simple use case on how to consume it: SAP Web IDE.
 
 1. Create destination in SAP Cloud Platform. Open your SAP Cloud Platform account. Go to Connectivity > Destinations.
@@ -371,8 +355,51 @@ You can use a service in SAP CP in many different way. You can use it to build a
 	
 	![4](images/56.png)
 
-	
+####Use Configured SAP Web IDE with S/4HANA Cloud####
 
+1. Click on SAP Web IDE tile
+
+	![4](images/57.png)
+	
+1. See demo from the instructor
+
+1. After creating the application from SAP Web IDE, the application can be deployed back to S/4HANA Cloud system.
+
+	![4](images/58.png) 
+	
+	![4](images/59.png) 
+	
+	![4](images/60.png) 
+	
+	![4](images/61.png) 
+	
+	![4](images/62.png) 
+
+1. Open Custom Catalog Extensions application
+
+	![4](images/63.png) 
+	
+1. Search the application and select it. Note: The type of the application is "Custom UI App".
+
+	![4](images/64.png) 
+	
+1. Add the following business catalogs to your catalog extension:
+
+	- SAP_CORE_BC_SL_EXP
+	- SAP_CORE_BC_SL_IMP 
+	
+	Check both business catalogs and publish them.
+	
+	![4](images/65.png)
+
+1. Press F5 to refresh your page and your tile is created.
+
+	![4](images/66.png)
+	
+	![4](images/67.png)
+	
+	![4](images/69.png)
+	
 ## Summary
 This concludes the exercise. 
 
