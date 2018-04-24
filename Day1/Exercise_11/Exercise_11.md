@@ -71,7 +71,7 @@ In the first part, a Manager wants to define business objects "Bonus Plan" for e
 
 1. In the following view for editing the custom business object **Go to Fields and Logic** of the root node "Bonus PlanXX".  ![Go to Fields and Logic](images/6.png) 
 1. Click on **New** to create new field for the object. ![Creation Pop Up](images/7.png) 
-1. Enter "ID" for the Naming. Choose "Numeric Identifier" for the Type. Keep 10 for the Length. Check the Key checkbox. ![Creation Pop Up](images/8.png)
+1. Enter "ID" for the Naming. Choose "Text" for the Type. Keep 20 for the Length. Check the Key checkbox. ![Creation Pop Up](images/8.png)
 1. Repeat the above 2 steps to **create** following fields by clicking on **New** for each field.
 
 	| Field Name     | Field Properties             | Tooltip     |
@@ -88,10 +88,9 @@ In the first part, a Manager wants to define business objects "Bonus Plan" for e
 	| Employee ID | Text of length 12  | |
 	| Employee Name | Text of length 40, Read Only   | |
 
-1. The UI for maintaining fields looks as follows. ![Custom Business Object's Field List View](images/9.png)
-1. Go back via the application's **Back** button. 
+1. The UI for maintaining fields looks as follows. ![Custom Business Object's Field List View](images/10.png)
 
-	![Fiori Application's Back Button](images/10.png) 
+1. Go back via the application's **Back** button. 
 
 
 ### <a name="Adding-standard-data-to-the-structure"></a> Adding standard data to the structure
