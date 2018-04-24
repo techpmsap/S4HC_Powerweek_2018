@@ -298,7 +298,8 @@ To update an instance, you have to use the internal SAP_UUID as technical key. T
 	
 ### <a name="consumption-from-SAP-Cloud-Platform"></a> Consumption from SAP Cloud Platform
 
-####Use SAP Cloud Platform trial account####
+##Use SAP Cloud Platform trial account
+
 You can use a service in SAP CP in many different way. You can use it to build a new UI, you can call it in your Java or JavaScript coding, you can use it in HANA Cloud Integration iFlows. Here I want to show only one simple use case on how to consume it: SAP Web IDE.
 
 1. Create destination in SAP Cloud Platform. Open your SAP Cloud Platform account. Go to Connectivity > Destinations.
@@ -355,7 +356,7 @@ You can use a service in SAP CP in many different way. You can use it to build a
 	
 	![4](images/56.png)
 
-####Use Configured SAP Web IDE with S/4HANA Cloud####
+##Use Configured SAP Web IDE with S/4HANA Cloud
 
 1. Click on SAP Web IDE tile
 
