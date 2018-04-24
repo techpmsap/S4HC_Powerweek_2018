@@ -35,3 +35,6 @@ S/4 HANA Cloud Powerweek 2018 Exercises
 
 ### DAY 3
 - [Exercise\_31 - Multitenant applications](Day3/Exercise_31/Exercise_31.md)
+
+### Appendix
+- [Useful Links and Information](Appendix/useful_info.md)
