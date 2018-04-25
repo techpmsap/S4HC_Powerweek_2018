@@ -38,41 +38,9 @@ Here below are prerequisites for this exercise.
 
 ## Steps
 
-1. [Download, install and configure Eclipse IDE](#configure-eclipse)
 1. [Create your first project](#project-creation)
 1. [Deploy the app to Cloud Foundry](#deploy-to-cf)
 1. [Switch from random to fixed route](#fixed-route)
-
-
-
-### <a name="configure-eclipse"></a> Configure Eclipse IDE
-Here you are going to see how to install the YAML Editor plugin which will be used later in this course. If you have already installed it as explained in the Prerequisites to this exercise series, feel free to skip this chapter.
-
-1. Open **Eclipse IDE** from your application directory  
-	![](images/01.png)
-
-1. Specify your workspace directory and click **Launch**  
-	![](images/02.png)
-
-1. Disable the **Welcome page** and click on the **Workbench** button to go straight to your workbench  
-	![](images/03.png)
-
-1. It's important for the next exercises to install an Eclipse plugin which allows us to easily manage **YAML** files. For this reason, click on **Help -> Eclipse Marketplace...**  
-	![](images/04.png)
-
-1. Enter the text "**yml**" in the search box and install the **YEdit** plugin  
-	![](images/05.png)
-
-1. Accept the license agreement and click **Finish**  
-	![](images/06.png)
-
-1. Click **Install anyway**  
-	![](images/07.png)
-
-1. Restart Eclipse  
-	![](images/08.png)
-
-1. The configuration is complete!
 
 ### <a name="project-creation"></a> Create your first project
 In this chapter you are going to create your first project using the S/4HANA Cloud SDK. This is just a "Hello World" project, which means that it's just a very basic Java application serving a page which displays a simple "Hello World" message. Let's start with this and you will learn how to modify this project in the next exercises.
