@@ -347,7 +347,7 @@ In this chapter you are going to see how to use Spring Security for securing you
 1. It should finish successfully  
 	![](images/42.png)
 
-1. Push the application again  
+1. Make sure you are in your bpr_cf_<SAP_CP_USER_ID> project folder. Then push the application again  
 	![](images/43.png)
 
 1. After the deployment, close completely your browser
