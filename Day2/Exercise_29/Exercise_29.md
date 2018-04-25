@@ -110,7 +110,8 @@ In this chapter you are going to see how to implement Virtual Data Model in your
 	        .execute(getConfigContext())
 	        .asList(BPDetails.class);
 	```
-with the following
+	
+1. with the following:
 
 	```java
 	final  List<BusinessPartner> businessPartners = new DefaultBusinessPartnerService().getAllBusinessPartner()
