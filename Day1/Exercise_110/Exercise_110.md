@@ -298,7 +298,7 @@ To update an instance, you have to use the internal SAP_UUID as technical key. T
 	
 ### <a name="consumption-from-SAP-Cloud-Platform"></a> Consumption from SAP Cloud Platform
 
-##Use SAP Cloud Platform trial account
+**Use SAP Cloud Platform trial account**
 
 You can use a service in SAP CP in many different way. You can use it to build a new UI, you can call it in your Java or JavaScript coding, you can use it in HANA Cloud Integration iFlows. Here I want to show only one simple use case on how to consume it: SAP Web IDE.
 
@@ -356,7 +356,7 @@ You can use a service in SAP CP in many different way. You can use it to build a
 	
 	![4](images/56.png)
 
-##Use Configured SAP Web IDE with S/4HANA Cloud
+**Use Configured SAP Web IDE with S/4HANA Cloud**
 
 1. Click on SAP Web IDE tile
 
@@ -406,4 +406,67 @@ This concludes the exercise.
 
 You should have learned how to expose the custom business object as web service for integration of your solution with other systems.
 
+## Apendix
 
+The following are the screens shots for using the SAP Web IDE tile to develop the apps and deployment back to SAP S/4HANA Cloud.  These will be better documented after this week's workshop.
+
+![ ](images/57.png)
+
+![ ](images/70.png)
+
+![ ](images/71.png)
+
+![ ](images/72.png)
+
+![ ](images/73.png)
+
+![ ](images/74.png)
+
+![ ](images/75.png)
+
+![ ](images/76.png)
+
+![ ](images/77.png)
+
+You can see the preview.
+
+![ ](images/78.png)
+
+Close it.
+
+![ ](images/79.png)
+
+![ ](images/80.png)
+
+![ ](images/81.png)
+
+![ ](images/82.png)
+
+![ ](images/83.png)
+
+![ ](images/84.png)
+
+![ ](images/85.png)
+
+![ ](images/86.png)
+
+![ ](images/87.png)
+
+![ ](images/88.png)
+
+![ ](images/89.png)
+
+![ ](images/90.png)
+
+![ ](images/91.png)
+
+![ ](images/92.png)
+
+![ ](images/93.png)
+
+The End.
+
+
+
+
+	

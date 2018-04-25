@@ -1,0 +1,13 @@
+#Password=<< Existing password/certificate removed on export >>
+#
+#Tue Apr 24 10:19:36 UTC 2018
+Description=S4HC
+Type=HTTP
+Authentication=BasicAuthentication
+WebIDEUsage=odata_gen
+Name=S4HC
+WebIDEEnabled=true
+ProxyType=Internet
+URL=https\://my301290.s4hana.ondemand.com
+User=EXTERNAL_USER99
+WebIDESystem=S4HC
