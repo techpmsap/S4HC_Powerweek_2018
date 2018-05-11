@@ -54,7 +54,7 @@ In the upcoming exercises you will learn how to retrieve and work with data usin
 1. Click on **New** to create a new communication system  
 	![](images/04.png)
 
-1. Enter **BP\_EXT\_SYSTEM\_XX** for both the System ID and the System Name, replacing **XX** with your workstation ID received by the instructor; then click **Create**  
+1. Enter **BP\_EXT\_SYSTEM\_\<LOC\>\_XX** for both the System ID and the System Name, replacing **\<LOC\>** with the location's acronym where you are attending the workshop (i.e. WDF for Walldorf) and **XX** with your workstation ID. Both information will be provided you by the instructor. When done click **Create**  
 	![](images/05.png)
 
 1. Enter
@@ -76,11 +76,11 @@ In the upcoming exercises you will learn how to retrieve and work with data usin
 
 	| Parameter | Value |
 	| --------- | ----- |
-	| User Name | BP\_EXT\_CU\_XX |
-	| Description | BP External Communication User XX |
+	| User Name | BP\_EXT\_CU\_\<LOC\>\_XX |
+	| Description | BP External Communication User \<LOC\> XX |
 	| Password | "A password with at least 8 chars with a upper case char,numbers and a special character (i.e. Welcome123#)" |
 
-(where **XX** is your workstation ID)
+(where **\<LOC\>** with the location's acronym where you are attending the workshop and **XX** is your workstation ID)
 
 Then click on the **Create** button  
 	![](images/09.png)
@@ -118,13 +118,13 @@ The next step is to create a new Communication Arrangement.
 1. Select the **SAP\_COM\_0008** scenario  
 	![](images/18.png)
 
-1. Enter **BP\_COMM\_ARR\_XX** as Arrangement Name replacing **XX** with your workstation ID; then click **Create**  
+1. Enter **BP\_COMM\_ARR\_\<LOC\>\_XX** as Arrangement Name replacing **\<LOC\>** with the location's acronym where you are attending the workshop and **XX** with your workstation ID; then click **Create**  
 	![](images/19.png)
 
 1. Browse for a Communication System    
 	![](images/20.png)
 
-1. Select the Communication System **BP\_EXT\_SYSTEM\_XX** you created earlier where **XX** is your workstation ID
+1. Select the Communication System **BP\_EXT\_SYSTEM\_\<LOC\>\_XX** you created earlier where **\<LOC\>** with the location's acronym where you are attending the workshop and **XX** is your workstation ID
 	![](images/21.png)
 
 1. The correct information is loaded automatically. 
@@ -161,7 +161,7 @@ In order to test the service provided by your new Communication Arrangement you 
 	- paste the **URL** you got at the end of the previous chapter
 	- click on **the Authorization tab**
 	- select **Basic Auth**
-	- enter your **Communication User** with its password (**XX** is your workstation ID)
+	- enter your **Communication User** with its password
 	- click the **Send** button
 	
 	![](images/30.png)
