@@ -75,7 +75,8 @@ Let’s first create sample servlet application to test connectivity service fun
 ![](images/03.png)
 1.	Browse for the path to the folder where you extracted the *multitenant.zip* file, check that the *pom.xml* file is selected and click on **Finish**. Maven project is getting imported into local workspace  
 	![](images/04.png)
-1. Right click on the project name and choose **Refactor->Rename**. Since all the attendees to this workshop will be deploying applications to a shared SAP Cloud Platform account, they need to have different application names  	![](images/05.png)
+1. Right click on the project name and choose **Refactor->Rename**. Since all the attendees to this workshop will be deploying applications to a shared SAP Cloud Platform account, they need to have different application names  
+	![](images/05.png)
 	> NOTE: Refactor renames the selected element and (if enabled) corrects all references to the elements (also in other files).
 
 1. Give a project unique name like **multitenant\<XX\>**, where **\<XX\>** is the **workstation ID** assigned by your instructor  
@@ -180,7 +181,7 @@ Look here to get more information: <https://help.sap.com/viewer/65de2977205c403b
 	![](images/21.png)
 1. Now the **testuser** has this **Admin** role assigned  
 	![](images/22.png)
-1. Download the file [search\_engine\_destination.txt](files/search_engine_destination.txt) by right clicking on this link and choosing **Save link as...**  
+1. Download the file [search\_engine\_destination.txt](files/search_engine_destination.txt?raw=true) by right clicking on this link and choosing **Save link as...**  
 1. Click on the **Connectivity** tab and choose **Import existing Destination**  
 	![](images/23.png)
 1. Select the file you have just downloaded  
