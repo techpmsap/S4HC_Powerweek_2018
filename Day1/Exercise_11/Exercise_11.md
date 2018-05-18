@@ -33,16 +33,6 @@ Below are the prerequisites for this exercise.
 * Google Chrome: Please complete this exercise using the Google Chrome browser
 * **Authorizations:** Your user needs a business role with business catalog **Extensibility** (ID: `SAP_CORE_BC_EXT`)
 
-## Notes
-  
-In order to separate the objects and data created in different workshops, please replace the **LOC** to the location of workshop that your instructor has instructed.  For example:
-
-	- SYD for Sydney
-	- SAO for Sao Paulo
-	- TOK for Tokyo
-	- WDF for Walldorf
-
-Replace the **XX** with the number that your instructor has assigned to you for all the exercises. For example, "Bonus LOCXX" should be "Bonus SYD01" for the workshop in Sydney and assigned number 01. 
 
 ## Steps
 
@@ -63,44 +53,26 @@ In the first part, a Manager wants to define business objects "Bonus Plan" for e
 
 **Start** with checking the prerequisite role.
 
-1. Logon to the S/4HANA Cloud system.  The presenter will provide you the logon user and password.  The **XX** is the number that you have been assigned to use for the exercise. 
-
-	![](images/1.png)
-1. You will see applications for the catalog of Extensibility.  
-
-	![](images/2.png)
+1. Logon to the S/4HANA Cloud system.  The presenter will provide you the logon user and password.  The **XX** is the number that you have been assigned to use for the exercise. ![Maintain Business Users application tile](images/1.png)
+1. You will see applications for the catalog of Extensibility.  ![Maintain Business Users application tile](images/2.png)
 
 ### <a name="creating-a-new-custom-business-object"></a> Creating a new Custom Business Object
 
 1. **Create** the Custom Business Object's application by clicking its tile 
 
-	![](images/3.png)
-	
-1. Press the **New** action to start creation of a Custom Business Object  
+	![Custom Business Objects application tile](images/3.png)
+1. Press the **New** action to start creation of a Custom Business Object  ![Press New](images/4.png)
+1. In the opening pop Up **fill** in the Name "Bonus PlanXX". The other editable fields will get proposals automatically but can be changed.  
 
-	![](images/4.png)
-	
-1. In the opening pop Up **fill** in the Name "Bonus LOCXX". The other editable fields will get proposals automatically but can be changed. 
-
-	![](images/5.png) 
-	
+	![Creation Pop Up](images/5.png) 
 1. Execute the **Create** action.
 
 ### <a name="defining-the-data-structure"></a> Defining the data structure
 
-1. In the following view for editing the custom business object **Go to Fields and Logic** of the root node "Bonus LOCXX".  
-
-	![](images/6.png) 
-	
-1. Click on **New** to create new field for the object. 
-
-	![](images/7.png) 
-	
-1. Enter "ID" for the Naming. Choose "Text" for the Type. Keep 20 for the Length. Check the Key checkbox. 
-
-	![](images/8.png)
-	
-1. Repeat the above 2 steps to **create** following fields by clicking on **New** for each field. 
+1. In the following view for editing the custom business object **Go to Fields and Logic** of the root node "Bonus PlanXX".  ![Go to Fields and Logic](images/6.png) 
+1. Click on **New** to create new field for the object. ![Creation Pop Up](images/7.png) 
+1. Enter "ID" for the Naming. Choose "Text" for the Type. Keep 20 for the Length. Check the Key checkbox. ![Creation Pop Up](images/8.png)
+1. Repeat the above 2 steps to **create** following fields by clicking on **New** for each field.
 
 	| Field Name     | Field Properties             | Tooltip     |
 	| :------------- | :--------------------------- | :-----------|
@@ -116,34 +88,22 @@ In the first part, a Manager wants to define business objects "Bonus Plan" for e
 	| Employee ID | Text of length 12  | |
 	| Employee Name | Text of length 40, Read Only   | |
 
-1. The UI for maintaining fields looks as follows. 
-	
-	![](images/10.png)
+1. The UI for maintaining fields looks as follows. ![Custom Business Object's Field List View](images/10.png)
 
 1. Go back via the application's **Back** button. 
-
-	![](images/9.png)
 
 
 ### <a name="Adding-standard-data-to-the-structure"></a> Adding standard data to the structure
 
-1. Back in the business Object's definition overview, **check** the "System Administrative Data" box to add standardized fields for `Created On`, `Created By`, `Last Changed On` and `Last Changed By`.  
-
-	![](images/11.png) 
-	
+1. Back in the business Object's definition overview, **check** the System Administrative Data box to add standardized fields for `Created On`, `Created By`, `Last Changed On` and `Last Changed By`.  ![Check System Administrative Data](images/11.png)
 	By checking this box the four fields also appear as uneditable in the field list.  These fields will be filled and updated automatically, so that you do not need to implement logic for this. Logic implementations for these fields even would be ignored.
 
 ### <a name="creating-the-database-persistence"></a> Creating the database persistence
 
-1. **Publish** the Business Object "Bonus LOCXX".  
-
-	![](images/12.png) 
-	
+1. **Publish** the Business Object `Bonus PlanXX`.  ![Press Publish](images/12.png)
 	This creates the database persistence of the Business Object.
 	
-1. You will see **Published** in green for this object when the publishing is completed. 
-
-	![](images/13.png)
+1. You will **Published** in green for this object when the publishing is completed. ![Press Publish](images/14.png)
 
 
 ## Summary
