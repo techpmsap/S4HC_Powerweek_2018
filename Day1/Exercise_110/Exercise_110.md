@@ -161,26 +161,32 @@ Execute “Save” to finish creation.
 POSTMAN application is there to test Web services by sending requests and receiving responses.
 All included postman screenshots are reprinted with permission © Postdot Technologies Inc. All rights reserved.
 
-####General test####
+#### General test ####
 
 1. Start the POSTMAN application. Ensure that you have disabled “SSL certificate verification” (File > Settings > General)
 
-	![4](images/31.png)
-1. Enter the Service URL and execute “Send” action. You will get a Login Error as response in the response section, but this already shows that the system as such is reachable. 
+	![](images/31.png)
+1. Enter the Service URL and execute **Send** action.
 
-	![4](images/32.png)
-1. Change authorization type to “Basic Auth” now, enter Username “EXTERNAL_USERXX” and the Password that you set for External_USERXX.
+   You will get **401 Unauthorized** as response in the response section if you start the POSTMAN from the chrome browser which has certificate that belongs to other system.
+   
+   You will get **200 OK** as response in the response section if you start the POSTMAN from the chrome browser which you have logon to the S/4HANA system.
+   
+   The response indeicates that the system is reachable. 
+	![](images/32.png)
+	
+1. Change authorization type to **Basic Auth** now, enter Username **EXTERNAL_USERXX** and the Password that you set for External_USERXX. Click on **Update Request**. **Send** the service request again. 
 
-	![4](images/33.png)
-1. Send the service request again. Now you will get a successful response of the service.
+	![](images/33.png) 
+	
+1. Now you will get a successful response **200 OK** of the service. This way you can test, if the service is working in general.
 
-	![4](images/34.png)
-1. This way you can test, if the service is working in general.
+	![](images/34.png) 
 
-####Create a Bonus Plan instance####
+#### Create a Bonus Plan instance ####
 
-#####Get X-CSRF-Token#####
-Whenever you want to do a change to the Custom Business Object’s persistence, for security reasons you need to send a X-CSRF-Token with that change request. To get such a Token you have to send a get request first, which fetches one.
+##### Get X-CSRF-Token #####
+Whenever you want to do a change to the Custom Business Object’s persistence, for security reasons you need to send a **X-CSRF-Token** with that changes request. To get such a token, you have to send a get request first to fetch it.
 
 1. Enter the basic service request URL of Bonus Plans
 1. Ensure to be on “Headers” tab.
@@ -188,96 +194,113 @@ Whenever you want to do a change to the Custom Business Object’s persistence, 
 1. Send the request. 
 1. Copy the returned X-CSRF-Token to clipboard. 
 
-	![](images/35.png)
-	The gotten token will be valid for 30 minutes and fetching a token will return the same as long as validity has not ended yet.
+	![](images/35.png) 
+	The fetched token will be valid for **30** minutes and fetching a token will return the same as long as validity has not ended yet.
 
-#####Create Instance#####
+##### Create Instance #####
 To create a new bonus plan via the service, do the following in postman.
 
-1. Change the request method to “Post”.
-1. As the basic service URL returns only the overview of all reachable Entity Sets (= Collections), you have to narrow it down for Bonus Plans by appending their Entity Set name “/YY1_BONUSPLANXX”
-1. Paste the before gotten X-CSRF-Token as value to the corresponding header key
-1. Add new header key “Accept” with value “application/json”, this will ensure that the response will be gotten in JSON format, which is easier to work with than XML.
+1. Change the request method to **POST**.
+1. As the basic service URL returns only the overview of all reachable Entity Sets (= Collections), you have to narrow it down for Bonus Plans by appending their Entity Set name `/YY1_BONUSPLANXX`
+1. Paste the previous fetched X-CSRF-Token as value to the corresponding header key
+1. Add new header key **Accept** with value `application/json`, this will ensure that the response will be gotten in JSON format, which is easier to work with than XML.
+1. Add new header key **Content-Type** with value `application/json`
 
-	![](images/36.png)
+	![](images/36.png) 
+	
 1. Switch to the Body tab
-1. Set the body type to “raw” 
-1. Now you additionally set the editor type “JSON”, which will enable correct syntax highlighting and header key for Content-Type
+1. Set the body type to **raw**
+1. Set the editor type **JSON (application/json)**, which will enable correct syntax highlighting and header key for Content-Type
 1. Enter the initial data for the to be created bonus plan in JSON format to the editor
 	
-	```abap
+	```
 	{
-		"ValidityStartDate": "2018-01-01T00:00:00",
-    	"ValidityEndDate": "2018-12-31T00:00:00",
-        "LowBonusPercentage_V": "10",
-        "HighBonusPercentage_V": "20",
-        "EmployeeID": <any>,
+		"ValidityStartDate": "/Date(1514764800000)/",
+    	"ValidityEndDate": "/Date(1546214400000)/",
+        "LowBonusPercentage_V": "10.000",
+        "HighBonusPercentage_V": "20.000",
+        "EmployeeID": "<any>",
         "TargetAmount_V": "1000.00",
         "TargetAmount_C": "EUR",
         "LowBonusAssignmentFactor": "1.00",
         "HighBonusAssignmentFactor": "3.00"
 	}
 	```
-	`EmployeeID` `<any>` shall be the one of a sales person that created sales orders with a Net Amount of more than 3000.00 EUR in 2016 and that are completed. In this exercise, you can use "CB9980000008". 
-1. Send the request. 
+	
+	**ValidityStartDate** "/Date(1514764800000)/" is the json format for 01/01/2018. 
+	
+	**ValidityEndDate** "/Date(1546214400000)/" is the json format for 12/31/2018. 
+	
+	**EmployeeID** "<any>" shall be the one of a sales person that created sales orders with a Net Amount of more than 3000.00 EUR in 2018 and that are completed. In this exercise, you can use "CB9980000008" or your own ID.
+	
+1. **Send** the request. 
+
+	![](images/38.png) 
+
+1. You will get **201 Created** status. You will see a new instance has been created. From the **ID** you can see, that it’s a new one and the logic automatically fill the data accordinly.
 
 	![](images/37.png)
-1. The response will show the new instance’s data. From the ID you can see, that it’s a new one and that the logic to fill data automatically also worked successfully. 
-
-	![](images/38.png)
 	
-####Update a Bonus Plan instance####
+#### Update a Bonus Plan instance ####
 
-#####Get SAP_UUID#####
+##### Get SAP_UUID #####
 
 To update an instance, you have to use the internal SAP_UUID as technical key. To get this unique key, do the following steps
 
-1. Switch the request method to “GET” and enter the request URL for bonus plan entities with the parameters 
+1. Switch the request method to **GET** and enter the request URL for bonus plan entities with the parameters 
 
 	| Parameter Name | Parameter Value | Description  |
 	|------------|-------------|-------------|
-	| `filter` | `ID eq ‘2’` | `filters for bonus plan of which the semantic key “ID” has value 2`  |
+	| `filter` | `ID eq ‘                  2’` | `filters for bonus plan of which the semantic key “ID” has value 2`  |
 	| `select` | `SAP_UUID` | `restricts response data for the chosen bonus plan to its SAP_UUID`    |
+	
+	
 	The request will look like below:
 	
-	https://<YOUR_SYSTEMS_URL>/sap/opu/odata/sap/YY1_BONUSPLANXX_CDS/YY1_BONUSPLANXX?$filter=ID%20eq%20'2'&$select=SAP_UUID
+	`https://<YOUR_SYSTEMS_URL>/sap/opu/odata/sap/YY1_BONUSPLANXX_CDS/YY1_BONUSPLANXX?$select=SAP_UUID&$filter=ID%20eq%20'                  2'`
+	
+	Pay attention to the ID number.  We have define the ID as "Text of length 20". The ID has 20 length `'                  2'`.
 	
 	This is the example for using our system:
-	https://my300271-api.s4hana.ondemand.com/sap/opu/odata/sap/YY1_BONUSPLAN03_CDS/YY1_BONUSPLAN03?$filter=ID%20eq%20'1'&$select=SAP_UUID
+	`https://my301290-api.s4hana.ondemand.com/sap/opu/odata/sap/YY1_BONUSPLANXX_CDS/YY1_BONUSPLANXX?$select=SAP_UUID&$filter=ID%20eq%20'                  2'`
 	
-1. Send the request.
-1. Copy SAP_UUID to clipboard.
+1. **Send** the request.
+
+1. Copy **SAP_UUID** to clipboard.
 
 	![](images/39.png)
 
-#####Update#####
+##### Update #####
 
-1. Switch the request method to “PATCH”.
-1. Enter the request URL for a bonus plan entity and add the before gotten guid to its end following this syntax “(guid'<guid_value>’)”, for example */YY1_BONUSPLAN(guid’8cdcd4a8-05c0-1ed7-8ec1-84ed870dedb5′)
+1. Switch the request method to **PATCH**.
+1. Enter the request URL for a bonus plan entity. And add the previous gotten **guid** to the end following this syntax `(guid'<guid_value>’)`, for example `/YY1_BONUSPLAN(guid’8cdcd4a8-05c0-1ed7-8ec1-84ed870dedb5′)`
 	
 	The request will look like below:
 	
-	https://<YOUR_SYSTEMS_URL>/sap/opu/odata/sap/YY1_BONUSPLANXX_CDS/YY1_BONUSPLANXX(guid'<guid_value>')
+	`https://<YOUR_SYSTEMS_URL>/sap/opu/odata/sap/YY1_BONUSPLANXX_CDS/YY1_BONUSPLANXX(guid'<guid_value>')`
 	
 	This is the example for using our system:
 
-	https://my300271-api.s4hana.ondemand.com/sap/opu/odata/sap/YY1_BONUSPLAN03_CDS/YY1_BONUSPLAN03(guid'00163e39-3b39-1ee7-afd1-fc3701e4eed5')
+	`https://my301290-api.s4hana.ondemand.com/sap/opu/odata/sap/YY1_BONUSPLANXX_CDS/YY1_BONUSPLANXX(guid'00163e59-c752-1ee8-91d9-5b81e449bccd')`
 	
 1. Enter following JSON to the body
 
-	```abap
+	```
 	{
-		"ValidityStartDate": "2017-01-01T00:00:00",
-    	"ValidityEndDate": "2017-12-31T00:00:00"
+		"ValidityStartDate": "/Date(1514764800000)/",
+    	"ValidityEndDate": "/Date(1546214400000)/"
 	}
 	```
 	
-1. Send the request
+1. **Send** the request
+
 1. You will see that the update worked as you do get an empty body as response.
 
 	![](images/40.png)
 
-####Using the service####
+#### Using the service (Optional) ####
+Note 1 : You can skip this exercise if you have MacBook. 
+Note 2: This exercise only works for Microsoft Office 365.  If you have older version of the Microsoft Office, it does not work.
 
 1. Open Microsoft Excel with a new “Book” (= excel file)
 1. Go to “Data” tab > “New Query” > “From Other Sources” > “From OData Feed”
@@ -358,7 +381,7 @@ You can use a service in SAP CP in many different way. You can use it to build a
 
 **Use Configured SAP Web IDE with S/4HANA Cloud**
 
-1. Click on SAP Web IDE tile
+1. Click on **SAP Web IDE** tile
 
 	![4](images/57.png)
 	
