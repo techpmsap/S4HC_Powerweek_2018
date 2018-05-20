@@ -215,8 +215,8 @@ To create a new bonus plan via the service, do the following in postman.
 	
 	```
 	{
-		"ValidityStartDate": "/Date(1514764800000)/",
-    	"ValidityEndDate": "/Date(1546214400000)/",
+        "ValidityStartDate": "/Date(1514764800000)/",
+        "ValidityEndDate": "/Date(1546214400000)/",
         "LowBonusPercentage_V": "10.000",
         "HighBonusPercentage_V": "20.000",
         "EmployeeID": "<any>",
@@ -259,7 +259,7 @@ To update an instance, you have to use the internal SAP_UUID as technical key. T
 	
 	`https://<YOUR_SYSTEMS_URL>/sap/opu/odata/sap/YY1_BONUSPLANXX_CDS/YY1_BONUSPLANXX?$select=SAP_UUID&$filter=ID%20eq%20'                  2'`
 	
-	Pay attention to the ID number.  We have define the ID as "Text of length 20". The ID has 20 length `'                  2'`.
+	Pay attention to the ID number.  We have define the ID as "Text of length 20". The ID has length 20.
 	
 	This is the example for using our system:
 	`https://my301290-api.s4hana.ondemand.com/sap/opu/odata/sap/YY1_BONUSPLANXX_CDS/YY1_BONUSPLANXX?$select=SAP_UUID&$filter=ID%20eq%20'                  2'`
@@ -300,6 +300,7 @@ To update an instance, you have to use the internal SAP_UUID as technical key. T
 
 #### Using the service (Optional) ####
 Note 1 : You can skip this exercise if you have MacBook. 
+
 Note 2: This exercise only works for Microsoft Office 365.  If you have older version of the Microsoft Office, it does not work.
 
 1. Open Microsoft Excel with a new “Book” (= excel file)
