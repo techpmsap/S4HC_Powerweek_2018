@@ -44,9 +44,11 @@ Below are the prerequisites for this exercise.
 ## Steps
 
 1. [Creating the Business Object Bonus Entitlement](#creating-the-business-object-bonus-entitlement)
-1. [Enhancing Bonus Plan structure](#enhancing-bonus-plan-structure)--
-1. [Enhancing Bonus Plan logic](#enhancing-bonus-plan-logic)--
-1. [Testing Bonus Plan](#testing-bonus-plan)--
+1. [Defining the data structure](#defining-the-data-structure)
+1. [Implementing the Bonus Entitlement’s Business logic](#implementing-the-bonus-entitlement-business-logic)
+1. [Implement Before Save](#implement-before-save)
+1. [Maintain Catalog](#maintain-catalog)
+1. [Test via the UI](#test-via-the-UI)
 
 ### <a name="creating-the-business-object-bonus-entitlement"></a> Creating the Business Object Bonus Entitlement
 
@@ -104,7 +106,7 @@ Create the second Business Object, named Bonus Entitlement.
 
 ### <a name="implementing-the-bonus-entitlement-business-logic"></a> Implementing the Bonus Entitlement’s Business logic
 
-####After Modification
+#### After Modification
 
 Implement After Modification event with following fix value functionality:
 
@@ -135,7 +137,7 @@ Implement After Modification event with following fix value functionality:
 
 1. Enter the consistency check coding.
 	
-	```abap
+	```
 	DATA: bonusplanXX TYPE yy1_bonusplanXX.
 	DATA: bonusplanXX_id TYPE yy1_bonusplanXX-id.
 	
@@ -156,11 +158,12 @@ Implement After Modification event with following fix value functionality:
 	    ENDSELECT.
 	
 	    IF bonusplanXX-releasestatusXX EQ '2'.
-	"" fill calculation period (should actually be done by plan when creating entitlement)
+	" fill calculation period (should actually be done by plan when creating entitlement)
 	        bonusentitlementXX-calculationstartdate = bonusplanXX-validitystartdate.
-	        bonusentitlementXX-calculationenddate = bonusplanXX-validityenddate.	```
+	        bonusentitlementXX-calculationenddate = bonusplanXX-validityenddate.
+	```
 	
-####Bonus Calculation
+#### Bonus Calculation
 
 1. Get the employee’s actual revenue from the completed Sales Orders that he created in the validity period of the bonus plan
 
@@ -173,7 +176,7 @@ Implement After Modification event with following fix value functionality:
 	- “creationdate”
 
 	
-	```abap
+	```
 	" get completed Sales Orders for bonus planXX's employee
 	        SELECT FROM i_salesorderitemcube( p_exchangeratetype = 'M', p_displaycurrency = @bonusplanXX-targetamount_c )
 	         FIELDS SUM( netamountindisplaycurrency )
@@ -194,7 +197,7 @@ Implement After Modification event with following fix value functionality:
 
 	>**Hint:** If (ActualRevenueAmount / TargetAmount) > HighBonusPercentage, then HighBonusAmount (ActualRevenueAmount – (TargetAmount * HighBonusAssignmentFactor)) * HighBonusPercentage.
 
-	```abap
+	```
 	" calculate minimum bonus
 	        IF ( bonusentitlementXX-actualrevenueamount_v / bonusplanXX-targetamount_v ) GT bonusplanXX-lowbonusassignmentfactor.
 	            bonusentitlementXX-lowbonusamount_v = bonusentitlementXX-actualrevenueamount_v * bonusplanXX-lowbonuspercentage_v / 100.
@@ -217,7 +220,7 @@ Implement After Modification event with following fix value functionality:
 1. Sum the different bonuses to the Total one.
 1. For information write bonus plan data into the description
 
-	```abap
+	```
 	" calculate total bonus
 	        bonusentitlementXX-totalbonusamount_v = bonusentitlementXX-lowbonusamount_v + bonusentitlementXX-highbonusamount_v.
 	        bonusentitlementXX-totalbonusamount_c = bonusplanXX-targetamount_c.
@@ -242,7 +245,7 @@ Implement After Modification event with following fix value functionality:
 
 1. The complete coding for after modification is below.
 
-	```abap
+	```
 	* After Modify Determination for Node ID BONUSENTITLEMENT50
 	*
 	* Importing Parameter : association (Navigation to Parent/Child/Associated Node Instances)
@@ -341,15 +344,15 @@ Implement After Modification event with following fix value functionality:
 
 1. Click on **Before Save (Published)**.
 
-	![Before Save](images/14.png)
+	![](images/14.png)
 	
 1. Click on **Create Draft**.
 
-	![Create Draft](images/15.png)
+	![](images/15.png)
 
 1. Enter the following:
 
-	```abap
+	```
 	valid = abap_false.
 	
 	* check for consistency
@@ -403,7 +406,7 @@ These are the possible errors in detail:
       - LowBonusAssignmentFactor must be < HighBonusAssignmentFactor
       - Empoyee ID must be set
 
-	```abap
+	```
 	* consistency error message START
 
 	* consistency error message  END
@@ -415,11 +418,11 @@ These are the possible errors in detail:
 	
 1. Go back and check both After Modication and Before Save are Published.
 
-	![Back](images/.17png)	
-	![Back](images/.18png)	
+	![](images/17.png)	
+	![B](images/18.png)	
 1. Go Back.
 
-	![Back](images/.17png)	
+	![Back](images/17.png)	
 	
 ### <a name="maintain-catalog"></a> Maintain Catalog
 
