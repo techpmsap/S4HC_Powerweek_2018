@@ -45,19 +45,19 @@ Below are the prerequisites for this exercise.
 
 ## Steps
 
-####Method 1: Custom Field – via extensible Application (Product)
+#### Method 1: Custom Field – via extensible Application (Product)
 
 1. [Creating a Custom Field and adding it to the UI](#creating-custom-field)
 1. [Testing Custom Field Data](#testing-custom-field-data)
 
-####Method 2: Custom Field (Product) – via Extensibility Application
+#### Method 2: Custom Field (Product) – via Extensibility Application
 
 1. [Creating and Enabling UI Usage of a Custom Field](#creating-and-enabling-ui-usage)
 1. [Creating a Second Field](#creating-second-field)
 1. [Adapting the UI](#adapting-the-ui)
 1. [Testing Custom Field Data](#testing-custom-field-data-2)
 
-####Method 1: Custom Field – via extensible Application (Product)
+#### Method 1: Custom Field – via extensible Application (Product)
 
 To calculate a product related bonus, the standard business object “Product” gets a custom field for Bonus Percentage
 
@@ -169,7 +169,7 @@ To calculate a product related bonus, the standard business object “Product”
 
 	![ ](images/34.png) 
 
-####Method 2: Custom Field (Product) – via Extensibility Application
+#### Method 2: Custom Field (Product) – via Extensibility Application
 
 ### <a name="creating-and-enabling-ui-usage"></a> Creating and Enabling UI Usage of a Custom Field
 
