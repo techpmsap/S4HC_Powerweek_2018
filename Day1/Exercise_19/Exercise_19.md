@@ -179,7 +179,7 @@ All relevant products maintained at a bonus plan shall be considered at bonus ca
 1. Write a listing of products into the bonus entitlement’s description
 
 
-	```abap
+	```
 	" calculate product bonus
 	        DATA: relevantproductsXX TYPE TABLE OF yy1_relevantproductXX_bonuspla.
 	        DATA: products_s TYPE string.

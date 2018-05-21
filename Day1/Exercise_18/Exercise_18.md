@@ -105,7 +105,7 @@ Below are the prerequisites for this exercise.
 
 	>**Hint:** Use CDS view I_ProductDescription and filter with the current productid and language english.
 
-	```abap
+	```
 	SELECT
 	   i_productdescription~productdescription
 	 FROM
