@@ -185,7 +185,8 @@ All included postman screenshots are reprinted with permission © Postdot Techno
 
 #### Create a Bonus Plan instance ####
 
-##### Get X-CSRF-Token #####
+**Get X-CSRF-Token**
+
 Whenever you want to do a change to the Custom Business Object’s persistence, for security reasons you need to send a **X-CSRF-Token** with that changes request. To get such a token, you have to send a get request first to fetch it.
 
 1. Enter the basic service request URL of Bonus Plans
@@ -197,7 +198,8 @@ Whenever you want to do a change to the Custom Business Object’s persistence, 
 	![](images/35.png) 
 	The fetched token will be valid for **30** minutes and fetching a token will return the same as long as validity has not ended yet.
 
-##### Create Instance #####
+**Create Instance**
+
 To create a new bonus plan via the service, do the following in postman.
 
 1. Change the request method to **POST**.
@@ -243,7 +245,7 @@ To create a new bonus plan via the service, do the following in postman.
 	
 #### Update a Bonus Plan instance ####
 
-##### Get SAP_UUID #####
+**Get SAP_UUID**
 
 To update an instance, you have to use the internal SAP_UUID as technical key. To get this unique key, do the following steps
 
@@ -270,7 +272,7 @@ To update an instance, you have to use the internal SAP_UUID as technical key. T
 
 	![](images/39.png)
 
-##### Update #####
+**Update**
 
 1. Switch the request method to **PATCH**.
 1. Enter the request URL for a bonus plan entity. And add the previous gotten **guid** to the end following this syntax `(guid'<guid_value>’)`, for example `/YY1_BONUSPLAN(guid’8cdcd4a8-05c0-1ed7-8ec1-84ed870dedb5′)`
@@ -324,9 +326,9 @@ Note 2: This exercise only works for Microsoft Office 365.  If you have older ve
 
 **Use SAP Cloud Platform trial account**
 
-You can use a service in SAP CP in many different way. You can use it to build a new UI, you can call it in your Java or JavaScript coding, you can use it in HANA Cloud Integration iFlows. Here I want to show only one simple use case on how to consume it: SAP Web IDE.
+You can use a service in SAP Cloud Platform in many different way. You can use it to build a new UI, you can call it in your Java or JavaScript coding, you can use it in Cloud Integration iFlows. Here I want to show only one simple use case on how to consume it: SAP Web IDE.
 
-1. Create destination in SAP Cloud Platform. Open your SAP Cloud Platform account. Go to Connectivity > Destinations.
+1. Create destination in SAP Cloud Platform. Open your SAP Cloud Platform account. Go to **Connectivity > Destinations**.
 
 	Create a new destination with the following attributes:
 	- Name: choose a name for example “S4HC”
@@ -346,151 +348,180 @@ You can use a service in SAP CP in many different way. You can use it to build a
 
 	![](images/46.png)
 	
-1. Start SAP Web IDE Full-Stack to create the application. From SAP Cloud Platform account dashboard, select Services. Search for SAP Web IDE Full-Stack. 
+1. Start SAP Web IDE Full-Stack to create the application. From SAP Cloud Platform account dashboard, select Services. Search for **SAP Web IDE Full-Stack**. 
 
 	![](images/47.png)
 1. Go to SAP Web IDE Service.
 
 	![](images/48.png)
-1. Select: New Project from Template.
+1. Select: **New Project from Template**.
 
 	![](images/49.png)
 	
-1. Select "SAP Fiori Worklist Application". Click Next.
+1. Select **SAP Fiori Worklist Application**. Click **Next**.
 
 	![](images/50.png)
 	
-1. Enter a name for a project, for example: bonusplanxx. Click Next.
+1. Enter a name for a project, for example: `bonusplanxx`. Click **Next**.
 
 	![](images/51.png)
-1. On the step Data Connection, select Service URL. Select the destination you created before (S4HC) and the relative path of the OData service, as given in the Communication Arrangement screen (/sap/opu/odata/sap/YY1_BONUSPLANXX_CDS). You can now discover the details of the service and you can even discover the live data. Click on "Test". Click on Next.
-2. C
+1. On the step Data Connection, select **Service URL**. Select the destination you created before (S4HC) and the relative path of the OData service, as given in the Communication Arrangement screen (`/sap/opu/odata/sap/YY1_BONUSPLANXX_CDS`). You can now discover the details of the service and you can even discover the live data. Click on **Test**. Click on **Next**.
 
 	![](images/52.png)
-1. Continue with the creation wizard to create a Fiori app out of the OData service. See below screen as an example. Click Finish.
+	
+1. Continue with the creation wizard to create a Fiori app out of the OData service. See below screen as an example. Click **Finish**.
 
 	![4](images/53.png)
-1. Preview the application by click on Index.html file and click on preview button.
+	
+1. Preview the application by click on **Index.html** file and click on preview button.
 
 	![4](images/54.png)
+
 1. Application will display on another tab. 
 
 	![4](images/55.png)
 	
-	
 	![4](images/56.png)
+
 
 **Use Configured SAP Web IDE with S/4HANA Cloud**
 
+The following are the steps for using the SAP Web IDE tile to develop the apps and deployment back to SAP S/4HANA Cloud. Your instructor will demo the following steps.
+
 1. Click on **SAP Web IDE** tile
 
-	![4](images/57.png)
+	![](images/57.png)
 	
-1. See demo from the instructor
+1. It will launch a new tab from the browser to access the "SAP Web IDE Full-Stack" tool from the SAP Cloud Platform whcih has configured for the extension of this S/4HANA Cloud system.
 
-1. After creating the application from SAP Web IDE, the application can be deployed back to S/4HANA Cloud system.
+	![ ](images/70.png)
 
-	![4](images/58.png) 
-	
-	![4](images/59.png) 
-	
-	![4](images/60.png) 
-	
-	![4](images/61.png) 
-	
-	![4](images/62.png) 
+1. Click on **Welcome** icon on the left panel to show the Welcome page.  Click on **New Project from Template** to create a new project.
 
-1. Open Custom Catalog Extensions application
+	![ ](images/71.png)
 
-	![4](images/63.png) 
-	
-1. Search the application and select it. Note: The type of the application is "Custom UI App".
+1. Select **List Report Application** template and click on **Next**.
 
-	![4](images/64.png) 
-	
-1. Add the following business catalogs to your catalog extension:
+	![ ](images/72.png)
 
-	- SAP_CORE_BC_SL_EXP
-	- SAP_CORE_BC_SL_IMP 
-	
-	Check both business catalogs and publish them.
-	
-	![4](images/65.png)
+1. Put in `BonusplanXXII`, where **XX** is the number assigned to you and **II** is your initial, for the Project Name and Title. And click on **Next**.
 
-1. Press F5 to refresh your page and your tile is created.
+	![ ](images/73.png)
 
-	![4](images/66.png)
+1. Select **S4HC - S4HC - OAuth** destination.  Search service for **plan50**.  Select **YY1_BONUSPLAN50_CDS**.  Click on **Next**.
+
+	Note:  In this hands-on S4/HANA Cloud system, we have created the communication arrangement named "YY1_BONUSPLAN50IDE" to use the OAuth authentication for the service.  And add the "YY1_BONUSPLAN50_CDS_0001" scope into the destination "S4HC - S4HC - OAuth".  Please use "YY1_BONUSPLAN50_CDS" for practice.
+
+	![ ](images/74.png) 
+
+1. Select all annotation. Click on **Next**.
+
+	![ ](images/75.png)
+
+1. Select **YY1_BONUSPLAN50** for OData Collection.  Click on **Finish**. The project of will be created.
+
+	![ ](images/76.png)
+
+1. Expand the project folder of Bonusplanxxii. Expand **webapp** folder. Double click on **manifest.json** file. Click on the **Navigation** tab. Click on **+** sign to add semantic object.
+
+	![ ](images/77.png)
+
+1. Type in the following for the Sematic Object and Action.
+
+	| Field | Value |
+	|------------|-------------|
+	| Semantic Object | `CustomUI` |
+	| Action | `Bonusplan_UI` |
+
+	Enter the following for Inbond Tile information:
 	
-	![4](images/67.png)
+	| Field | Value |
+	|------------|-------------|
+	| Tile | `Bonusplanxxii` |
+	| Information | `Bonusplanxxii (info)` |
+	| Subtitle | `Bonusplanxxii` |
+	| Icon | `sap-icon://activate` |
+
+	![ ](images/77a.png)
 	
-	![4](images/69.png)
+1. **Save** the file by clicking on the save icon.
+
+	![ ](images/77b.png)
+
+1. You can preview the outcome by right click on the project folder and select **UI Adaption Editor**.  The preview will show.  Click on **Go** to view the items.
+
+	![ ](images/78.png)
+
+1. Close the UI Adaption Editor and the manifest file.
+
+1. Now we can deploy the application back to S/4HANA Cloud system.  Right click on the project folder.  Select **Deploy > Deploy to SAPUI5 ABAP Repository**.
+
+	![ ](images/79.png)
 	
+1. Select **S4HC - S4HC - OAuth** system and the option of **Deploy a new application**.  Click on **Next**.
+
+	![ ](images/80.png)
+
+1. Enter the the Name and Description and click on **Next**.
+
+	| Field | Value |
+	|------------|-------------|
+	| Name | `zPlanXX` |
+	| Description | `zBonusplanxx` | 
+
+	![ ](images/81.png) 
+	
+1. Click on **Fihish**. 
+
+	![ ](images/82.png)
+
+1. Deployment completed successfully.
+
+	![ ](images/83.png)
+
+1. Go back to the Home page of the S/4HANA Cloud system. Click on the **Custom Catalog Extensions** tile.
+
+	![ ](images/84.png)
+
+1. Search for the plan that you deployed from SAP Web IDE.
+
+	![ ](images/85.png)
+
+
+1. Click on **Add*.
+
+	![ ](images/86.png)
+	
+1. Search for **Extensibility**.  Select "Extensibility - Transpor Management - Export" and "Extensibility - Transpor Management - Import". 
+
+	![ ](images/87.png)
+
+1. **Publish**.
+
+	![ ](images/88.png)
+	
+1. Confirm with OK.
+
+	![ ](images/89.png)
+
+1. It takes sometime to complet the publication.  
+
+	![ ](images/90.png)
+
+1. Check the result under the catagory of **Transport Management**. 
+
+	![ ](images/91.png)
+
+1. Click on the tile to view the detail.
+
+	![ ](images/92.png)
+
+	![ ](images/93.png)
+
 ## Summary
 This concludes the exercise. 
 
 You should have learned how to expose the custom business object as web service for integration of your solution with other systems.
-
-## Apendix
-
-The following are the screens shots for using the SAP Web IDE tile to develop the apps and deployment back to SAP S/4HANA Cloud.  These will be better documented after this week's workshop.
-
-![ ](images/57.png)
-
-![ ](images/70.png)
-
-![ ](images/71.png)
-
-![ ](images/72.png)
-
-![ ](images/73.png)
-
-![ ](images/74.png)
-
-![ ](images/75.png)
-
-![ ](images/76.png)
-
-![ ](images/77.png)
-
-You can see the preview.
-
-![ ](images/78.png)
-
-Close it.
-
-![ ](images/79.png)
-
-![ ](images/80.png)
-
-![ ](images/81.png)
-
-![ ](images/82.png)
-
-![ ](images/83.png)
-
-![ ](images/84.png)
-
-![ ](images/85.png)
-
-![ ](images/86.png)
-
-![ ](images/87.png)
-
-![ ](images/88.png)
-
-![ ](images/89.png)
-
-![ ](images/90.png)
-
-![ ](images/91.png)
-
-![ ](images/92.png)
-
-![ ](images/93.png)
-
-The End.
-
-
 
 
 	
