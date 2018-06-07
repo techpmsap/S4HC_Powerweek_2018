@@ -53,38 +53,46 @@ In the first parts a Manager wants to define business objects "Bonus Plan" for e
 As there was no backend implementation to set the mandatory key field **`ID`** so far, we were forced to set it from the UI to be able to save instances.
 Now, as we will implement the logic to set the ID in backend and nowhere else, we will set that key field to Read-Only for the UI.
 
-1. Open the business object **Bonus PlanXX** in **Custom Business Objects** application. ![Bonus Plans application](images/1.png)
-1. Start Edit Mode by executing the **Edit Draft** action. ![Bonus Plans application](images/2.png)
-1. **Go to Fields and Logic**.  ![Bonus Plans application](images/3.png)
-1. **Check** the Read-Only box for key field **`ID`**.  ![Check Read-Only box](images/4.png)
-1. Go back via the application's **Back** button.
+1. Open the business object **Bonus PlanXX** in **Custom Business Objects** application. 
 
-	![Fiori Application's Back Button](images/5.png)
+	![](images/1.png)
+	
+1. Start Edit Mode by executing the **Edit Draft** action. 
+
+	![](images/2.png) 
+	
+1. Click on the **Fields** tab. **Check** the Read-Only box for key field **`ID`**.  
+
+	![](images/4.png)
+	
 
 ### <a name="enable-logic-implementation"></a> Enable logic implementation
 
-1. Still editing the custom business object **Bonus Plan**'s definition, **Check** the box for **Determination and Validation**
-![Check Determination and Validation box](images/6.png)
-1. **Publish** the business object definition.
+1. Navigate to **General Information** tab. **Check** the box for **Determination and Validation**. **Publish** the business object definition.
 
-Now you are enabled to implement **determination logic** which is called **after each modification** to a Bonus Plan instance from the UI, as well as **validation logic** which is called **before each save** of an instance.
+	![](images/6.png)
+	
+	Now you are enabled to implement **determination logic** which is called **after each modification** to a Bonus Plan instance from the UI, as well as **validation logic** which is called **before each save** of an instance.
 
 ### <a name="start-logic-implementation"></a> Start logic implementation
 
 For **published** Custom Business Objects **without a Draft version** you can implement logic.
 
-1. **Go to Fields and Logic**
+1. Navigate to the **Logic** tab.
 
-	![Go to Fields and Logic](images/7.png)
-1. Enter the After Modification Event Logic which is a Determination Logic.
+	![](images/7.png) 
+	
+1. Click on the **After Modification** Event Logic which is a Determination Logic.
 
-	![Enter After Modification logic](images/8.png)
-1. In the logic view you initially see the not editable empty published version. Click the **Create Draft** action.
+	![](images/8.png)
+	
+1. In the logic view, you initially see the not editable empty published version. Click the **Create Draft** action.
 
-	![Create Draft of logic implementation](images/9.png)
-1. An editable copy of the published version appears left to it. With the **Draft Version** and **Published Version** actions you can decide what coding to see.
+	![](images/9.png)
+	
+1. An editable copy of the published version appears on the left. With the **Draft Version** and **Published Version** actions you can decide what coding to see.
 
-	![View Draft and/or Published Version of logic](images/10.png)
+	![](images/10.png)
 
 ### <a name="implement-after-modification-fix"></a> Implement After Modification: fix values
 
@@ -92,17 +100,17 @@ Implement After Modification event with following fix value functionality:
 
 1. Set the key field `ID` if still initial.
 
-	>**Hint:** Changing Parameter `bonusplan` enables you to read current node data and change it. 
+	>**Hint:** Changing Parameter `bonusplanXX` enables you to read current node data and change it. 
 	
-	>**Hint:** You can read existing Bonus Plan data via the CDS View that is named as the Business Object's Identifier (here: `YY1_BONUSPLAN`). 
+	>**Hint:** You can read existing Bonus Plan data via the CDS View that is named as the Business Object's Identifier (here: `YY1_BONUSPLANXX`). 
 	
 	>**Hint:** With the key combination **CTRL + Space** you can access the very helpful code completion. 
 
-	![Code Completion](images/11.png)
+	![](images/11.png)
 
 	Note: Replace XX to the number assigned to you.
 
-	```abap
+	```
 	* set ID
 	IF bonusplanXX-id IS INITIAL.
 	   SELECT MAX( id ) FROM yy1_bonusplanXX INTO @DATA(current_max_id).
@@ -112,7 +120,7 @@ Implement After Modification event with following fix value functionality:
 
 1. Set the Unit of Measure for the Bonus Percentages to `P1` which is the code for % (percent)
 
-	```abap
+	```
 	* set percentage unit
 	bonusplanXX-lowbonuspercentage_u = bonusplanXX-highbonuspercentage_u = 'P1'.
 	```
@@ -120,7 +128,7 @@ Implement After Modification event with following fix value functionality:
 1. Determine and set the Employee Name from the Employee ID
 	>**Hint:** Extensibility offers Helper class `CL_ABAP_CONTEXT_INFO` with method `GET_USER_FORMATTED_NAME` that needs a user ID to return its formatted name
 
-	```abap
+	```
 	* set Employee Name
 	IF bonusplanXX-employeeid IS NOT INITIAL.
 	   bonusplanXX-employeename = cl_abap_context_info=>get_user_formatted_name( bonusplanXX-employeeid ).
@@ -137,7 +145,7 @@ Implement After Modification event with following fix value functionality:
 
 1. Enter the consistency check coding.
 	
-	```abap
+	```
 	* consistency check START
 	IF bonusplanXX-validitystartdate IS INITIAL
 	 OR bonusplanXX-validityenddate IS INITIAL
@@ -165,66 +173,69 @@ On top of the coding you can maintain runtime data for the current node structur
 
 1. Click the value help to add test data
 
-	![Add Test Data](images/12.png)
+	![](images/12.png)
 
 1. Enter following data
 
 	| Field	Name | Field Value |
 	|------------|-------------|
-	| `validitystartdate` | `2018-01-01` |
-	| `validityenddate` | `2018-12-31` |
-	| `targetamount_v` | `1000` |
-	| `targetamount_c` | `EUR` |
-	| `lowbonusassignmentfactor` | `1` |
-	| `highbonusassignmentfactor` | `3` |
-	| `lowbonuspercentage_v` | `10` |
-	| `highbonuspercentage_v` | `20` |
-	| `employeeid` | `<any>` |
+	| validitystartdate | 2018-01-01 |
+	| validityenddate | 2018-12-31 |
+	| targetamount_v | 1000 |
+	| targetamount_c | EUR |
+	| lowbonusassignmentfactor | 1 |
+	| highbonusassignmentfactor | 3 |
+	| lowbonuspercentage_v | 10 |
+	| highbonuspercentage_v | 20 |
+	| employeeid | CBXXXXXXXXXX |
 
-	`employeeid` `<any>` shall be the one of a sales person that created sales orders with a Net Amount of more than 3000.00 EUR in 2016 and that are completed. In this exercise, you can use CB9980000008. 
+	"employeeid" CBXXXXXXXXXX shall be the one of a sales person that created sales orders with a Net Amount of more than 3000.00 EUR in 2016 and that are completed. In this exercise, you can use CB9980000008. 
 
 	This will look as follows.
-	![Maintain Test Data](images/13.png)
 	
-	![Maintain Test Data](images/14.png)
+	![](images/13.png)
 	
-	Click OK.
+	Click **OK**.
+	
+	![](images/14.png)
 
 1. Execute the **Test** action.
    
-   ![Maintain Test Data](images/15.png)
+   ![](images/15.png) 
 
 1. You can see the node data after your logic was executed.
 
-	![Execute Test](images/16.png)
-	![Execute Test](images/17.png)
+	![](images/16.png)
 	
-	You can see that your logic works as `id`, `*percentage_u` fields and `employename` are filled and `isconsistent` is 'X'.
+	![](images/17.png)
+	
+	You can see that your logic works as "id", "percentage_u" fields and "employename" are filled and "isconsistent" is 'X'.
 	
 1. **Publish** the After Modification.
 
-	![Publish Afer Modification](images/18.png)
+	![](images/18.png)
+	
 1. Go back.
 
-	![BAck](images/19.png)
+	![](images/19.png)
 
 
 ### <a name="implement-before-save"></a> Implement Before Save
 
-1. **Implement** Before Save event with following functionality
+1. Click on **Before Save**.
 
-	If the bonus plan is consistent, it can be continued to save, if not save shall be rejected. In case of save no further processing is needed and logic can be left.
-	>**Hint:** Exporting parameter valid must be set to true for save and to false for save rejection
-
-1. Click on **Before Save (Published)**.
-
-	![Before Save](images/20.png)
+	![](images/20.png)
 	
 1. Click on **Create Draft**.
 
-	![Create Draft](images/21.png)
+	![](images/21.png)
 
-	```abap
+1. **Implement** Before Save event with following functionality
+
+	If the bonus plan is consistent, it can be continued to save. If it is not consistent, save will be rejected. In case of save no further processing is needed and logic can be ignored.
+	>**Hint:** Exporting parameter valid must be set to true for save and to false for rejection
+
+	```
 	* decide about save rejection
 	IF bonusplanXX-isconsistent EQ abap_true.
    	 valid = abap_true.
@@ -236,14 +247,14 @@ On top of the coding you can maintain runtime data for the current node structur
 
 1. If the bonus plan is not consistent, write the first found error into the message and end the logic processing.
 These are the possible errors in detail:
-      - `ValidityStartDate` and `ValidityEndDate` must be set
-      - `ValidityStartDate` must be earlier in time than `ValidityEndDate`
+      - ValidityStartDate and ValidityEndDate must be set
+      - ValidityStartDate must be earlier in time than ValidityEndDate
       - Factors and Percentages must be > 0
       - Percentages must be < 100
       - LowBonusAssignmentFactor must be < HighBonusAssignmentFactor
       - Empoyee ID must be set
 
-	```abap
+	```
 	* consistency error message START
 	IF bonusplanXX-validitystartdate IS INITIAL OR bonusplanXX-validityenddate IS INITIAL.
 	    message = 'Validity Period must not be empty.'.
@@ -295,46 +306,52 @@ These are the possible errors in detail:
 
 1. **Publish** the Before Save Logic.
 
-	![Before Save Published](images/22.png)
+	![](images/22.png)
+	
 1. Go back and check both After Modication and Before Save are Published.
 
-	![Back](images/23.png)	
+	![](images/23.png)	
 1. Go home.
 
-	![Home](images/24.png)	
+	![](images/24.png)	
 	
 ### <a name="test-via-the-UI"></a> Test via the UI
 
-Once ensured that both logic implementations were successfully published, you can start testing the Application like an end user via the UI.
+Once ensured that both logic implementations were successfully published, you can start testing the application like an end user via the UI.
 
 1. **Open** the Bonus PlanXX application. 
 
-	![Bonus Plans application tile](images/25.png)
+	![](images/25.png)
+	
 1. Click on Go. **Open** the Bonus Plan with ID `1`.
 
-	![Bonus Plan ID 1](images/26.png)
+	![](images/26.png)
 1. **Edit** this Bonus Plan.
 
-	![Edit](images/27.png)
+	![](images/27.png)
 1. **Enter** value `10` into field **Low Bonus Percentage**
 
-	![Low Bonus Percentage](images/28.png)
+	![](images/28.png)
 1. **Save** the Bonus plan. Save fails due to the validation error messages for missing percentages.
 
-	![Percentages Error](images/29.png)
+	![](images/29.png)
 	
 1. Close the Message.
 1. **Enter** value `20` into field **High Bonus Percentage**
 
-	![High Percentage Bonus](images/30.png)
-1. **Save** the Bonus Plan. Now it will not be rejected. You can see that your business logic works as the Percentage Units and the Employee Name get filled. Note: If you don't see the Employee Name, refresh the page and it will show.
+	![](images/30.png)
+1. **Save** the Bonus Plan. Now it will not be rejected. 
 
-	![Save](images/31.png)
+	![](images/31.png)
+	
+1. You can see that your business logic works as the Percentage Units and the Employee Name get filled. Note: If you don't see the Employee Name, refresh the page and it will show.
+
+	![](images/32.png)
 	
 
 ## Summary
-This concludes the exercise. You should have learned how to implement logic to set some data from the backend only and to check all data of an instance.
+This concludes the exercise. You should have learned how to implement logic to set some data from the backend and to check all data of an instance.
 
-You will also learn how to ease development and test already while doing it.
+You have also learned how to ease development and test already while doing it.
 
 Please proceed with next exercise.
