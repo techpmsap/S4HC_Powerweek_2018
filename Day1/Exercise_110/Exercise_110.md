@@ -350,21 +350,19 @@ You can use a service in SAP Cloud Platform in many different way. You can use i
 		- WebIDEUsage: odata_gen
 	
 	
-	
 	| Field | Field Value | 
 	|------------|-------------|
 	| Name | S4HC | 
-	| Type | Bonus Plan XX | 
-	| Description| com.sap.bonus | 
-	| URL | com.sap.bonus | 
-	| Proxy Type | com.sap.bonus | 
-	| User | com.sap.bonus | 
-	| Password | com.sap.bonus | 
-	| Namespace | com.sap.bonus | 
-	| Namespace | com.sap.bonus | 
-	| Namespace | com.sap.bonus | 	
-	
-	
+	| Type | HTTP | 
+	| Description| S4HC  | 
+	| URL | https://my301290-api.s4hana.ondemand.com | 
+	| Proxy Type | Internet | 
+	| Authentication | BasicAuthentication | 
+	| User | EXTERNAL_USERXX | 
+	| Password | xxxxxxxxxxxxxxxxxxxx | 
+	| WebIDEEnabled | true | 
+	| WebIDESystem | S4HC | 
+	| WebIDEUsage | odata_gen | 	
 	
 	Save the destination.
 
@@ -421,7 +419,7 @@ You can use a service in SAP Cloud Platform in many different way. You can use i
 
 **Use Configured SAP Web IDE with S/4HANA Cloud**
 
-The following are the steps for using the SAP Web IDE tile to develop the apps and deployment back to SAP S/4HANA Cloud. Your instructor will demo the following steps.
+The following are the steps for using the SAP Web IDE tile to develop the apps and deployment back to SAP S/4HANA Cloud. 
 
 1. Click on **SAP Web IDE** tile
 
