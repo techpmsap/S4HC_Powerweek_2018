@@ -55,34 +55,34 @@ A communication scenario is the basis definition for a communication between sys
 	![](images/1.png) 
 1. Start creating a new scenario by executing the “New” action.
 
-	![2](images/2.png) 
+	![](images/2.png) 
 1. Give following data to the new custom communication scenario ...
 
 
 	| Field Caption | Field Value |
 	|------------|-------------|
-	| `ID` | `YY1_BonusplanXX` |
-	| `Description` | `Bonus PlanXX` |
+	| ID| BonusplanXX |
+	| Description | Bonus PlanXX |
 	Note: XX is the number assigned to you for the exercise.
 
-	![3](images/3.png) 
+	![](images/3.png)  
 	
 	... and create the scenario by executing the “New” action.
 	
 1. Start adding an inbound communication service by executing the “+” action
 
-	![4](images/4.png) 
-1. Search for YY1_BONUSPLAN. Choose service YY1_BONUSPLANXX_CDS and execute the “OK” action. 
+	![](images/4.png) 
+1. Search for `YY1_BONUSPLAN`. Choose service `YY1_BONUSPLANXX_CDS` and execute the “OK” action. 
 
-	![4](images/5.png)
+	![](images/5.png)
 	
 	**Background**: That service had been created during Custom Business Object “Bonus Plan” publishing as in its definition the OData Service Generation flag was set for UI creation already.
-	![4](images/6.png)
+	![](images/6.png)
 	
 1. Publish the Custom Communication Scenario.
 
-	![4](images/7.png)
-	![4](images/8.png)
+	![](images/7.png)
+	![](images/8.png)
 
 ### <a name="creating-a-communication-system-and-user"></a> Creating a Communication System and User
 
@@ -94,7 +94,7 @@ We’ll create one Communication System for all systems that want to use our ser
 
 1. Open “Communication Systems” Application.
 
-	![4](images/15.png)
+	![](images/15.png)
 1. Start creating a new system by executing the “New” action.
 
 	![4](images/16.png)
@@ -102,32 +102,32 @@ We’ll create one Communication System for all systems that want to use our ser
 
 	| Field Caption | Field Value |
 	|------------|-------------|
-	| `System ID` | `EXTERNAL_SYSTEMXX` |
-	| `System Name` | `External SystemXX` |
-	Note: XX is the number assigned to you for the exercise.
+	| System ID | EXTERNAL_SYSTEMXX |
+	| System Name | External SystemXX |
+	Note: XX is the number assigned to you for the exercise. 
 
-	![4](images/17.png) 
+	![](images/17.png) 
 	… and create the system by executing the “Create” action.
 	
-1. In the Opening Details view, fill the Host Name with “External SystemXX” as well. 
+1. In the Opening Details view, fill the "Host Name" and "Business System" with “External SystemXX” as well. 
 
-	![4](images/18.png) 
+	![](images/18.png) 
 1. Scroll down to “User for Inbound Communication” and start adding one by executing the “Add” action.
 
 	![4](images/19.png)
 1. In the opening Pop Up, start creating a new User by executing the “New User” action. 
 
 	![4](images/20.png)
-1. This will lead to an automatic switch to the “Create Communication User” application, where you enter User Name “EXTERNAL_USERXX”, Description “User for “External SystemXX Communication System” and a password before you execute the “Create” action. 
+1. This will lead to an automatic switch to the “Create Communication User” application, where you enter User Name “EXTERNAL_USERXX”, Description “User for External SystemXX Communication System” and a password before you execute the “Create” action. Note: The password has mininum length of 20 characters containing at least 1 special characters, for example "Welcome!23Welcome!23".
 
-	![4](images/21.png) 
+	![](images/21.png) 
 1. This will switch you back to the Pop Up, where the User Name is filled now and you can confirm to add the Inbound Communication User with action “OK”.
 The just created user will be needed by callers to make use of the services. 
 
-	![4](images/22.png)
-1. Back in the Communication System details you finish its creation with action “Save”.
+	![](images/22.png)
+1. Back in the Communication System details you finish its creation with action “Save”. Go back to Lauchpad Home page.
 
-	![4](images/23.png) 
+	![](images/23.png) 
 	
 ### <a name="creating-a-communication-arrangement"></a> Creating a Communication Arrangement
 
@@ -135,26 +135,26 @@ Finally, a communication arrangement links the solution’s scenario with the Co
 
 1. Open “Communication Arrangements” Application
 
-	![4](images/24.png)
+	![](images/24.png)
 1. Start creation by executing the “New” action. 
 
-	![4](images/25.png)
+	![](images/25.png)
 1. A pop up opens in that you use the value help for Scenario first.
 
-	![4](images/26.png)
+	![](images/26.png)
 1. Select the YY1_BONUSPLANXX Scenario.
 
-	![4](images/27.png)
+	![](images/27.png)
 1. This will set the Scenario and default the Arrangement Name, so that you can continue the creation via “Create” action. 
 
-	![4](images/28.png) 
-1. In the opening Arrangement details you only need to set the “Communication System” to “EXTERNAL_SYSTEMXX”, which will automatically set the related User Name “EXTERNAL_USERXX” as well.
+	![](images/28.png) 
+1. In the opening Arrangement details you only need to set the “Communication System” to `EXTERNAL_SYSTEMXX`, which will automatically set the related User Name `EXTERNAL_USERXX` as well.
 Execute “Save” to finish creation. 
 
-	![4](images/29.png)
+	![](images/29.png)
 1. Copy the Service URL for the next step.
 
-	![4](images/30.png)
+	![](images/30.png)
 
 ### <a name="testing-and-calling-the-service"></a> Testing and Calling the Service
 
@@ -177,11 +177,11 @@ All included postman screenshots are reprinted with permission © Postdot Techno
 	
 1. Change authorization type to **Basic Auth** now, enter Username **EXTERNAL_USERXX** and the Password that you set for External_USERXX. Click on **Update Request**. **Send** the service request again. 
 
-	![](images/33.png) 
+	![](images/33.png)
 	
 1. Now you will get a successful response **200 OK** of the service. This way you can test, if the service is working in general.
 
-	![](images/34.png) 
+	![](images/34.png)
 
 #### Create a Bonus Plan instance ####
 
@@ -196,6 +196,7 @@ Whenever you want to do a change to the Custom Business Object’s persistence, 
 1. Copy the returned X-CSRF-Token to clipboard. 
 
 	![](images/35.png) 
+	
 	The fetched token will be valid for **30** minutes and fetching a token will return the same as long as validity has not ended yet.
 
 **Create Instance**
@@ -208,7 +209,7 @@ To create a new bonus plan via the service, do the following in postman.
 1. Add new header key **Accept** with value `application/json`, this will ensure that the response will be gotten in JSON format, which is easier to work with than XML.
 1. Add new header key **Content-Type** with value `application/json`
 
-	![](images/36.png) 
+	![](images/36.png)
 	
 1. Switch to the Body tab
 1. Set the body type to **raw**
@@ -241,7 +242,7 @@ To create a new bonus plan via the service, do the following in postman.
 
 1. You will get **201 Created** status. You will see a new instance has been created. From the **ID** you can see, that it’s a new one and the logic automatically fill the data accordinly.
 
-	![](images/37.png)
+	![](images/37.png) 
 	
 #### Update a Bonus Plan instance ####
 
@@ -253,8 +254,8 @@ To update an instance, you have to use the internal SAP_UUID as technical key. T
 
 	| Parameter Name | Parameter Value | Description  |
 	|------------|-------------|-------------|
-	| `filter` | `ID eq ‘                  2’` | `filters for bonus plan of which the semantic key “ID” has value 2`  |
-	| `select` | `SAP_UUID` | `restricts response data for the chosen bonus plan to its SAP_UUID`    |
+	| filter | ID eq ‘                  2’ | filters for bonus plan of which the semantic key “ID” has value 2  |
+	| select | SAP_UUID | restricts response data for the chosen bonus plan to its SAP_UUID    |
 	
 	
 	The request will look like below:
@@ -270,12 +271,12 @@ To update an instance, you have to use the internal SAP_UUID as technical key. T
 
 1. Copy **SAP_UUID** to clipboard.
 
-	![](images/39.png)
+	![](images/39.png) 
 
 **Update**
 
 1. Switch the request method to **PATCH**.
-1. Enter the request URL for a bonus plan entity. And add the previous gotten **guid** to the end following this syntax `(guid'<guid_value>’)`, for example `/YY1_BONUSPLAN(guid’8cdcd4a8-05c0-1ed7-8ec1-84ed870dedb5′)`
+1. Enter the request URL for a bonus plan entity. And add the previous gotten **guid** to the end following this syntax `(guid'<guid_value>’)`, for example `/YY1_BONUSPLANXX(guid’8cdcd4a8-05c0-1ed7-8ec1-84ed870dedb5′)`
 	
 	The request will look like below:
 	
@@ -289,8 +290,8 @@ To update an instance, you have to use the internal SAP_UUID as technical key. T
 
 	```
 	{
-		"ValidityStartDate": "/Date(1514764800000)/",
-    	"ValidityEndDate": "/Date(1546214400000)/"
+    "ValidityStartDate": "/Date(1514764800000)/",
+    "ValidityEndDate": "/Date(1546214400000)/"
 	}
 	```
 	
@@ -298,7 +299,7 @@ To update an instance, you have to use the internal SAP_UUID as technical key. T
 
 1. You will see that the update worked as you do get an empty body as response.
 
-	![](images/40.png)
+	![](images/40.png) 
 
 #### Using the service (Optional) ####
 Note 1 : You can skip this exercise if you have MacBook. 
@@ -328,13 +329,17 @@ Note 2: This exercise only works for Microsoft Office 365.  If you have older ve
 
 You can use a service in SAP Cloud Platform in many different way. You can use it to build a new UI, you can call it in your Java or JavaScript coding, you can use it in Cloud Integration iFlows. Here I want to show only one simple use case on how to consume it: SAP Web IDE.
 
-1. Create destination in SAP Cloud Platform. Open your SAP Cloud Platform account. Go to **Connectivity > Destinations**.
+1.	Access SAP Cloud Platform trial account from <https://account.hanatrial.ondemand.com/> by clicking on the **Log On** button. After you have logged in, click on **Neo Trial**. This will take you to the **Overview** page of the SAP Cloud Platform Cockpit for the Neo stack.
+
+	![](images/46a.png)
+
+1.	Create destination in SAP Cloud Platform. Open your SAP Cloud Platform account. Go to **Connectivity > Destinations**.
 
 	Create a new destination with the following attributes:
 	- Name: choose a name for example “S4HC”
 	- Type: HTTP (this includes HTTPS, which is used)
 	- Description: choose a description for example “S4HC”
-	- URL: enter the URL of you S4HC account, for example “https://myserver.s4hana.ondemand.com”
+	- URL: enter the URL of you S4HC account, for example “https://myserver-api.s4hana.ondemand.com”
 	- Proxy Type: Internet
 	- Authentication: BasicAuthentication
 	- User & Password: enter the external_userxx / pwd
@@ -344,44 +349,74 @@ You can use a service in SAP Cloud Platform in many different way. You can use i
 		- WebIDESystem: name of the system, e.g. “S4HANA”
 		- WebIDEUsage: odata_gen
 	
+	
+	
+	| Field | Field Value | 
+	|------------|-------------|
+	| Name | S4HC | 
+	| Type | Bonus Plan XX | 
+	| Description| com.sap.bonus | 
+	| URL | com.sap.bonus | 
+	| Proxy Type | com.sap.bonus | 
+	| User | com.sap.bonus | 
+	| Password | com.sap.bonus | 
+	| Namespace | com.sap.bonus | 
+	| Namespace | com.sap.bonus | 
+	| Namespace | com.sap.bonus | 	
+	
+	
+	
 	Save the destination.
 
-	![](images/46.png)
+	![](images/46.png) 
 	
-1. Start SAP Web IDE Full-Stack to create the application. From SAP Cloud Platform account dashboard, select Services. Search for **SAP Web IDE Full-Stack**. 
+1.	Start SAP Web IDE Full-Stack to create the application. From SAP Cloud Platform account dashboard, select Services. Search for **SAP Web IDE Full-Stack**. 
 
 	![](images/47.png)
-1. Go to SAP Web IDE Service.
+1.	Go to SAP Web IDE Service.
 
 	![](images/48.png)
-1. Select: **New Project from Template**.
+1.	Select: **New Project from Template**.
 
 	![](images/49.png)
 	
-1. Select **SAP Fiori Worklist Application**. Click **Next**.
+1.	Select **SAP Fiori Worklist Application**. Click **Next**.
 
 	![](images/50.png)
 	
-1. Enter a name for a project, for example: `bonusplanxx`. Click **Next**.
+1.	Enter the basic information for the project.
+	
+	| Field | Field Value | 
+	|------------|-------------|
+	| Project Name | bonusplanXX | 
+	| Title | Bonus Plan XX | 
+	| Namespace | com.sap.bonus | 
+	
+	Click **Next**.
 
 	![](images/51.png)
-1. On the step Data Connection, select **Service URL**. Select the destination you created before (S4HC) and the relative path of the OData service, as given in the Communication Arrangement screen (`/sap/opu/odata/sap/YY1_BONUSPLANXX_CDS`). You can now discover the details of the service and you can even discover the live data. Click on **Test**. Click on **Next**.
-
-	![](images/52.png)
 	
-1. Continue with the creation wizard to create a Fiori app out of the OData service. See below screen as an example. Click **Finish**.
+1.	On the step Data Connection, select **Service URL**. Select the destination you created before (S4HC) and the relative path of the OData service, as given in the Communication Arrangement screen (`/sap/opu/odata/sap/YY1_BONUSPLANXX_CDS`). You can now discover the details of the service and you can even discover the live data. Click on **Test**. Click on **Next**.
 
-	![4](images/53.png)
+	![](images/52.png) 
 	
-1. Preview the application by click on **Index.html** file and click on preview button.
+1. Continue with the creation wizard to create a Fiori app out of the OData service. See below screen as an example. Click on **Next**.
 
-	![4](images/54.png)
-
-1. Application will display on another tab. 
-
-	![4](images/55.png)
+	![](images/53.png) 
 	
-	![4](images/56.png)
+1. Click **Finish**.
+
+	![](images/53a.png) 
+	
+1. The project of "bonusplanXX" is created. Expand the project folder bonusplanXX > webapp. Preview the application by click on **Index.html** file and click on preview button.
+
+	![](images/54.png)
+
+1. Preview application will display on another tab. 
+
+	![](images/55.png)
+	
+	![](images/56.png) 
 
 
 **Use Configured SAP Web IDE with S/4HANA Cloud**
@@ -398,7 +433,7 @@ The following are the steps for using the SAP Web IDE tile to develop the apps a
 
 1. Click on **Welcome** icon on the left panel to show the Welcome page.  Click on **New Project from Template** to create a new project.
 
-	![ ](images/71.png)
+	![ ](images/71.png) 
 
 1. Select **List Report Application** template and click on **Next**.
 
@@ -406,11 +441,11 @@ The following are the steps for using the SAP Web IDE tile to develop the apps a
 
 1. Put in `BonusplanXXII`, where **XX** is the number assigned to you and **II** is your initial, for the Project Name and Title. And click on **Next**.
 
-	![ ](images/73.png)
+	![ ](images/73.png) 
 
-1. Select **S4HC - S4HC - OAuth** destination.  Search service for **plan50**.  Select **YY1_BONUSPLAN50_CDS**.  Click on **Next**.
+1. Select **S4HC - S4HC - OAuth** destination.  Search service for **plan50**.  Select `YY1_BONUSPLAN50_CDS`.  Click on **Next**.
 
-	Note:  In this hands-on S4/HANA Cloud system, we have created the communication arrangement named "YY1_BONUSPLAN50IDE" to use the OAuth authentication for the service.  And add the "YY1_BONUSPLAN50_CDS_0001" scope into the destination "S4HC - S4HC - OAuth".  Please use "YY1_BONUSPLAN50_CDS" for practice.
+	Note:  In this hands-on S4/HANA Cloud system, we have created the communication arrangement named `YY1_BONUSPLAN50IDE` to use the OAuth authentication for the service.  And add the `YY1_BONUSPLAN50_CDS_0001` scope into the destination "S4HC - S4HC - OAuth".  Please use `YY1_BONUSPLAN50_CDS` for practice.
 
 	![ ](images/74.png) 
 
@@ -420,11 +455,11 @@ The following are the steps for using the SAP Web IDE tile to develop the apps a
 
 1. Select **YY1_BONUSPLAN50** for OData Collection.  Click on **Finish**. The project of will be created.
 
-	![ ](images/76.png)
+	![ ](images/76.png) 
 
 1. Expand the project folder of Bonusplanxxii. Expand **webapp** folder. Double click on **manifest.json** file. Click on the **Navigation** tab. Click on **+** sign to add semantic object.
 
-	![ ](images/77.png)
+	![ ](images/77.png) 
 
 1. Type in the following for the Sematic Object and Action.
 
@@ -442,15 +477,19 @@ The following are the steps for using the SAP Web IDE tile to develop the apps a
 	| Subtitle | `Bonusplanxxii` |
 	| Icon | `sap-icon://activate` |
 
-	![ ](images/77a.png)
+	![ ](images/77a.png) 
 	
 1. **Save** the file by clicking on the save icon.
 
 	![ ](images/77b.png)
 
-1. You can preview the outcome by right click on the project folder and select **UI Adaption Editor**.  The preview will show.  Click on **Go** to view the items.
+1. You can preview the outcome by right click on the project folder and select **UI Adaption Editor**.  
 
-	![ ](images/78.png)
+	![ ](images/77c.png) 
+
+1. The preview will show.  Click on **Go** to view the items.
+
+	![ ](images/78.png) 
 
 1. Close the UI Adaption Editor and the manifest file.
 
@@ -464,16 +503,16 @@ The following are the steps for using the SAP Web IDE tile to develop the apps a
 
 1. Enter the the Name and Description and click on **Next**.
 
-	| Field | Value |
-	|------------|-------------|
-	| Name | `zPlanXX` |
-	| Description | `zBonusplanxx` | 
+	| Field | Value | Description | 
+	|------------|-------------|-------------|
+	| Name | `zPlanXXII` |XX is the number assigned to you. II is your initial. | 
+	| Description | `zBonusplanXXII` |   | 
 
 	![ ](images/81.png) 
 	
-1. Click on **Fihish**. 
+1. Click on **Fihish**. It takes some minutes for the deployment.
 
-	![ ](images/82.png)
+	![ ](images/82.png) 
 
 1. Deployment completed successfully.
 
@@ -483,20 +522,20 @@ The following are the steps for using the SAP Web IDE tile to develop the apps a
 
 	![ ](images/84.png)
 
-1. Search for the plan that you deployed from SAP Web IDE.
+1. Search for the plan that you deployed from SAP Web IDE, search term **zBonus**. The Type for the app is "Custom UI App". Click on the app to go to the detail view.
 
-	![ ](images/85.png)
+	![ ](images/85.png) 
 
 
-1. Click on **Add*.
+1. Click on **Add**.
 
-	![ ](images/86.png)
+	![ ](images/86.png) 
 	
-1. Search for **Extensibility**.  Select "Extensibility - Transpor Management - Export" and "Extensibility - Transpor Management - Import". 
+1. Search for **Extensibility**.  Select "Extensibility - Transpor Management - Export" and "Extensibility - Transpor Management - Import". Click on **OK**.
 
 	![ ](images/87.png)
 
-1. **Publish**.
+1. Select both Business Catalogs and click on **Publish**.
 
 	![ ](images/88.png)
 	
@@ -508,7 +547,7 @@ The following are the steps for using the SAP Web IDE tile to develop the apps a
 
 	![ ](images/90.png)
 
-1. Check the result under the catagory of **Transport Management**. 
+1. Go back to the Launchpad Home page. Refresh the browser. Check the result under the catagory of **Transport Management**. 
 
 	![ ](images/91.png)
 
@@ -521,7 +560,7 @@ The following are the steps for using the SAP Web IDE tile to develop the apps a
 ## Summary
 This concludes the exercise. 
 
-You should have learned how to expose the custom business object as web service for integration of your solution with other systems.
+You should have learned how to expose the custom business object as web service for integration of your solution with other systems. 
 
 
 	
