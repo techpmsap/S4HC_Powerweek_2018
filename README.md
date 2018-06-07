@@ -14,12 +14,16 @@ S/4 HANA Cloud Powerweek 2018 Exercises
 - [Exercise\_12 - Create a UI for a custom business object](Day1/Exercise_12/Exercise_12.md)
 - [Exercise\_13 - Implementing logics for a custom business object](Day1/Exercise_13/Exercise_13.md)
 - [Exercise\_14 - Adapting the UI of a business object](Day1/Exercise_14/Exercise_14.md)
+- [Exercise\_110 - Custom business object exposure as external web service](Day1/Exercise_110/Exercise_110.md)
+
+#### Optional Exercises
+
 - [Exercise\_15 - Custom code list](Day1/Exercise_15/Exercise_15.md)
 - [Exercise\_16 - Associated business objects](Day1/Exercise_16/Exercise_16.md)
 - [Exercise\_17 - Create custom fields - READ ONLY](Day1/Exercise_17/Exercise_17.md)
 - [Exercise\_18 - Create a sub node](Day1/Exercise_18/Exercise_18.md)
 - [Exercise\_19 - Use custom fields to read data - READ ONLY](Day1/Exercise_19/Exercise_19.md)
-- [Exercise\_110 - Custom business object exposure as external web service](Day1/Exercise_110/Exercise_110.md)
+
 
 ### DAY 2
 
@@ -35,6 +39,7 @@ S/4 HANA Cloud Powerweek 2018 Exercises
 
 ### DAY 3
 - [Exercise\_31 - Multitenant applications](Day3/Exercise_31/Exercise_31.md)
+- [Exercise\_32 - Machine Learning APIs Exploration](Day3/Exercise_32/Exercise_32.md)
 
 ### Appendix
 - [Useful Links and Information](Appendix/useful_info.md)
