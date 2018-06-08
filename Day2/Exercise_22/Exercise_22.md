@@ -74,7 +74,10 @@ In this chapter you are going to create your first project using the S/4HANA Clo
 1. A new remote repository has been added, click on **Apply and Close**   
 	![](images/15.png)
 
-1. Type the text "**s4hana**" in the filter box and select the **scp-cf-tomee** artifact, then click **Next**   
+1. Type the text "**s4hana**" in the filter box and select the **scp-cf-tomee** artifact with version **1.9.4**, then click **Next**
+
+	>NOTE: In case you don't see the version 1.9.4, simply disable the checkbox **Show the last version of Archetype only**  
+
 	![](images/16.png)
 
 1. Set the following values replacing **xx** with the identifier received by your instructor and click **Finish**  
