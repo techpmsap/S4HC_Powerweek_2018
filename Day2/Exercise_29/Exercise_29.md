@@ -83,7 +83,7 @@ Here below are prerequisites for this exercise.
 ## Steps
 
 1. [Implement VDM](#implement-vdm)
-1. [Build frontend application with SAP Web IDE](#frontend-application)
+1. [Build frontend application with SAP Web IDE (Optional)](#frontend-application)
 
 
 ### <a name="implement-vdm"></a>Implement VDM
@@ -201,7 +201,7 @@ with the following and **save** the file
 1. You have successfully implemented VDM in your application.
 
 
-### <a name="frontend-application"></a>Build frontend application with SAP Web IDE
+### <a name="frontend-application"></a>Build frontend application with SAP Web IDE (Optional)
 In this chapter you are going to see how to use SAP Web IDE to build a very basic SAPUI5 application consuming the simple REST service we have implemented with this application. 
 
 1. Before we continue, since you have some space limitations on your SAP Cloud Foundry Trial Landscape, make sure to completely delete the two applications you have just pushed into your space with the `cf push` command. This because we need to make some room for the Cloud Foundry builder which is a little heavy in terms of memory and disk space
