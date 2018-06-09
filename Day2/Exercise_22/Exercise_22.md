@@ -80,7 +80,7 @@ In this chapter you are going to create your first project using the S/4HANA Clo
 
 	![](images/16.png)
 
-1. Set the following values replacing **xx** with the identifier received by your instructor and click **Finish**  
+1. Set the following values replacing **\<SAP\_CP\_USER\_ID\>** with your SAP Cloud Platform user ID and click **Finish**  
 
    Parameter 			| Value   
 	-------------		| -------------   
