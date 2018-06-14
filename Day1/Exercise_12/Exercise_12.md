@@ -117,19 +117,19 @@ In the first parts a Manager wants to define business objects "Bonus Plan" for e
 	
 1. **Enter** following data
 
-	| Field | Value |
-	| :------------- | :--------------------------- |
-	| ID | 1 |
-	| Validity Start Date | 01/01/2018 |
-	| Validity End Date | 12/31/2018 |
-	| Target Amount | 1000.00 EUR |
-	| Low Bonus Assignment Factor | 1 |
-	| High Bonus Assignment Factor | 3 |
-	| Employee ID | CBXXXXXXXXXX |
+	| Field | Value | Note |
+	| :------------- | :--------------------|:-------------------- |
+	| ID | xxxxxxxxxxxxxxxxxx1 | Replace the xxxxxxxxxxxxxxxxxx with space.  There are 18 spaces before 1.  |
+	| Validity Start Date | 01/01/2018 |  |
+	| Validity End Date | 12/31/2018 |  |
+	| Target Amount | 1000.00 EUR |  |
+	| Low Bonus Assignment Factor | 1 |  |
+	| High Bonus Assignment Factor | 3 |  |
+	| Employee ID | CBXXXXXXXXXX |  |
 
 1. Employee ID CBXXXXXXXXXX shall be the one of a sales person that created sales orders with a Net Amount of more than 3000.00 EUR in 2018 and that are completed. In this exercise, you can use CB9980000008. 
 
-	![](images/14.png)
+	![](images/14.png) 
 	
 1. **Save** the Bonus Plan. The UI will automatically return from Bonus Plan Detail to Master.
 

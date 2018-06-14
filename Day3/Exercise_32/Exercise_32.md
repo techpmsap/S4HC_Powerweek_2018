@@ -94,7 +94,7 @@ Here below are prerequisites for this exercise.
 
 ### <a name="image-classification"></a> Use SAP Leonardo ML Image Classification on API Business Hub
 
-1. Go back to <https://api.sap.com/shell/discover/contentpackage/SAPLeonardoMLFunctionalServices/Artifacts>
+1. Go back to <https://api.sap.com/package/SAPLeonardoMLFunctionalServices?section=Artifacts>
 	![](images/15.png)
 
 1. 	Enter the text "image" in the search box, hit ENTER and choose **Image Classifier Service**  
@@ -126,8 +126,8 @@ Required resources for this step:
 1. Open Firefox, as Chrome will use SSO for SAP Employees, and navigate to SAP Cloud Platform Cockpit via <http://cloudplatform.sap.com>  
 	![](images/01b.png)
 
-1. Login with your given e-Mail 
-**ml-train+XX@sap.com**, where **XX** must be replaced by your workstation ID, and the password provided by the trainer. 
+1. Login with your SAP Cloud Platform **trial** account. 
+ 
 	![](images/02b.png)
 
 1.	Click on **Neo Trial**
@@ -145,10 +145,7 @@ Required resources for this step:
 1. This will open up the SAP Web IDE. 
 	![](images/06b.png)
 
-1. Click on the **Development** tab on the left toolbar. If you see that there is already a project named *MLFSAPUI5\_Project\_Exercise* in the workspace, please right click on its name and choose **Delete**  
-	![](images/07b.png)
-
-1. You should start with a completely empty workspace like the one in the picture  
+1. Click on the Development tab on the left toolbar.  
 	![](images/08b.png)
 
 1.	From the **File** menu click on **Import -> File or Project**  
@@ -175,13 +172,7 @@ In this exercise you will learn how to quickly integrate in a SAPUI5 application
 * Adjust your prepared SAPUI5 application
 * Run the SAPUI5 application and test your ML Services.
 
-1.	Open a new tab in your Firefox web browser and go to SAP Cloud Platform Cockpit <http://account.hanatrial.ondemand.com/cockpit>. Login in case you are not already logged in by using the given credentials and not SSO  
-	![](images/12b.png)
-
-1.	Click on the **Neo Trial** tile  
-	![](images/13b.png)
-
-1.	On the left side bar, select **Connectivity -> Destinations**. You need now to install the webide_di destination: if this destination is already existing, please continue with step 10  
+1.	Go the SAP Cloud Platform Neo Cockpit Overview. On the left side bar, select **Connectivity -> Destinations**. You need now to install the webide_di destination: if this destination is already existing, please continue with step 10  
 	>NOTE: This destination is only required by SAP Web IDE to run applications in Web Preview mode: it's not related to ML
 
 	![](images/14b.png)
